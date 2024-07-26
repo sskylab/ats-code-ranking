@@ -62,8 +62,10 @@
     console.log("GET: userProfileInfo=="+userProfileInfo.data[0].userEmail)
     var name = userProfileInfo.data[0].userName.split(" ")
     
-  document.getElementById('email_display').textContent = userProfileInfo.data[0].userEmail;
-  document.getElementById('name_display').textContent = name[0];
+    document.getElementById('email_display').textContent = userProfileInfo.data[0].userEmail;
+    document.getElementById('name_display').textContent = name[0];
+    document.getElementById('imageProfile').src = userProfileInfo.data[0].imageUrl;
+    document.getElementById('imageProfileChange').src = userProfileInfo.data[0].imageUrl;
   }
   
   function breadcrumbController() {

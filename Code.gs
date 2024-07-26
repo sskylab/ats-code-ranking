@@ -121,7 +121,8 @@ function convertStringToDate(dateString) {
   return formattedDate.toString()
 }
 
-function getUserProfile(empCode) {
+function getUserProfile() {
+  var empCode = '9403'
   var columnRange = sheet_user_permission.getRange("A:A");
   var idList = columnRange.getValues();
 
@@ -131,7 +132,8 @@ function getUserProfile(empCode) {
       var valuesObj = {
         userID: userValues[0],
         userName: userValues[1],
-        userEmail: userValues[2]
+        userEmail: userValues[2],
+        imageProfile: userValues[5]
       };
 
       return valuesObj;
@@ -446,7 +448,7 @@ function getRecentGlobalQuiz() {
   const today = convertStringToDate(new Date())
   const yesterday = convertStringToDate(new Date(new Date().getTime() - (24 * 60 * 60 * 1000)))
 
-  for (var i = 0; i < html_List.length; i++) {
+  for (var i = 1; i < html_List.length; i++) {
     var htmlValues = sheet_quiz_HTML.getRange(i + 1, 1, 1, sheet_quiz_HTML.getLastColumn()).getValues()[0];
     var empCode = htmlValues[42]
     var userProfile = getUserProfile(empCode)
@@ -469,9 +471,12 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
+    else if(html_List[i][0].toString() == '') {
+      break;
+    }
   }
 
-  for (var i = 0; i < java_List.length; i++) {
+  for (var i = 1; i < java_List.length; i++) {
     var rowValues = sheet_quiz_JAVA.getRange(i + 1, 1, 1, sheet_quiz_JAVA.getLastColumn()).getValues()[0];
     var empCode = rowValues[27]
     var userProfile = getUserProfile(empCode)
@@ -481,7 +486,7 @@ function getRecentGlobalQuiz() {
         ...userProfile,
         timestamp: convertStringToDate(rowValues[0].toString()),
         score: rowValues[1].toString(),
-        quizName: "HTML"
+        quizName: "JAVA"
       }
       today_Array.push(todayObj)
     }
@@ -490,13 +495,406 @@ function getRecentGlobalQuiz() {
         ...userProfile,
         timestamp: convertStringToDate(rowValues[0].toString()),
         score: rowValues[1].toString(),
-        quizName: "HTML"
+        quizName: "JAVA"
       }
       yesterday_Array.push(yesterdayObj)
     }
+    else if(java_List[i][0].toString() == '') {
+      break;
+    }
   }
-Logger.log("LASDASD==="+JSON.stringify(yesterday_Array))
 
+  for (var i = 1; i < javascript_List.length; i++) {
+    var rowValues = sheet_quiz_Javascript.getRange(i + 1, 1, 1, sheet_quiz_Javascript.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(javascript_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "JavaScript"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(javascript_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "JavaScript"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(javascript_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < css_List.length; i++) {
+    var rowValues = sheet_quiz_CSS.getRange(i + 1, 1, 1, sheet_quiz_CSS.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(css_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "CSS"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(css_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "CSS"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(css_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < cPlus_List.length; i++) {
+    var rowValues = sheet_quiz_CPlus.getRange(i + 1, 1, 1, sheet_quiz_CPlus.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(cPlus_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "C, C++"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(cPlus_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "C, C++"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(cPlus_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < jQuery_List.length; i++) {
+    var rowValues = sheet_quiz_jQuery.getRange(i + 1, 1, 1, sheet_quiz_jQuery.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(jQuery_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "jQuery"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(jQuery_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "jQuery"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(jQuery_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < php_List.length; i++) {
+    var rowValues = sheet_quiz_PHP.getRange(i + 1, 1, 1, sheet_quiz_PHP.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(php_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "PHP"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(php_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "PHP"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(php_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < bootstrap5_List.length; i++) {
+    var rowValues = sheet_quiz_bootstrap5.getRange(i + 1, 1, 1, sheet_quiz_bootstrap5.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(bootstrap5_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Bootstrap5"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(bootstrap5_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Bootstrap5"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(bootstrap5_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < python_List.length; i++) {
+    var rowValues = sheet_quiz_Python.getRange(i + 1, 1, 1, sheet_quiz_Python.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(python_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Python"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(python_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Python"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(python_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < postgreSql_List.length; i++) {
+    var rowValues = sheet_quiz_PostgreSQL.getRange(i + 1, 1, 1, sheet_quiz_PostgreSQL.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(postgreSql_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "PostgreSQL"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(postgreSql_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "PostgreSQL"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(postgreSql_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < kotlin_List.length; i++) {
+    var rowValues = sheet_quiz_Kotlin.getRange(i + 1, 1, 1, sheet_quiz_Kotlin.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(kotlin_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Kotlin"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(kotlin_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Kotlin"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(kotlin_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < react_List.length; i++) {
+    var rowValues = sheet_quiz_React.getRange(i + 1, 1, 1, sheet_quiz_React.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(react_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "React"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(react_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "React"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(react_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < typescript_List.length; i++) {
+    var rowValues = sheet_quiz_Typescript.getRange(i + 1, 1, 1, sheet_quiz_Typescript.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(typescript_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Typescript"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(typescript_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "Typescript"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(typescript_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < sql_List.length; i++) {
+    var rowValues = sheet_quiz_SQL.getRange(i + 1, 1, 1, sheet_quiz_SQL.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(sql_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "SQL"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(sql_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "SQL"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(sql_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < xml_List.length; i++) {
+    var rowValues = sheet_quiz_XML.getRange(i + 1, 1, 1, sheet_quiz_XML.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(xml_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "XML"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(xml_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: "XML"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(xml_List[i][0].toString() == '') {
+      break;
+    }
+  }
+
+  for (var i = 1; i < dotNet_List.length; i++) {
+    var rowValues = sheet_quiz_dotNetCSharp.getRange(i + 1, 1, 1, sheet_quiz_dotNetCSharp.getLastColumn()).getValues()[0];
+    var empCode = rowValues[27]
+    var userProfile = getUserProfile(empCode)
+
+    if (today == convertStringToDate(dotNet_List[i][0].toString())) {
+      var todayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: ".NET C#"
+      }
+      today_Array.push(todayObj)
+    }
+    else if (yesterday == convertStringToDate(dotNet_List[i][0].toString())) {
+      var yesterdayObj = {
+        ...userProfile,
+        timestamp: convertStringToDate(rowValues[0].toString()),
+        score: rowValues[1].toString(),
+        quizName: ".NET C#"
+      }
+      yesterday_Array.push(yesterdayObj)
+    }
+    else if(dotNet_List[i][0].toString() == '') {
+      break;
+    }
+  }
 
   return {
     success: true,

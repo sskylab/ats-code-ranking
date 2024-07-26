@@ -185,7 +185,8 @@
           <div class="bg-gray-100 font-sans flex w-full">
             <div x-data="{ openTab: 1 }" class="w-full">
               <div class=" w-full">
-                <div class="sticky top-14 mb-4 flex space-x-4 p-2 bg-white rounded-lg shadow-md border">
+                <!-- sticky top-14 -->
+                <div class=" mb-4 flex space-x-4 p-2 bg-white rounded-lg shadow-md border"> 
                   <button x-on:click="openTab = 1" :class="{ 'bg-[#b42e34] text-white': openTab === 1 }" class="flex-1 py-3 font-semibold text-1xl px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Your Score</button>
                   <button x-on:click="openTab = 2" :class="{ 'bg-[#b42e34] text-white': openTab === 2 }" class="flex-1 py-3 font-semibold text-1xl px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Global Top Rank</button>
                 </div>

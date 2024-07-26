@@ -32,7 +32,7 @@ function doGet(e) {
 
 // FIXED: SET/GET APPLICATION VERSION WHEN WE WILL DEPLOYMENT
 function getAppVersion() {
-  var appVersion = '1.1.2';
+  var appVersion = '1.1.3';
   return appVersion;
 }
 

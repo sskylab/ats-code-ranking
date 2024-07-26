@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_top">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+
+  <?!= include ('css') ?>
+  <?!= include ('javascript') ?>
+</head>
+
+<body>
+
+  <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
+    <section class="justify-content-start mb-auto">
+      <div class="d-flex align-items-center p-3">
+        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+          <!-- <img src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="aeroflot-logo" width="220" height="67"> -->
+          <img src="https://img2.pic.in.th/pic/logo_ats_code_ranking.png" alt="aeroflot-logo" >
+        </a>
+      </div>
+      <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item" id="active_dashboard">
+          <a href="<?= getUrl(); ?>">
+            <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+            Dashboard
+          </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item has-dropdown">
+          <a href="<?= getUrl(); ?>">
+            <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+            Learning
+            <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+          </a>
+          <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+            <li class="sidebar-dropdown-menu-item" id="Learn_HTML">
+              <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML">
+                HTML
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_CSS">
+              <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS">
+                CSS
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_JavaScript">
+              <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript">
+                JavaScript
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_SQL">
+              <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL">
+                SQL
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_Python">
+              <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python">
+                Python
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_PHP">
+              <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP">
+                PHP
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_Bootstrap5">
+              <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5">
+                Bootstrap 5
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_jQuery">
+              <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery">
+                jQuery
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_React">
+              <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React">
+                React
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_JAVA">
+              <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA">
+                JAVA
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_CCPlus">
+              <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus">
+                C, C++
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_dotNETC">
+              <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC">
+                .NET C#
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_Kotlin">
+              <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin">
+                Kotlin
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_PostgreSQL">
+              <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL">
+                PostgreSQL
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_TypeScript">
+              <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript">
+                TypeScript
+              </a>
+            </li>
+            <li class="sidebar-dropdown-menu-item" id="Learn_XML">
+              <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML">
+                XML
+              </a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="sidebar-menu-item" id="Quiz_main">
+          <a href="<?= getUrl(); ?>?page=Quiz_main">
+            <i class="ri-bug-line sidebar-menu-item-icon"></i>
+            Quiz
+          </a>
+        </li>
+        <li class="sidebar-menu-item" id="Challences_main">
+          <a href="<?= getUrl(); ?>?page=Challences_main">
+            <i class="ri-code-box-line sidebar-menu-item-icon"></i>
+            Challenges
+          </a>
+        </li>
+        <li class="sidebar-menu-item" id="SummaryScore_main">
+          <a href="<?= getUrl(); ?>?page=SummaryScore_main">
+            <i class="ri-bar-chart-box-line sidebar-menu-item-icon"></i>
+            Summary Score
+          </a>
+        </li>
+
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Apps</li>
+        <li class="sidebar-menu-item">
+          <a href="https://www.aware.co.th/th/home-page" target="_blank">
+            <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
+            Aware Group
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="https://atsconnect.aware.co.th/en/sign-in" target="_blank">
+            <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
+            ATS Connect
+          </a>
+        </li>
+        <li class="sidebar-menu-item" id="ATSSupport_main">
+          <a href="<?= getUrl(); ?>?page=ATSSupport_main">
+            <i class="ri-customer-service-2-line sidebar-menu-item-icon"></i>
+            ATS Code Ranking Support
+          </a>
+        </li>
+      </ul>
+    </section>
+    <div class="d-flex align-items-start px-3 pb-1">
+      <?!= include ('version-info') ?>
+    </div>
+  </div>
+  <!-- end: Sidebar -->
+
+  <!-- start: Main -->
+  <main class="bg-light">
+    <div class="p-2">
+      <!-- start: Navbar -->
+      <?!= include ('BreadcrumbController') ?>
+      <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
+      <a href="<?= getUrl(); ?>?page=ATSSupport_main" id="breadcrumb_sec2" name="breadcrumb_sec2" hidden></a>
+      <a href="<?= getUrl(); ?>" id="breadcrumb_sec1" name="breadcrumb_sec1" hidden></a>
+      <!-- end: Navbar -->
+
+      <!-- start: Content -->
+      <div>
+        <div class="py-4 flex flex-column w-full">
+          
+          <!-- Contact Form -->
+          <div class="mt-8 mx-4">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+              <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
+                <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">Contact Us</h1>
+                <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">ATS Code Ranking Support</p>
+
+                <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div class="ml-4 text-md tracking-wide font-semibold w-40">info@aware.co.th</div>
+                </div>
+
+                <div class="flex items-start mt-4 text-gray-600 dark:text-gray-400">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <div class="ml-4 text-md tracking-wide font-semibold w-40 flex flex-col w-full">
+                    <label>Bangkok</label>
+                    <label class="ml-3">+66 (0) 2619 0226</label>
+                    <label>Chiang Mai</label>
+                    <label class="ml-3">+66 (0) 5326 3350</label>
+                    <label>Chiang Rai</label>
+                    <label class="ml-3">+66 (0) 2619 0226</label>
+                  </div>
+                </div>
+
+                
+              </div>
+              <form class="p-6 flex flex-col justify-center">
+                <div class="flex flex-col">
+                  <label for="name" class="hidden">Full Name</label>
+                  <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+                </div>
+
+                <div class="flex flex-col mt-2">
+                  <label for="email" class="hidden">Email</label>
+                  <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+                </div>
+
+                <div class="flex flex-col mt-2">
+                  <label for="tel" class="hidden">Number</label>
+                  <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+                </div>
+
+                <button type="submit" class="md:w-32 bg-[#b42e34] dark:bg-gray-100 text-white dark:text-gray-800 font-bold py-3 px-6 rounded-lg mt-4 hover:bg-[#9E0A11] dark:hover:bg-gray-200 transition ease-in-out duration-300">Submit</button>
+              </form>
+            </div>
+          </div>
+          <!-- ./Contact Form -->
+
+        </div>
+        <!-- end: Content -->
+      </div>
+      <?!= include('Loading'); ?>
+  </main>
+  <!-- end: Main -->
+
+</body>
+
+</html>

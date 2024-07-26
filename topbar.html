@@ -1,0 +1,52 @@
+<header class="sticky top-0 card shadow-sm">
+  <nav class="px-3 py-2 bg-white rounded">
+    <i class="ri-menu-line sidebar-toggle me-3 d-block d-md-none"></i>
+    <h5 class="fw-bold mb-0 me-auto"><label id="title_name">Titlename</label></h5>
+    <div class="dropdown">
+      <div class="d-flex align-items-center cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <span class="me-2 d-none d-sm-block"><label id="username" name="username"></label></span>
+        <img class="navbar-profile-image"
+                            src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Image">
+      </div>
+
+      <ul class="dropdown-menu w-[400px] border-2 rounded-lg shadow-xl p-3">
+        <div class="flex flex-col w-full justify-center">
+          <div class="flex flex-row justify-between mb-3 items-center">
+            <div></div>
+            <label id="email_display" class="text-base font-semibold">Email display</label>
+            <button><i class="ri-close-fill"></i></button>
+          </div>
+          <div class="flex justify-center items-center">
+            <div class="relative h-[150px] w-[150px]">
+              <img class="navbar-profile-image h-[150px] w-[150px] rounded-full border-[3px]"
+                            src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Image">
+              <button class="absolute bottom-5 left-[115px] right-0 py-0 px-1.5 w-fit rounded-full border border-[#b42e34] bg-[#b42e34]">
+              <i class="ri-camera-line text-white"></i>
+            </button>
+            </div>
+          </div>
+          <div class="flex justify-center items-center my-3">
+            <label class="text-2xl font-semibold">Hi!, </label>
+            <label id="name_display" class="text-2xl font-semibold ml-1">Name display</label><span class="text-2xl font-semibold">!</span>
+          </div>
+          <div class="flex justify-center items-center mb-4">
+            <button type="button" class="text-[#b42e34] border-2 border-[#b42e34] bg-white hover:bg-primary font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Manage your Account</button>
+          </div>
+          <div class="flex justify-center items-center mb-4">
+            <button onclick="handleLogout();" type="button" class="text-white bg-[#b42e34] hover:bg-[#931113] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-4 w-full text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex flex-row justify-center items-center gap-3">
+            <i class="ri-logout-box-r-line ri-2x"></i><label class="text-lg font-medium">Sign out</label>
+          </button>
+          </div>
+          <div class="flex flex-row justify-center items-center gap-3">
+            <label class="text-sm font-light">Privacy Policy</label>
+            <label class="text-sm font-light">|</label>
+            <label class="text-sm font-light">Terms of Service</label>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</header>

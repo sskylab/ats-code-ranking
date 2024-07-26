@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <?!= include ('css') ?>
+  <?!= include ('javascript') ?>
+</head>
+
+<body class="bg-primary d-flex  
+             align-items-center  
+             justify-content-center" style="background: url( 
+'https://www.aware.co.th/wp-content/uploads/2016/05/aware-homepage-header.jpg')  
+             no-repeat center center fixed;  
+             background-size: cover;">
+
+  <section class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-5 col-sm-6">
+        <div class="card shadow text-center d-flex flex-col">
+          <div class=" p-5">
+            <img class="img-fluid mx-auto d-block mb-3" src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="aware-logo" width="250" >
+            <div class="flex flex-col text-3xl font-semibold">Welcome To ATS Code Ranking</div>
+            <?!= include ('formLogin') ?>
+            <a href="<?= getUrl(); ?>?page=main" id="loginbtn" name="loginbtn" hidden></a>
+            <div class="flex flex-col text-base mt-5">
+              <label>Get help with you account</label>
+              <label>Contact ATS Code Ranking support</label>
+            </div>
+          </div>
+          <div class="flex flex-row p-1">
+            <label class="font-thin text-xs mr-1">Version:</label>
+            <label class="font-thin text-xs" id="appVersion">...</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?!= include('Loading'); ?>
+
+  <script>
+    // FormAddDateReportPage: onSubmit
+    function handleFormSubmit(formObject) {
+      $('#spinnerModal').modal('show');
+      
+      var email = formObject.login_email_input.value;
+
+      google.script.run.withSuccessHandler(outputLogin).login(email);
+    }
+
+    function outputLogin(res) {
+      if(res.success == true){
+        localStorage.setItem('profileinfo', JSON.stringify(res));
+        document.getElementById("loginbtn").click();
+        document.getElementById("formLogin").reset();
+      }
+      else {
+        Swal.fire({
+            title: "User not found!",
+            text: "Please check email or contact Ats Code Ranking support",
+            icon: "warning"
+          });
+        $('#spinnerModal').modal('hide');
+      }
+      
+    }
+
+  </script>
+</body>
+
+</html>

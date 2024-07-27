@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <?!= include ('css') ?>
   <?!= include ('javascript') ?>
@@ -17,10 +18,10 @@
   <!-- start: Sidebar -->
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
-      <div class="d-flex align-items-center p-3">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
-          <!-- <img src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="aeroflot-logo" width="220" height="67"> -->
-          <img src="https://img2.pic.in.th/pic/logo_ats_code_ranking.png" alt="aeroflot-logo" >
+      <div class="d-flex align-items-center">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+          <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
       <ul class="sidebar-menu p-3 m-0 mb-0">
@@ -180,13 +181,15 @@
       <!-- start: Content -->
       <div>
         <div class="py-4 flex flex-column w-full">
-          
+
           <!-- Contact Form -->
           <div class="mt-8 mx-4">
             <div class="grid grid-cols-1 md:grid-cols-2">
               <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
-                <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">Contact Us</h1>
-                <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">ATS Code Ranking Support</p>
+                <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">Contact Us
+                </h1>
+                <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">ATS Code
+                  Ranking Support</p>
 
                 <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -213,26 +216,9 @@
                   </div>
                 </div>
 
-                
+
               </div>
-              <form class="p-6 flex flex-col justify-center">
-                <div class="flex flex-col">
-                  <label for="name" class="hidden">Full Name</label>
-                  <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
-                </div>
-
-                <div class="flex flex-col mt-2">
-                  <label for="email" class="hidden">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
-                </div>
-
-                <div class="flex flex-col mt-2">
-                  <label for="tel" class="hidden">Number</label>
-                  <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
-                </div>
-
-                <button type="submit" class="md:w-32 bg-[#b42e34] dark:bg-gray-100 text-white dark:text-gray-800 font-bold py-3 px-6 rounded-lg mt-4 hover:bg-[#9E0A11] dark:hover:bg-gray-200 transition ease-in-out duration-300">Submit</button>
-              </form>
+              <?!= include('formSupport'); ?>
             </div>
           </div>
           <!-- ./Contact Form -->
@@ -240,9 +226,144 @@
         </div>
         <!-- end: Content -->
       </div>
+      <!-- start: Footer -->
+      <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+        <div class="flex flex-row w-full justify-between items-center gap-4">
+          <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+            <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+          </a>
+        </div>
+        <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Learning</label>
+            <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET C#</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Quiz</label>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET
+              C#</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Challences</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+              Summary</a>
+            <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+              Score</a>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+              Summary Score</a>
+            <label class="text-xl font-bold mb-3 mt-5">Website</label>
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+              Limited</a>
+            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+              Connect</a>
+          </div>
+        </div>
+        <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+          <a
+            href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+          <a
+            href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+          <a
+            href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+          <a
+            href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+        </div>
+        <div class="text-center text-sm font-light text-white mb-3">
+          <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+        </div>
+
+      </section>
+      <!-- end: Footer -->
       <?!= include('Loading'); ?>
+      <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
+
+  <script>
+    // formSupport: onSubmit
+    function handleFormSupportSubmit(formObject) {
+      $('#spinnerModal').modal('show');
+      
+      var formObj = {
+        fullName: formObject.name.value,
+        email: formObject.email.value,
+        telephone: formObject.telephone.value,
+        textArea: formObject.textArea.value,
+      }
+
+      google.script.run.withSuccessHandler(outputATSSupport).appendATSCodeRankingSupportData(formObj);
+    }
+
+    function outputATSSupport(res) {
+      if(res.success == true){
+        Swal.fire({
+            title: "Submitted!!",
+            text: "Ats Code Ranking support will contact you soon, thank you",
+            icon: "success"
+          });
+        $('#spinnerModal').modal('hide');
+        document.getElementById("formSupport").reset();
+      }
+      
+    }
+
+  </script>
 
 </body>
 

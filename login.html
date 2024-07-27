@@ -53,9 +53,7 @@
 
     function outputLogin(res) {
       if(res.success == true){
-        localStorage.setItem('profileinfo', JSON.stringify(res));
-        document.getElementById("loginbtn").click();
-        document.getElementById("formLogin").reset();
+        localStorage.setItem('profileinfo', JSON.stringify(res.data[0]));
       }
       else {
         Swal.fire({
@@ -65,7 +63,8 @@
           });
         $('#spinnerModal').modal('hide');
       }
-      
+      document.getElementById("loginbtn").click();
+      document.getElementById("formLogin").reset();
     }
 
   </script>

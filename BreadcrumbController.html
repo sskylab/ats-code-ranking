@@ -18,9 +18,7 @@
       <div class="d-flex align-items-center cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
         aria-expanded="false">
         <span class="me-2 d-none d-sm-block"><label id="username" name="username"></label></span>
-        <img class="navbar-profile-image" id="imageProfile"
-                            src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                            alt="Image">
+        <img class="navbar-profile-image" id="imageProfile" src="https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png" alt="Image">
       </div>
 
       <ul class="dropdown-menu w-[400px] border-2 rounded-lg shadow-xl p-3">
@@ -32,12 +30,10 @@
           </div>
           <div class="flex justify-center items-center">
             <div class="relative h-[150px] w-[150px]">
-              <img class="navbar-profile-image h-[150px] w-[150px] rounded-full border-[3px]" id="imageProfileChange"
-                            src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                            alt="Image">
-              <button class="absolute bottom-5 left-[115px] right-0 py-0 px-1.5 w-fit rounded-full border border-[#b42e34] bg-[#b42e34]">
-              <i class="ri-camera-line text-white"></i>
-            </button>
+              <img class="navbar-profile-image h-[150px] w-[150px] rounded-full border-[3px]" id="imageProfileChange" src="https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png" alt="Image">
+              <button data-bs-toggle="modal" data-bs-target="#imageProfileModal" class="absolute bottom-5 left-[115px] right-0 py-0 px-1.5 w-fit rounded-full border border-[#b42e34] bg-[#b42e34]" onclick="openUploadImage();">
+                <i class="ri-camera-line text-white"></i>
+              </button>
             </div>
           </div>
           <div class="flex justify-center items-center my-3">
@@ -45,7 +41,7 @@
             <label id="name_display" class="text-2xl font-semibold ml-1">Name display</label><span class="text-2xl font-semibold">!</span>
           </div>
           <div class="flex justify-center items-center mb-4">
-            <button type="button" class="text-[#b42e34] border-2 border-[#b42e34] bg-white hover:bg-primary font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Manage your Account</button>
+            <button disabled type="button" class="text-[#b42e34] border-2 border-[#b42e34] bg-white hover:bg-primary font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Manage your Account</button>
           </div>
           <div class="flex justify-center items-center mb-4">
             <button onclick="handleLogout();" type="button" class="text-white bg-[#b42e34] hover:bg-[#931113] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-4 w-full text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex flex-row justify-center items-center gap-3">
@@ -62,3 +58,21 @@
     </div>
   </nav>
 </header>
+<script>
+  window.addEventListener("load", loaderInitial, true); 
+  
+  function loaderInitial() {
+    getProfileImage()
+  }
+
+  function openUploadImage(){
+    document.getElementById("dropFile").style.display = "block";
+    document.getElementById("showImageExample").style.display = "none";
+  }
+
+  function getProfileImage() {
+    const userProfileInfo = JSON.parse(localStorage.getItem('profileinfo'))
+    document.getElementById('imageProfile').src = userProfileInfo.userImageProfile;
+    document.getElementById('imageProfileChange').src = userProfileInfo.userImageProfile;
+  }
+</script>

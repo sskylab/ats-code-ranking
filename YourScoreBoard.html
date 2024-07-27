@@ -642,9 +642,8 @@
   window.addEventListener("load", functionInit, true); 
 
   function functionInit() {
-    const localStoreData = localStorage.getItem('profileinfo');
-    const userProfileInfo = JSON.parse(localStoreData)
-    const empCode = userProfileInfo.data[0].userID.toString()
+    const userProfileInfo = JSON.parse(localStorage.getItem('profileinfo'))
+    const empCode = userProfileInfo.userID.toString()
 
     google.script.run.withSuccessHandler(setElementIdScore).getYourScoreBoard(empCode);
     google.script.run.withSuccessHandler(setRecentGlobal).getRecentGlobalQuiz();

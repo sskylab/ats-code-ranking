@@ -1,4 +1,5 @@
 // FIXED: Add Google Sheet by name sheet over here!!
+var folderID = "1-_cM-Dj0TMHQL2Rbnj491rA1p-og6e5y";
 var baseSheetId = SpreadsheetApp.openById('14K5I2fxSC_nPMvooJiXx7H0xE0OckqJnNuQ_N3_E2FA')
 var sheet_user_permission = baseSheetId.getSheetByName('user')
 var sheet_quiz_dotNetCSharp = baseSheetId.getSheetByName('Quiz-C#')
@@ -17,6 +18,7 @@ var sheet_quiz_CSS = baseSheetId.getSheetByName('Quiz-CSS')
 var sheet_quiz_HTML = baseSheetId.getSheetByName('Quiz-HTML')
 var sheet_quiz_Javascript = baseSheetId.getSheetByName('Quiz-Javascript')
 var sheet_quiz_JAVA = baseSheetId.getSheetByName('Quiz-JAVA')
+var sheet_ATS_Support = baseSheetId.getSheetByName('support')
 
 function doGet(e) {
   let page = e.parameter.page;
@@ -32,7 +34,7 @@ function doGet(e) {
 
 // FIXED: SET/GET APPLICATION VERSION WHEN WE WILL DEPLOYMENT
 function getAppVersion() {
-  var appVersion = '1.1.3';
+  var appVersion = '1.1.4';
   return appVersion;
 }
 
@@ -76,7 +78,7 @@ function login(email) {
         userEmail: rowValues[2],
         position: rowValues[3],
         levelCode: rowValues[4],
-        imageUrl: rowValues[5],
+        userImageProfile: getImageUrlByName(rowValues[0])
       };
 
       valuesArray.push(valuesObj);
@@ -110,6 +112,59 @@ function logout() {
   return { success: true };
 }
 
+function getImageUrlByName(fileName) {
+  var folder = DriveApp.getFolderById(folderID);
+  var files = folder.getFilesByName(fileName);
+
+  if (!files.hasNext()) {
+    return fileUrl = 'https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png';
+  }
+
+  var file = files.next();
+
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+  var fileUrl = 'https://drive.google.com/thumbnail?id=' + file.getId();
+
+  return fileUrl;
+}
+
+function uploadFileToDrive(base64Data, fileName) {
+  var contentType = base64Data.substring(0, base64Data.indexOf(','));
+  var byteString = Utilities.base64Decode(base64Data);
+  var blob = Utilities.newBlob(byteString, contentType, fileName);
+
+  var folder = DriveApp.getFolderById(folderID);
+  var existingFiles = folder.getFilesByName(fileName);
+
+  if (existingFiles.hasNext()) {
+    existingFiles.next().setTrashed(true);
+  }
+
+  var file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+  return file.getUrl();
+}
+
+function appendATSCodeRankingSupportData(values) {
+  var columnRange = sheet_ATS_Support.getRange("B:B");
+
+  sheet_ATS_Support.appendRow(
+    [
+      new Date().getTime().toString(), //support_id
+      new Date(), //date
+      values.fullName, //full_name
+      values.email, //email
+      values.telephone, // telephone
+      values.textArea, // desc
+
+    ]
+  );
+
+  return { success: true, message: 'success' };
+}
+
 function convertStringToDate(dateString) {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -121,8 +176,7 @@ function convertStringToDate(dateString) {
   return formattedDate.toString()
 }
 
-function getUserProfile() {
-  var empCode = '9403'
+function getUserProfile(empCode) {
   var columnRange = sheet_user_permission.getRange("A:A");
   var idList = columnRange.getValues();
 
@@ -471,7 +525,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(html_List[i][0].toString() == '') {
+    else if (html_List[i][0].toString() == '') {
       break;
     }
   }
@@ -499,7 +553,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(java_List[i][0].toString() == '') {
+    else if (java_List[i][0].toString() == '') {
       break;
     }
   }
@@ -527,7 +581,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(javascript_List[i][0].toString() == '') {
+    else if (javascript_List[i][0].toString() == '') {
       break;
     }
   }
@@ -555,7 +609,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(css_List[i][0].toString() == '') {
+    else if (css_List[i][0].toString() == '') {
       break;
     }
   }
@@ -583,7 +637,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(cPlus_List[i][0].toString() == '') {
+    else if (cPlus_List[i][0].toString() == '') {
       break;
     }
   }
@@ -611,7 +665,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(jQuery_List[i][0].toString() == '') {
+    else if (jQuery_List[i][0].toString() == '') {
       break;
     }
   }
@@ -639,7 +693,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(php_List[i][0].toString() == '') {
+    else if (php_List[i][0].toString() == '') {
       break;
     }
   }
@@ -667,7 +721,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(bootstrap5_List[i][0].toString() == '') {
+    else if (bootstrap5_List[i][0].toString() == '') {
       break;
     }
   }
@@ -695,7 +749,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(python_List[i][0].toString() == '') {
+    else if (python_List[i][0].toString() == '') {
       break;
     }
   }
@@ -723,7 +777,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(postgreSql_List[i][0].toString() == '') {
+    else if (postgreSql_List[i][0].toString() == '') {
       break;
     }
   }
@@ -751,7 +805,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(kotlin_List[i][0].toString() == '') {
+    else if (kotlin_List[i][0].toString() == '') {
       break;
     }
   }
@@ -779,7 +833,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(react_List[i][0].toString() == '') {
+    else if (react_List[i][0].toString() == '') {
       break;
     }
   }
@@ -807,7 +861,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(typescript_List[i][0].toString() == '') {
+    else if (typescript_List[i][0].toString() == '') {
       break;
     }
   }
@@ -835,7 +889,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(sql_List[i][0].toString() == '') {
+    else if (sql_List[i][0].toString() == '') {
       break;
     }
   }
@@ -863,7 +917,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(xml_List[i][0].toString() == '') {
+    else if (xml_List[i][0].toString() == '') {
       break;
     }
   }
@@ -891,7 +945,7 @@ function getRecentGlobalQuiz() {
       }
       yesterday_Array.push(yesterdayObj)
     }
-    else if(dotNet_List[i][0].toString() == '') {
+    else if (dotNet_List[i][0].toString() == '') {
       break;
     }
   }

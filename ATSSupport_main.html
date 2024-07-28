@@ -170,7 +170,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -330,6 +330,13 @@
 
       </section>
       <!-- end: Footer -->
+      
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

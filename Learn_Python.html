@@ -18,7 +18,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -168,7 +169,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -177,25 +178,299 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>PYTHON: Content over here!!</p>
-          
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the Python Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn Python from basics to advanced topics</p>
 
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">
+            Python is a programming language. Like other languages, it gives us a way to
+            communicate ideas. In the case of a programming language, these ideas are
+            “commands” that people use to communicate with a computer!
 
+            We convey our commands to the computer by writing them in a text file using
+            a programming language. These files are called programs. Running a program
+            means telling a computer to read the text file, translate it to the set of
+            operations that it understands, and perform those actions.
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              project_name = "ATS Code Ranking" 
+              print("Hello and welcome to" + project_name + "!")
+            </pre>
+        </section>
 
+        <section id="comments" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Comments</h2>
+          <p class="text-base mb-5">
+            Ironically, the first thing we’re going to do is show how to tell a computer
+            to ignore a part of a program. Text written in a program but not run by the
+            computer is called a comment. Python interprets anything after a # as a
+            comment.
 
+            Comments can:
+          </p>
+          <ul class="list-disc list-inside mb-5">
+            <li>
+              Provide context for why something is written the way it is:
+              <pre class="bg-gray-100 p-4 rounded">
+                  # This variable will be used to count the number of times anyone tweets
+                  the word persnickety persnickety_count = 0
+                </pre>
+            </li>
+            <li>
+              Help other people reading the code understand it faster:
+              <pre class="bg-gray-100 p-4 rounded">
+                  # This code will calculate the likelihood that it will rain tomorrow
+                  complicated_rain_calculation_for_tomorrow()
+                </pre>
+            </li>
+            <li>
+              Ignore a line of code and see how a program will run without it:
+              <pre class="bg-gray-100 p-4 rounded">
+                  # useful_value = old_sloppy_code() useful_value = new_clean_code()
+                </pre>
+            </li>
+          </ul>
+        </section>
 
+        <section id="print" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Print</h2>
+          <p class="text-base mb-5">
+            Now what we’re going to do is teach our computer to communicate. The gift of
+            speech is valuable: a computer can answer many questions we have about “how”
+            or “why” or “what” it is doing. In Python, the <code>print()</code> function is used to tell a computer to
+            talk. The message to be printed should be surrounded by quotes:
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              # from Mary Shelley's Frankenstein 
+              print("There is something at work in my soul, which I do not understand.")
+            </pre>
+          <p class="text-base mb-5">
+            In the above example, we direct our program to
+            <code>print()</code> an excerpt from a notable book. The
+            printed words that appear as a result of the
+            <code>print()</code> function are referred to as output. The
+            output of this example program would be:
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              There is something at work in my soul, which I do not understand.
+            </pre>
+        </section>
 
+        <section id="variables" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Variables</h2>
+          <p class="text-base mb-5">Variables are containers for storing data values.</p>
+          <h3 class="text-xl font-semibold mb-2">Creating Variables</h3>
+          <p class="text-base mb-5">
+            Python has no command for declaring a variable. A variable is created the
+            moment you first assign a value to it.
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = 5 y = "John" print(x) print(y)
+            </pre>
+          <p class="text-base mb-5">
+            Variables do not need to be declared with any particular type, and can even
+            change type after they have been set.
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = 4       # x is of type int 
+              x = "Sally" # x is now of type str print(x)
+            </pre>
+          <h3 class="text-xl font-semibold mb-2">Casting</h3>
+          <p class="text-base mb-5">
+            If you want to specify the data type of a variable, this can be done with
+            casting.
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = str(3)    # x will be '3' 
+              y = int(3)    # y will be 3 
+              z = float(3)  # z will be 3.0
+            </pre>
+          <h3 class="text-xl font-semibold mb-2">Get the Type</h3>
+          <p class="text-base mb-5">You can get the data type of a variable with the type() function.</p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = 5 y = "John" 
+              print(type(x)) 
+              print(type(y))
+            </pre>
+          <p class="text-base mb-5">
+            String variables can be declared either by using single or double quotes:
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = "John" # is the same as x = 'John'
+            </pre>
+          <p class="text-base mb-5">Variable names are case-sensitive. This will create two variables:</p>
+          <pre class="bg-gray-100 p-4 rounded">
+              a = 4 
+              A = "Sally" #A will not overwrite a
+            </pre>
+        </section>
 
+        <section id="data-types" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Data Types</h2>
 
-
-
-
-
-        </div>
-        <!-- end: Content -->
+          <p class="text-base mb-5">
+            Python has the following data types built-in by default, in these
+            categories:
+          </p>
+          <table width="60%">
+            <tr>
+              <td><strong>Type:</strong> </td>
+              <td>str</td>
+            </tr>
+            <tr>
+              <td><strong>Numeric Types:</strong></td>
+              <td>int, float, complex</td>
+            </tr>
+            <tr>
+              <td><strong>Sequence Types:</strong></td>
+              <td>list, tuple, range</td>
+            </tr>
+            <tr>
+              <td><strong>Mapping Type:</strong></td>
+              <td>dict</td>
+            </tr>
+            <tr>
+              <td><strong>Set Types:</strong></td>
+              <td>set, frozenset</td>
+            </tr>
+            <tr>
+              <td><strong>Boolean Type:</strong></td>
+              <td>bool</td>
+            </tr>
+            <tr>
+              <td><strong></strong></td>
+              <td>bytes, bytearray, memoryview</td>
+            </tr>
+            <tr>
+              <td><strong>None Type:</strong></td>
+              <td>NoneType</td>
+            </tr>
+          </table>
+          <p class="text-base mb-5">In Python, the data type is set when you assign a value to a variable:</p>
+          <pre class="bg-gray-100 p-4 rounded">
+              x = "Hello World" 
+              x = 20 
+              x = 20.5 
+              x = ["apple", "banana", "cherry"] 
+              x = True
+            </pre>
+        </section>
       </div>
+      <!-- end: Content -->
+      <!-- start: Footer -->
+      <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+        <div class="flex flex-row w-full justify-between items-center gap-4">
+          <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+            <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+          </a>
+        </div>
+        <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Learning</label>
+            <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET C#</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Quiz</label>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET
+              C#</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Challences</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+              Summary</a>
+            <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+              Score</a>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+              Summary Score</a>
+            <label class="text-xl font-bold mb-3 mt-5">Website</label>
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+              Limited</a>
+            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+              Connect</a>
+          </div>
+        </div>
+        <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+          <a
+            href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+          <a
+            href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+          <a
+            href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+          <a
+            href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+        </div>
+        <div class="text-center text-sm font-light text-white mb-3">
+          <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+        </div>
+
+      </section>
+      <!-- end: Footer -->
+      
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

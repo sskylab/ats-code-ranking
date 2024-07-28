@@ -16,9 +16,10 @@
 
   <!-- start: Sidebar -->
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
-    <section class="justify-content-start mb-auto">
+    <section class="mt-10" class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -168,7 +169,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -179,7 +180,195 @@
       <!-- start: Content -->
       <div>
         <div class="py-4 flex flex-column w-full">
-          <p>PHP: Content over here!!</p>
+          <section class="mt-10" id="introduction">
+            <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+            <p class="text-base mb-5">PHP (a recursive acronym for “PHP Hypertext Preprocessor”) is a popular
+              open-source scripting language widely used
+              as a server-side tool for creating dynamic web pages.</p>
+            <p class="text-base mb-5">A big part of PHP’s value is its use as a dynamic scripting language that works
+              hand-in-hand with HTML.</p>
+            <p class="text-base mb-5">A PHP interpreter makes a website dynamic and customizable, allowing a site to
+              respond to user input or information
+              in some expected way. The interpreter is a key link between the user and web server, databases, and the
+              relevant
+              files or responses sent back to that user.</p>
+          </section>
+
+          <section class="mt-10" id="comments">
+            <h2 class="text-2xl font-semibold mb-3">Comments</h2>
+            <p class="text-base mb-5">Comments are text placed inside code that is not executed. They are intended as
+              documentation or explanation of the
+              code they are a part of.</p>
+            <h3>Syntax</h3>
+            <p class="text-base mb-5">PHP marks comments in three different ways:
+            <ul class="list-disc list-inside mb-5">
+              <li>
+                <pre class="bg-gray-100 rounded">//</pre> will mark a comment from where it appears until the end of the
+                line (or code
+                block).
+              </li>
+              <li>
+                <pre class="bg-gray-100 rounded"># </pre> will also mark a comment from where it appears until the end
+                of the line (or
+                code block).
+              </li>
+              <li>Multi-line comments are marked by
+                <pre class="bg-gray-100 rounded">/* … */</pre> with everything in between marked as a
+                comment.
+              </li>
+            </ul>
+            Single line comments extend to the end of the line, or the end of the PHP block. ?> will not be commented
+            out,
+            instead, ?> will terminate the comment.
+            </p>
+            <pre class="bg-gray-100 p-4 rounded">
+              &lt;?php
+                echo 'Testing 1, 2, 3...' // This is a single line comment
+
+                /* This
+                  is
+                  a multi-line comment */
+
+                echo 'Hello World!' # This is another single-line comment
+
+                // This comment ends with the enclosing block ?>
+            </pre>
+            <p class="text-base mb-5">
+              Note that attempting to nest multi-line comments will result in an error. The first comment ends when the
+              first */
+              is encountered, leaving the remaining comment(s) to be executed.
+            </p>
+            <pre class="bg-gray-100 p-4 rounded">
+              &lt;?php
+                /* This is one multi-line comment
+                  /* But this inner comment will cause problems */
+                    This part of the comment will be executed
+                    since the end of the inner comment ended the outer
+                    comment as well. */
+              ?>
+            </pre>
+          </section>
+
+          <section class="mt-10" id="variables">
+            <h2 class="text-2xl font-semibold mb-3">Variables</h2>
+            <p class="text-base mb-5"><strong>Variables </strong> store data for later use, and allow their contents to
+              be updated or changed. They’re
+              needed when the same code needs to operate on different values at different times. They’re also used when
+              the same
+              value is needed at multiple places throughout the code.</p>
+
+            <h3>Declaring a Variable</h3>
+            <p class="text-base mb-5">A variable in PHP begins with the $ sign followed by the variable name. Unlike
+              other languages, a variable is
+              created as soon as you assign a value to it:</p>
+            <pre class="bg-gray-100 p-4 rounded">
+              &lt;?php
+                $x = 1500;
+                $y = 3.1415;
+                $z = 'cheese';
+              ?>
+            </pre>
+            <p class="text-base mb-5">In the above,
+            <pre class="bg-gray-100 rounded">$x</pre> is assigned the integer
+            <pre class="bg-gray-100 rounded">1500</pre>, <span
+                class="hilight">$y</pre> is assigned the float <pre class="bg-gray-100 rounded">3.1416</pre>, and <span
+                class="hilight">$z</pre> is assigned the string 'cheese'.</p>
+            <p class="text-base mb-5">Variable names obey the following rules in PHP:</p>
+            <ul class="list-disc list-inside mb-5">
+              <li>Variable names are preceded by $.</li>
+              <li>Variable names must start with a letter or the underscore character.</li>
+              <li>Variable names can only contain alphanumeric characters and underscores.</li>
+              <li>Variable names are case-sensitive.</li>
+            </ul>
+          </section>
+
+          <section class="mt-10" id="data-types">
+            <h2 class="text-2xl font-semibold mb-3">Data Types</h2>
+            <p class="text-base mb-5">PHP supports the following primitive data types:</p>
+            <ul class="list-disc list-inside mb-5">
+              <li>bool: a value that’s either true or false.</li>
+              <li>int: a whole number value.</li>
+              <li>float: a numeric value with decimal.</li>
+              <li>string: a series of characters.</li>
+              <li>array: an ordered map of key/value pairs.</li>
+              <li>object: an instance of a pre-defined class.</li>
+              <li>callable: a reference to a PHP function.</li>
+              <li>iterable: represents any array or object implementing the Traversable interface.</li>
+              <li>resource: a reference to an external resource.</li>
+              <li>NULL: represents a variable with no value.</li>
+            </ul>
+            <p class="text-base mb-5">Rather than being declared in code, the data type is decided at runtime depending on the context. There are many
+              ways to determine the type of a variable or expression.</p>
+
+            <h3>Printing the Type and Value</h3>
+            <p class="text-base mb-5">The <pre class="bg-gray-100 rounded">var_dump()</pre> function prints out the type and value of an expression.</p>
+            <pre class="bg-gray-100 p-4 rounded">
+              $text = "PHP";
+              var_dump($text);
+            </pre>
+            <p class="text-base mb-5">The output looks like this:</p>
+            <pre class="bg-gray-100 p-4 rounded">
+              string(3) "PHP"
+            </pre>
+
+            <h3>The gettype() Function</h3>
+            <p class="text-base mb-5">
+              The <pre class="bg-gray-100 rounded">gettype()</pre> function returns a human readable string representing the data type of an
+              expression.
+            </p>
+            <pre class="bg-gray-100 p-4 rounded">
+              $text = "PHP";
+              echo(gettype($text));
+            </pre>
+            <p class="text-base mb-5">Results in the output:</p>
+            <pre class="bg-gray-100 p-4 rounded">
+              string
+            </pre>
+
+            <h3>Checking Types</h3>
+            <p class="text-base mb-5">PHP has a number of “is_type” functions to check the type of a variable.</p>
+            <ul class="list-disc list-inside mb-5">
+              <li><pre class="bg-gray-100 rounded">is_bool($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a bool
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_int($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a int
+                value. (Also
+                is_integer().)</li>
+              <li><pre class="bg-gray-100 rounded">is_float($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a float
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_string($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a string
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_array($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is an array
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_object($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is an object
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_iterable($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a
+                iterable
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_resource($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a
+                resource
+                value.</li>
+              <li><pre class="bg-gray-100 rounded">is_null($value)</pre> returns <pre class="bg-gray-100 rounded">true</pre> if <span
+                  class="hilight">$value</pre> is a NULL
+                value.</li>
+            </ul>
+            <p class="text-base mb-5">The is_callable() function has a slightly more complicated syntax:</p>
+            <div class="hilight" style="padding: 10px;">
+              is_callable($value, $syntax_only, $callable_name)
+            </div>
+            <p class="text-base mb-5">Where $value is the value being checked. The $syntax_only parameter is an optional boolean flag that if set true
+              will only check if $value is properly structured to be used as a callback. The $callable_name parameter is optional,
+              and if included, will be set to the name of the callable function or method referred to by $value. The function will
+              return true if $value is a callable value.</p>
+          </section>
+
           
 
 
@@ -195,7 +384,115 @@
 
         </div>
         <!-- end: Content -->
+        
       </div>
+      <!-- start: Footer -->
+    <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+      <div class="flex flex-row w-full justify-between items-center gap-4">
+        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+          <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+        </a>
+      </div>
+      <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+        <div class="flex flex-col w-1/3">
+          <label class="text-xl font-bold mb-3">Learning</label>
+          <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+            class=" font-light text-sm hover:underline">HTML</a>
+          <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+          <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+            class=" font-light text-sm hover:underline">JavaScript</a>
+          <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+          <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+            class=" font-light text-sm hover:underline">Python</a>
+          <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+          <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+            class=" font-light text-sm hover:underline">Bootstrap 5</a>
+          <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+            class=" font-light text-sm hover:underline">jQuery</a>
+          <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+            class=" font-light text-sm hover:underline">React</a>
+          <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+            class=" font-light text-sm hover:underline">JAVA</a>
+          <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+            C++</a>
+          <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+            class=" font-light text-sm hover:underline">.NET C#</a>
+          <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+            class=" font-light text-sm hover:underline">Kotlin</a>
+          <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+            class=" font-light text-sm hover:underline">PostgreSQL</a>
+          <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+            class=" font-light text-sm hover:underline">TypeScript</a>
+          <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+        </div>
+        <div class="flex flex-col w-1/3">
+          <label class="text-xl font-bold mb-3">Quiz</label>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML" class=" font-light text-sm hover:underline">HTML</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+            class=" font-light text-sm hover:underline">JavaScript</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+            class=" font-light text-sm hover:underline">Python</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+            class=" font-light text-sm hover:underline">Bootstrap 5</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+            class=" font-light text-sm hover:underline">jQuery</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+            class=" font-light text-sm hover:underline">React</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA" class=" font-light text-sm hover:underline">JAVA</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+            C++</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC" class=" font-light text-sm hover:underline">.NET
+            C#</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+            class=" font-light text-sm hover:underline">Kotlin</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+            class=" font-light text-sm hover:underline">PostgreSQL</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+            class=" font-light text-sm hover:underline">TypeScript</a>
+          <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+        </div>
+        <div class="flex flex-col w-1/3">
+          <label class="text-xl font-bold mb-3">Challences</label>
+          <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+            Summary</a>
+          <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+          <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+            Score</a>
+          <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+            Summary Score</a>
+          <label class="text-xl font-bold mb-3 mt-5">Website</label>
+          <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+            Limited</a>
+          <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+            Connect</a>
+        </div>
+      </div>
+      <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+        <a
+          href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+        <a
+          href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+        <a
+          href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+        <a
+          href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+      </div>
+      <div class="text-center text-sm font-light text-white mb-3">
+        <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+      </div>
+
+    </section>
+    <!-- end: Footer -->
+    
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

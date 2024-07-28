@@ -18,7 +18,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -168,7 +169,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -177,25 +178,320 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>HTML: Content over here!!</p>
 
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the HTML Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn HTML from basics to advanced topics</p>
 
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">HTML (HyperText Markup Language) is the standard markup language for creating web
+            pages. HTML describes the structure of a web page semantically and originally included cues for the
+            appearance of the document.</p>
+        </section>
 
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Basic Structure of an HTML Document</h2>
+          <p class="text-base mb-5">An HTML document has a basic structure that includes the following elements:</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong><code>&lt;!DOCTYPE html&gt;</code>:</strong> Declares the document type and version of HTML.
+            </li>
+            <li><strong><code>&lt;html&gt;</code>:</strong> The root element of an HTML document.</li>
+            <li><strong><code>&lt;head&gt;</code>:</strong> Contains meta-information about the HTML document.</li>
+            <li><strong><code>&lt;title&gt;</code>:</strong> Specifies the title of the document.</li>
+            <li><strong><code>&lt;body&gt;</code>:</strong> Contains the content of the HTML document.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
+    &lt;h1&gt;This is a Heading&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
 
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        </section>
 
+        <section id="elements" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">HTML Elements</h2>
+          <p class="text-base mb-5">HTML elements are the building blocks of HTML pages. HTML elements are represented
+            by
+            tags. Each element has a start tag and an end tag, with content in between.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Heading:</strong> <code>&lt;h1&gt; to &lt;h6&gt;</code> tags are used to define headings.</li>
+            <li><strong>Paragraph:</strong> <code>&lt;p&gt;</code> tag is used to define a paragraph.</li>
+            <li><strong>Links:</strong> <code>&lt;a&gt;</code> tag is used to define hyperlinks.</li>
+            <li><strong>Images:</strong> <code>&lt;img&gt;</code> tag is used to embed images.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;a href="https://www.example.com"&gt;This is a link&lt;/a&gt;
+&lt;img src="image.jpg" alt="Description of Image"&gt;
+        </pre>
+        </section>
 
+        <section id="attributes" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">HTML Attributes</h2>
+          <p class="text-base mb-5">HTML attributes provide additional information about HTML elements. Attributes are
+            always specified in the start tag and usually come in name/value pairs like <code>name="value"</code>.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>href:</strong> Specifies the URL of the page the link goes to.</li>
+            <li><strong>src:</strong> Specifies the path to the image to be displayed.</li>
+            <li><strong>alt:</strong> Provides an alternative text for the image, if the image cannot be displayed.</li>
+            <li><strong>style:</strong> Used to add inline styles to an element.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;a href="https://www.example.com"&gt;This is a link&lt;/a&gt;
+&lt;img src="image.jpg" alt="Description of Image"&gt;
+&lt;p style="color:red;"&gt;This is a paragraph.&lt;/p&gt;
+        </pre>
+        </section>
 
+        <section id="forms" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">HTML Forms</h2>
+          <p class="text-base mb-5">HTML forms are used to collect user input. The form element itself is just a
+            container
+            for other elements like input elements, checkboxes, radio buttons, submit buttons, etc.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong><code>&lt;form&gt;</code>:</strong> Defines an HTML form for user input.</li>
+            <li><strong><code>&lt;input&gt;</code>:</strong> Defines an input control.</li>
+            <li><strong><code>&lt;label&gt;</code>:</strong> Defines a label for an <code>&lt;input&gt;</code> element.
+            </li>
+            <li><strong><code>&lt;button&gt;</code>:</strong> Defines a clickable button.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;form action="/submit-form" method="post"&gt;
+    &lt;label for="fname"&gt;First name:&lt;/label&gt;
+    &lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;
+    &lt;label for="lname"&gt;Last name:&lt;/label&gt;
+    &lt;input type="text" id="lname" name="lname"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+        </pre>
+        </section>
 
+        <section id="tables" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">HTML Tables</h2>
+          <p class="text-base mb-5">HTML tables are used to display data in a tabular format. A table consists of rows
+            and
+            columns. The <code>&lt;table&gt;</code> element defines the table, <code>&lt;tr&gt;</code> defines a row,
+            <code>&lt;th&gt;</code> defines a header cell, and <code>&lt;td&gt;</code> defines a data cell.
+          </p>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Firstname&lt;/th&gt;
+    &lt;th&gt;Lastname&lt;/th&gt; 
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;
+    &lt;td&gt;Doe&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Anna&lt;/td&gt;
+    &lt;td&gt;Smith&lt;/td&gt;
+    &lt;td&gt;30&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+        </pre>
+        </section>
 
+        <section id="lists" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">HTML Lists</h2>
+          <p class="text-base mb-5">HTML lists are used to group a set of related items. There are three types of lists:
+          </p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Ordered List:</strong> <code>&lt;ol&gt;</code> is used for ordered lists, where each item is
+              numbered.</li>
+            <li><strong>Unordered List:</strong> <code>&lt;ul&gt;</code> is used for unordered lists, where each item is
+              bulleted.</li>
+            <li><strong>Description List:</strong> <code>&lt;dl&gt;</code> is used for description lists, where each
+              item has a description.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;h3&gt;Ordered List&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ol&gt;
 
+&lt;h3&gt;Unordered List&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Item A&lt;/li&gt;
+  &lt;li&gt;Item B&lt;/li&gt;
+  &lt;li&gt;Item C&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;h3&gt;Description List&lt;/h3&gt;
+&lt;dl&gt;
+  &lt;dt&gt;Term 1&lt;/dt&gt;
+  &lt;dd&gt;Definition of Term 1&lt;/dd&gt;
+  &lt;dt&gt;Term 2&lt;/dt&gt;
+  &lt;dd&gt;Definition of Term 2&lt;/dd&gt;
+&lt;/dl&gt;
+        </pre>
+        </section>
 
-        </div>
-        <!-- end: Content -->
+        <section id="semantic" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Semantic HTML</h2>
+          <p class="text-base mb-5">Semantic HTML is the use of HTML tags to reinforce the meaning of the information in
+            webpages rather than merely to define its presentation. Examples of semantic elements include:</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong><code>&lt;header&gt;</code>:</strong> Represents a container for introductory content or a set
+              of navigational links.</li>
+            <li><strong><code>&lt;nav&gt;</code>:</strong> Defines a set of navigation links.</li>
+            <li><strong><code>&lt;section&gt;</code>:</strong> Defines a section in a document.</li>
+            <li><strong><code>&lt;article&gt;</code>:</strong> Represents a self-contained piece of content that could
+              be independently distributed or reused.</li>
+            <li><strong><code>&lt;footer&gt;</code>:</strong> Represents a footer for its nearest sectioning content or
+              sectioning root element.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;header&gt;
+  &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;section&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Article Title&lt;/h2&gt;
+    &lt;p&gt;This is an article.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;Footer information goes here.&lt;/p&gt;
+&lt;/footer&gt;
+        </pre>
+        </section>
       </div>
+      <!-- end: Content -->
+      <!-- start: Footer -->
+      <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+        <div class="flex flex-row w-full justify-between items-center gap-4">
+          <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+            <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+          </a>
+        </div>
+        <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Learning</label>
+            <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET C#</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Quiz</label>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET
+              C#</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Challences</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+              Summary</a>
+            <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+              Score</a>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+              Summary Score</a>
+            <label class="text-xl font-bold mb-3 mt-5">Website</label>
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+              Limited</a>
+            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+              Connect</a>
+          </div>
+        </div>
+        <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+          <a
+            href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+          <a
+            href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+          <a
+            href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+          <a
+            href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+        </div>
+        <div class="text-center text-sm font-light text-white mb-3">
+          <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+        </div>
+
+      </section>
+      <!-- end: Footer -->
+
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

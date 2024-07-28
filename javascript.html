@@ -30,6 +30,7 @@
 
     // FIXED: DISABLE CHALLENCE BUTTON
     document.getElementById('Challences_main').classList.add('pointer-events-none');
+    document.getElementById('scroll-to-top').style.display = 'none';
   };
 
   function getVersion() {
@@ -228,6 +229,22 @@
 
     });
   }
+
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+      document.getElementById('scroll-to-top').style.display = 'block';
+    } else {
+      document.getElementById('scroll-to-top').style.display = 'none';
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } 
 
 
 </script>

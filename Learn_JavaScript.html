@@ -18,7 +18,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -168,7 +169,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -177,25 +178,310 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>JAVASCRIPT: Content over here!!</p>
-          
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the JavaScript Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn JavaScript from basics to advanced topics</p>
 
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">JavaScript is a versatile programming language that is primarily used for creating
+            dynamic and interactive content on websites. It is an essential skill for web developers.</p>
+        </section>
 
+        <section id="basics" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">JavaScript Basics</h2>
+          <p class="text-base mb-5">In this section, we will cover the basic concepts and syntax of JavaScript.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Variables:</strong> Containers for storing data values.</li>
+            <li><strong>Data Types:</strong> Different types of values that can be stored in variables.</li>
+            <li><strong>Operators:</strong> Used to perform operations on variables and values.</li>
+            <li><strong>Functions:</strong> Blocks of code designed to perform a particular task.</li>
+            <li><strong>Events:</strong> Actions that can be detected and handled by JavaScript.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script&gt;
+// Variable
+var x = 5;
+let y = 10;
+const z = 15;
 
+// Function
+function add(a, b) {
+  return a + b;
+}
 
+// Event
+document.getElementById("myButton").onclick = function() {
+  alert("Button clicked!");
+}
+&lt;/script&gt;
+        </pre>
+        </section>
 
+        <section id="variables" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Variables</h2>
+          <p class="text-base mb-5">Variables are containers for storing data values. In JavaScript, there are three
+            ways
+            to declare a variable: <code>var</code>, <code>let</code>, and <code>const</code>.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>var:</strong> Declares a variable, optionally initializing it to a value.</li>
+            <li><strong>let:</strong> Declares a block-scoped, local variable, optionally initializing it to a value.
+            </li>
+            <li><strong>const:</strong> Declares a block-scoped, read-only named constant.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script&gt;
+var a = 10;
+let b = 20;
+const c = 30;
+&lt;/script&gt;
+        </pre>
+        </section>
 
+        <section id="datatypes" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Data Types</h2>
+          <p class="text-base mb-5">JavaScript supports different data types including numbers, strings, arrays,
+            objects,
+            and more.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Number:</strong> Represents numeric values.</li>
+            <li><strong>String:</strong> Represents sequence of characters.</li>
+            <li><strong>Boolean:</strong> Represents true or false.</li>
+            <li><strong>Array:</strong> Represents an ordered collection of values.</li>
+            <li><strong>Object:</strong> Represents a collection of key-value pairs.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script&gt;
+let num = 42; // Number
+let str = "Hello, world!"; // String
+let bool = true; // Boolean
+let arr = [1, 2, 3]; // Array
+let obj = {name: "John", age: 30}; // Object
+&lt;/script&gt;
+        </pre>
+        </section>
 
+        <section id="functions" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Functions</h2>
+          <p class="text-base mb-5">Functions are blocks of code designed to perform a particular task. They are
+            executed
+            when something invokes them (calls them).</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Function Declaration:</strong> Defines a function with the specified parameters.</li>
+            <li><strong>Function Expression:</strong> Defines a function as part of an expression.</li>
+            <li><strong>Arrow Function:</strong> A shorter syntax for defining functions.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script&gt;
+// Function Declaration
+function multiply(a, b) {
+  return a * b;
+}
 
+// Function Expression
+const divide = function(a, b) {
+  return a / b;
+};
 
+// Arrow Function
+const subtract = (a, b) =&gt; a - b;
+&lt;/script&gt;
+        </pre>
+        </section>
 
+        <section id="events" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">JavaScript Events</h2>
+          <p class="text-base mb-5">Events are actions that can be detected by JavaScript. HTML elements can trigger
+            events like clicking a button, loading a page, or hovering over an element.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>onclick:</strong> Fires when an element is clicked.</li>
+            <li><strong>onload:</strong> Fires when an object has loaded.</li>
+            <li><strong>onmouseover:</strong> Fires when the mouse pointer is moved onto an element.</li>
+            <li><strong>onmouseout:</strong> Fires when the mouse pointer is moved out of an element.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;button id="myButton"&gt;Click me&lt;/button&gt;
 
+&lt;script&gt;
+document.getElementById("myButton").onclick = function() {
+  alert("Button clicked!");
+};
+&lt;/script&gt;
+        </pre>
+        </section>
 
-        </div>
-        <!-- end: Content -->
+        <section id="dom" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">JavaScript and the DOM</h2>
+          <p class="text-base mb-5">The Document Object Model (DOM) is a programming interface for web documents. It
+            represents the page so that programs can change the document structure, style, and content. JavaScript can
+            be used to manipulate the DOM to create dynamic and interactive web pages.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>getElementById:</strong> Returns the element that has the ID attribute with the specified value.
+            </li>
+            <li><strong>getElementsByClassName:</strong> Returns a collection of all elements in the document with the
+              specified class name.</li>
+            <li><strong>querySelector:</strong> Returns the first element that matches a specified CSS selector(s) in
+              the document.</li>
+            <li><strong>querySelectorAll:</strong> Returns a static NodeList of all elements that match a specified CSS
+              selector(s) in the document.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;div id="myDiv"&gt;Hello&lt;/div&gt;
+
+&lt;script&gt;
+const div = document.getElementById("myDiv");
+div.innerHTML = "Hello, World!";
+&lt;/script&gt;
+        </pre>
+        </section>
+
+        <section id="advanced" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Advanced JavaScript</h2>
+          <p class="text-base mb-5">In this section, we will cover more advanced topics in JavaScript, such as
+            asynchronous programming, promises, and modules.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Asynchronous Programming:</strong> JavaScript is single-threaded, but asynchronous programming
+              allows for non-blocking operations.</li>
+            <li><strong>Promises:</strong> Objects that represent the eventual completion (or failure) of an
+              asynchronous operation, and its resulting value.</li>
+            <li><strong>Modules:</strong> Allow for separation and reuse of code in different files.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script&gt;
+// Promise
+const promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve("Promise resolved");
+  }, 1000);
+});
+
+promise.then(value =&gt; {
+  console.log(value); // "Promise resolved"
+});
+
+// Async/Await
+async function asyncFunction() {
+  const result = await promise;
+  console.log(result); // "Promise resolved"
+}
+
+asyncFunction();
+&lt;/script&gt;
+        </pre>
+        </section>
       </div>
+      <!-- end: Content -->
+      <!-- start: Footer -->
+      <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+        <div class="flex flex-row w-full justify-between items-center gap-4">
+          <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+            <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+          </a>
+        </div>
+        <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Learning</label>
+            <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET C#</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Quiz</label>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET
+              C#</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Challences</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+              Summary</a>
+            <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+              Score</a>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+              Summary Score</a>
+            <label class="text-xl font-bold mb-3 mt-5">Website</label>
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+              Limited</a>
+            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+              Connect</a>
+          </div>
+        </div>
+        <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+          <a
+            href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+          <a
+            href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+          <a
+            href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+          <a
+            href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+        </div>
+        <div class="text-center text-sm font-light text-white mb-3">
+          <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+        </div>
+
+      </section>
+      <!-- end: Footer -->
+      
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

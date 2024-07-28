@@ -18,7 +18,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -168,7 +169,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="px-2 pt-2">
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -177,25 +178,316 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>TYPESCRIPT: Content over here!!</p>
-          
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the TypeScript Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn TypeScript from basics to advanced topics</p>
 
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It
+            adds optional static types, classes, and interfaces to help you build robust, maintainable, and scalable
+            applications.</p>
+        </section>
 
+        <section id="basics" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">TypeScript Basics</h2>
+          <p class="text-base mb-5">In this section, we will cover the basic concepts and syntax of TypeScript.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Type Annotations:</strong> Specify the type of variables, parameters, and return values.</li>
+            <li><strong>Interfaces:</strong> Define custom types and ensure that objects conform to specific shapes.
+            </li>
+            <li><strong>Classes:</strong> Create reusable and extensible code using object-oriented principles.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script type="text/typescript"&gt;
+// Type Annotations
+let message: string = "Hello, TypeScript";
+let count: number = 10;
+let isValid: boolean = true;
 
+// Interface
+interface Person {
+  name: string;
+  age: number;
+}
 
+let user: Person = {
+  name: "John",
+  age: 25
+};
 
+// Class
+class Animal {
+  name: string;
 
+  constructor(name: string) {
+    this.name = name;
+  }
 
+  speak(): void {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
 
+let dog = new Animal("Dog");
+dog.speak();
+&lt;/script&gt;
+        </pre>
+        </section>
 
+        <section id="types" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Type Annotations</h2>
+          <p class="text-base mb-5">TypeScript uses type annotations to specify the types of variables, parameters, and
+            return values. This helps catch errors at compile time rather than at runtime.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Basic Types:</strong> <code>string</code>, <code>number</code>, <code>boolean</code>, etc.</li>
+            <li><strong>Array Types:</strong> <code>string[]</code>, <code>number[]</code>, etc.</li>
+            <li><strong>Tuple Types:</strong> <code>[string, number]</code>, etc.</li>
+            <li><strong>Union Types:</strong> <code>string | number</code>, etc.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script type="text/typescript"&gt;
+let username: string = "Alice";
+let age: number = 30;
+let isAdmin: boolean = true;
 
+let scores: number[] = [90, 80, 85];
+let userInfo: [string, number] = ["Bob", 45];
 
+let id: string | number = "123";
+id = 456; // valid
+&lt;/script&gt;
+        </pre>
+        </section>
 
-        </div>
-        <!-- end: Content -->
+        <section id="interfaces" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Interfaces</h2>
+          <p class="text-base mb-5">Interfaces define custom types and ensure that objects conform to specific shapes.
+            They can also be used to describe the structure of classes.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Basic Interface:</strong> Define a simple interface with properties.</li>
+            <li><strong>Optional Properties:</strong> Properties that may or may not be present.</li>
+            <li><strong>Readonly Properties:</strong> Properties that cannot be changed after initial assignment.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script type="text/typescript"&gt;
+interface Car {
+  brand: string;
+  model: string;
+  year: number;
+  color?: string; // optional property
+  readonly vin: string; // readonly property
+}
+
+let myCar: Car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020,
+  vin: "12345ABC"
+};
+&lt;/script&gt;
+        </pre>
+        </section>
+
+        <section id="classes" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Classes</h2>
+          <p class="text-base mb-5">TypeScript supports object-oriented programming with classes. Classes can include
+            properties and methods, and can be extended using inheritance.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Class Declaration:</strong> Define a class with a constructor and methods.</li>
+            <li><strong>Inheritance:</strong> Create a class that extends another class.</li>
+            <li><strong>Access Modifiers:</strong> <code>public</code>, <code>private</code>, and <code>protected</code>
+              to control visibility.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script type="text/typescript"&gt;
+class Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+class Employee extends Person {
+  position: string;
+
+  constructor(name: string, age: number, position: string) {
+    super(name, age);
+    this.position = position;
+  }
+
+  work(): void {
+    console.log(`${this.name} is working as a ${this.position}.`);
+  }
+}
+
+let emp = new Employee("Alice", 30, "Engineer");
+emp.greet();
+emp.work();
+&lt;/script&gt;
+        </pre>
+        </section>
+
+        <section id="advanced" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Advanced TypeScript</h2>
+          <p class="text-base mb-5">In this section, we will cover more advanced topics in TypeScript, such as generics,
+            namespaces, and modules.</p>
+          <ul class="list-disc list-inside mb-5">
+            <li><strong>Generics:</strong> Create reusable components that work with any data type.</li>
+            <li><strong>Namespaces:</strong> Organize code into logical groups and prevent name collisions.</li>
+            <li><strong>Modules:</strong> Split code into separate files and import/export functionality.</li>
+          </ul>
+          <pre class="bg-gray-100 p-4 rounded">
+&lt;script type="text/typescript"&gt;
+// Generics
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+let output1 = identity<string>("Hello");
+let output2 = identity<number>(100);
+
+// Namespace
+namespace MyNamespace {
+  export class MyClass {
+    constructor(public name: string) {}
+  }
+}
+
+let myClassInstance = new MyNamespace.MyClass("Namespace Example");
+
+// Module (in separate files)
+// file: mathUtil.ts
+export function add(a: number, b: number): number {
+  return a + b;
+}
+
+// file: app.ts
+import { add } from "./mathUtil";
+console.log(add(2, 3)); // 5
+&lt;/script&gt;
+        </pre>
+        </section>
       </div>
+      <!-- end: Content -->
+      <!-- start: Footer -->
+      <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+        <div class="flex flex-row w-full justify-between items-center gap-4">
+          <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+            <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="aeroflot-logo" class="h-20 fill-white">
+          </a>
+        </div>
+        <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Learning</label>
+            <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET C#</a>
+            <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Quiz</label>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
+              class=" font-light text-sm hover:underline">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
+              class=" font-light text-sm hover:underline">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
+              class=" font-light text-sm hover:underline">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
+              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
+              class=" font-light text-sm hover:underline">jQuery</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
+              class=" font-light text-sm hover:underline">React</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
+              class=" font-light text-sm hover:underline">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              C++</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
+              class=" font-light text-sm hover:underline">.NET
+              C#</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
+              class=" font-light text-sm hover:underline">Kotlin</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
+              class=" font-light text-sm hover:underline">PostgreSQL</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
+              class=" font-light text-sm hover:underline">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+          </div>
+          <div class="flex flex-col w-1/3">
+            <label class="text-xl font-bold mb-3">Challences</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+              Summary</a>
+            <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+              Score</a>
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+              Summary Score</a>
+            <label class="text-xl font-bold mb-3 mt-5">Website</label>
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+              Limited</a>
+            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+              Connect</a>
+          </div>
+        </div>
+        <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+          <a
+            href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+          <a
+            href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+          <a
+            href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+          <a
+            href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+        </div>
+        <div class="text-center text-sm font-light text-white mb-3">
+          <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+        </div>
+
+      </section>
+      <!-- end: Footer -->
+      
+      <div id="scroll-to-top">
+        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+      </div>
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>

@@ -2,6 +2,7 @@
 var folderID = "1-_cM-Dj0TMHQL2Rbnj491rA1p-og6e5y";
 var baseSheetId = SpreadsheetApp.openById('14K5I2fxSC_nPMvooJiXx7H0xE0OckqJnNuQ_N3_E2FA')
 var sheet_user_permission = baseSheetId.getSheetByName('user')
+var sheet_login_logger = baseSheetId.getSheetByName('log_login')
 var sheet_quiz_dotNetCSharp = baseSheetId.getSheetByName('Quiz-C#')
 var sheet_quiz_XML = baseSheetId.getSheetByName('Quiz-XML')
 var sheet_quiz_SQL = baseSheetId.getSheetByName('Quiz-SQL')
@@ -34,7 +35,7 @@ function doGet(e) {
 
 // FIXED: SET/GET APPLICATION VERSION WHEN WE WILL DEPLOYMENT
 function getAppVersion() {
-  var appVersion = '1.1.11';
+  var appVersion = '1.2.5';
   return appVersion;
 }
 
@@ -78,6 +79,7 @@ function login(email) {
         userEmail: rowValues[2],
         position: rowValues[3],
         levelCode: rowValues[4],
+        permissionAllow: rowValues[5],
         userImageProfile: getImageUrlByName(rowValues[0])
       };
 
@@ -88,11 +90,26 @@ function login(email) {
       var cache = CacheService.getUserCache();
       cache.put('sessionToken', sessionToken, 3600); // Session expires in 1 hour
 
+      loginLogger(valuesObj);
+
       return { success: true, message: 'credentials success', sessionToken: sessionToken, data: valuesArray };
     }
   }
 
   return { success: false, message: 'Invalid credentials', data: null };
+}
+
+function loginLogger(data) {
+  sheet_login_logger.appendRow(
+    [
+      new Date().getTime().toString(), //log_id
+      new Date(),//datetime_login
+      data.userID,//user_id
+      data.userName,//user_name
+      data.userEmail,//user_email
+    ]
+  );
+  return 'success';
 }
 
 function checkSession() {
@@ -121,11 +138,10 @@ function getImageUrlByName(fileName) {
   }
 
   var file = files.next();
-
-  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  // fix it permission error 
+  // file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
   var fileUrl = 'https://drive.google.com/thumbnail?id=' + file.getId();
-
   return fileUrl;
 }
 
@@ -148,8 +164,6 @@ function uploadFileToDrive(base64Data, fileName) {
 }
 
 function appendATSCodeRankingSupportData(values) {
-  var columnRange = sheet_ATS_Support.getRange("B:B");
-
   sheet_ATS_Support.appendRow(
     [
       new Date().getTime().toString(), //support_id
@@ -958,6 +972,35 @@ function getRecentGlobalQuiz() {
   };
 }
 
+function getAdminLoginLoggerReportData() {
+  var columnRangeData = sheet_login_logger.getDataRange().getDisplayValues();
+
+  var dataSet = columnRangeData.map(function (row) {
+    return row.slice(1, 5);
+  });
+
+  return {
+    headers: dataSet[0],
+    data: dataSet.slice(1),
+    success: true,
+    message: 'success'
+  };
+}
+
+function getAdminTopicsSupportReportData() {
+  var columnRangeData = sheet_ATS_Support.getDataRange().getDisplayValues();
+
+  var dataSet = columnRangeData.map(function (row) {
+    return row.slice(1, 6);
+  });
+
+  return {
+    headers: dataSet[0],
+    data: dataSet.slice(1),
+    success: true,
+    message: 'success'
+  };
+}
 
 function getIndexPage() {
   return HtmlService.createHtmlOutputFromFile('index').getContent()

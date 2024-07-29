@@ -159,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -178,25 +194,113 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>C++: Content over here!!</p>
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the C++ Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn C++ from basics to advanced topics</p>
+
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">C++ is a popular programming language. C++ is used to create computer programs, and is one of the most used language in game development. C++ was developed as an extension of C, and both languages have almost the same syntax.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What is C++?</h2>
+          <p class="mb-3">C++ is a cross-platform language that can be used to create high-performance applications.</p>
+          <p class="mb-3">C++ was developed by Bjarne Stroustrup, as an extension to the <a href="https://www.w3schools.com/c/index.php" target="_blank" class="underline">C language</a></p>
+          <p class="mb-3">C++ gives programmers a high level of control over system resources and memory.</p>
+          <p class="mb-3">The language was updated 4 major times in 2011, 2014, 2017, and 2020 to C++11, C++14, C++17, C++20.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Why Use C++</h2>
+          <p class="mb-3">C++ is one of the world's most popular programming languages.</p>
+          <p class="mb-3">C++ can be found in today's operating systems, Graphical User Interfaces, and embedded systems.</p>
+          <p class="mb-3">C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs.</p>
+          <p class="mb-3">C++ is portable and can be used to develop applications that can be adapted to multiple platforms.</p>
+          <p class="mb-3">C++ is fun and easy to learn!</p>
+          <p class="mb-3">As C++ is close to <a href="https://www.w3schools.com/c/index.php" target="_blank" class="underline">C</a>, <a href="https://www.w3schools.com/cs/index.php" target="_blank" class="underline">C#</a> and <a href="https://www.w3schools.com/java/default.asp" target="_blank" class="underline">JAVA</a>, it makes it easy for programmers to switch to C++ or vice versa.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Difference between C and C++</h2>
+          <p class="mb-3">C++ was developed as an extension of C, and both languages have almost the same syntax.</p>
+          <p class="mb-3">The main difference between C and C++ is that C++ support classes and objects, while C does not.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Get Started</h2>
+          <p class="mb-3">This tutorial will teach you the basics of C++.</p>
+          <p class="mb-3">When you are finished with this tutorial, you will be able to write C++ programs and create real-life examples.</p>
+          <p class="mb-3">It is not necessary to have any prior programming experience.</p>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p>To start using C++, you need two things:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>A text editor, like Notepad, to write C++ code</li>
+              <li>A compiler, like GCC, to translate the C++ code into a language that the computer will understand</li>
+            </ul>
+          </div>
+          <p class="mb-3">There are many text editors and compilers to choose from. In this tutorial, we will use an IDE (see below).</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">C++ Install IDE</h2>
+          <p class="mb-3">An IDE (Integrated Development Environment) is used to edit AND compile the code.</p>
+          <p class="mb-3">Popular IDE's include Code::Blocks, Eclipse, and Visual Studio. These are all free, and they can be used to both edit and debug C++ code.</p>
+          <p class="mb-3"><b>Note:</b> Web-based IDE's can work as well, but functionality is limited.</p>
+          <p class="mb-3">We will use <b>Code::Blocks</b> in our tutorial, which we believe is a good place to start.</p>
+          <p class="mb-3">You can find the latest version of Codeblocks at <a href="http://www.codeblocks.org/" target="_blank" class="underline">http://www.codeblocks.org/</a> Download the <span class="text-red-600 bg-gray-200">mingw-setup.exe</span> file, which will install the text editor with a compiler.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">C++ Quickstart</h2>
+          <p class="mb-3">Let's create our first C++ file.</p>
+          <p class="mb-3">Open Codeblocks and go to <b>File &gt New &gt Empty File.</b></p>
+          <p class="mb-3">Write the following C++ code and save the file as <span class="text-red-600 bg-gray-200">myfirstprogram.cpp</span> (<b>File &gt Save File as</b>):</p>
+          <p class="mb-3">myfirstprogram.cpp</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  return 0;
+}
+          </pre>
+          <p class="mb-3">Don't worry if you don't understand the code above - we will discuss it in detail in later chapters. For now, focus on how to run the code.</p>
+          <p class="mb-3">In Codeblocks, it should look like this:</p>
+          <img class="mb-3" src="https://www.w3schools.com/cpp/codeblocks2020.png"/>
+          <p class="mb-3">Then, go to <b>Build &gt; Build and Run</b> to run (execute) the program. The result will look something to this:</p>
+          <pre class="bg-gray-900 p-4 mb-3 text-white rounded ">
+Hello World!
+Process returned 0 (0x0) execution time : 0.011 s
+Press any key to continue.
+          </pre>
+          <p class="mb-3"><b>Congratulations!</b> You have now written and executed your first C++ program.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Learning C++ At ATS Code Ranking</h2>
+          <p class="mb-3">When learning C++ at ATS Code Ranking, you can use our "Try it Yourself" tool, which shows both the code and the result. This will make it easier for you to understand every part as we move forward:</p>
+          <p class="mb-3">myfirstprogram.cpp</p>
+          <p class="mb-3">Code:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  return 0;
+}
+          </pre>
+          <p class="mb-3">Result:</p>
+          <pre class="bg-gray-900 p-4 mb-3 text-white rounded ">
+Hello World!
+          </pre>
+        </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-        <!-- end: Content -->
       </div>
+      <!-- end: Content -->
       <!-- start: Footer -->
       <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
         <div class="flex flex-row w-full justify-between items-center gap-4">

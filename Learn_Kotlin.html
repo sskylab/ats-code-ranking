@@ -159,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -180,19 +196,235 @@
       <!-- start: Content -->
       <div>
         <div class="py-4 flex flex-column w-full">
-          <p>KOTLIN: Content over here!!</p>
+          <h1 class="text-center text-4xl font-bold mb-5">Welcome to the Kotlin Tutorial</h1>
 
+          <section id="introduction" class="mt-10">
+            <p class="text-base mb-5">you should have basic knowledge of Java before learning kotlin.</p>
+            <h2 class="text-2xl font-semibold">What is Kotlin?</h2>
+            <ul class="list-disc mb-5">
+              <li>Kotlin is a programming language that makes coding concise, cross-platform, and fun. It is Google's
+                preferred language for Android app development.</li>
+            </ul>
 
+            <h2 class="text-2xl font-semibold mb-3">Key Features of Kotlin</h2>
+            <ul class="list-disc list-inside mb-5">
+              <li><strong>Interoperability:</strong>
+                Kotlin is fully interoperable with Java, meaning you can use Kotlin and Java code side by side in the
+                same project. This makes it easy to migrate existing Java code to Kotlin incrementally.</li>
+              <li><strong>Conciseness:</strong>
+                Kotlin reduces the amount of boilerplate code you need to write. It offers concise syntax and features
+                like type inference, which makes your code shorter and more readable.</li>
+              <li><strong>Null Safety:</strong>
+                Kotlin's type system is designed to eliminate the danger of null references from your code. It
+                differentiates between nullable and non-nullable data types, helping to avoid null pointer exceptions.
+              </li>
+              <li><strong>Functional Programming:</strong>
+                Kotlin supports functional programming paradigms with features like higher-order functions, lambda
+                expressions, and immutability.</li>
+              <li><strong>Extension Functions:</strong>
+                Kotlin allows you to extend the functionality of classes without inheriting from them. You can add new
+                functions to existing classes as if they were part of the original API.</li>
+              <li><strong>Coroutines:</strong>
+                Kotlin provides built-in support for coroutines, which simplifies writing asynchronous and concurrent
+                code. Coroutines make it easier to manage background tasks and improve performance.</li>
+              <li><strong>Smart Casts:</strong>
+                Kotlin automatically performs type casts in many situations where the compiler can prove that the cast
+                is safe, reducing the need for explicit type checks.</li>
+            </ul>
 
+          </section>
 
+          <section id="getstart" class="mt-10">
+            <h2 class="text-2xl font-semibold">Getting Started with Kotlin</h2>
+            <p class="text-base mb-2">You can set up Kotlin in various environments, but we'll focus on using it with
+              IntelliJ IDEA and Android Studio, two of the most common IDEs for Kotlin development.</p>
+            <ul class="list-disc mb-5">
+              <li><strong>IntelliJ IDEA:</strong>
+                Kotlin provides built-in support for coroutines, which simplifies writing asynchronous and concurrent
+                code. Coroutines make it easier to manage background tasks and improve performance.
+                <ul class="list-disc list-inside">
+                  <li>
+                    Download and install IntelliJ IDEA from JetBrains.
+                  </li>
+                  <li>
+                    Create a new project and select Kotlin as the language.
+                  </li>
+                </ul>
+              </li>
+              <li><strong>Android Studio:</strong>
+                Kotlin automatically performs type casts in many situations where the compiler can prove that the cast
+                is safe, reducing the need for explicit type checks.
+                <ul class="list-disc list-inside">
+                  <li>
+                    Download and install Android Studio from Google.
+                  </li>
+                  <li>
+                    Create a new project and choose Kotlin as the language for the project.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
 
+          <section id="layout" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Basic Syntax</h2>
+            <p class="text-base mb-5">Here's a simple "Hello, World!" program in Kotlin:</p>
+            <pre class="bg-gray-100 p-4 rounded">
+                <code>
+fun main() {
+  println("Hello, World!")
+}
+                </code>
+              </pre>
+          </section>
 
+          <section id="layout" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Variables</h2>
+            <p class="text-base mb-5">Kotlin has two types of variables: val (immutable) and var (mutable).</p>
+            <pre class="bg-gray-100 p-4 rounded">
+                <code>
+val immutableValue: String = "Hello"  // Read-only
+var mutableValue: String = "World"    // Can be changed
+mutableValue = "Kotlin"
+                </code>
+              </pre>
+          </section>
 
+          <section id="Components" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Functions</h2>
+            <p class="text-base mb-5">Functions in Kotlin are declared using the fun keyword.</p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+fun sum(a: Int, b: Int): Int {
+  return a + b
+}
+// Single expression function
+fun multiply(a: Int, b: Int) = a * b
+                </code>
+              </pre>
+          </section>
 
+          <section id="forms" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Null Safety</h2>
+            <p class="text-base mb-5">Kotlin distinguishes between nullable and non-nullable types.</p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+var nonNullable: String = "Hello"      // Cannot be null
+// nonNullable = null  // Compilation error
 
+var nullable: String? = "World"        // Can be null
+nullable = null  // OK
+                </code>
+              </pre>
+          </section>
 
+          <section id="Navbars" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Control Flow</h2>
+            <p class="text-base mb-5">Kotlin provides standard control flow structures like if, when, for, and while.
+            </p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+fun maxOf(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
 
+fun describe(obj: Any): String =
+    when (obj) {
+        1 -> "One"
+        "Hello" -> "Greeting"
+        is Long -> "Long"
+        !is String -> "Not a string"
+        else -> "Unknown"
+    }
+                </code>
+              </pre>
+          </section>
 
+          <section id="forms" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Classes and Objects</h2>
+            <p class="text-base mb-5">Defining classes in Kotlin is straightforward.</p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+var nonNullable: String = "Hello"      // Cannot be null
+// nonNullable = null  // Compilation error
+
+var nullable: String? = "World"        // Can be null
+nullable = null  // OK
+                </code>
+              </pre>
+          </section>
+
+          <section id="forms" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Extension Functions</h2>
+            <p class="text-base mb-5">You can add new functionality to existing classes using extension functions.
+            </p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+fun String.addExclamation(): String {
+    return this + "!"
+}
+
+fun main() {
+    val message = "Hello"
+    println(message.addExclamation())  // Prints: Hello!
+}
+                </code>
+              </pre>
+          </section>
+
+          <section id="forms" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Coroutines</h2>
+            <p class="text-base mb-5">Coroutines simplify asynchronous programming.</p>
+            <pre class="bg-gray-100 px-4 rounded">
+                <code>
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    launch {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello,")
+}
+                </code>
+              </pre>
+          </section>
+
+          <section id="forms" class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Resources for Learning Kotlin</h2>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>
+                <a href="https://kotlinlang.org/" class="text-blue-500 hover:underline" target="_blank">Official
+                  Kotlin Website</a>
+              </li>
+              <li>
+                <a href="https://kotlinlang.org/docs/reference/" class="text-blue-500 hover:underline"
+                  target="_blank">Kotlin Documentation</a>
+              </li>
+              <li>
+                <a href="https://play.kotlinlang.org/koans/overview" class="text-blue-500 hover:underline"
+                  target="_blank">Kotlin Koans: Interactive exercises to learn Kotlin</a>
+              </li>
+              <li>
+                Coursera and Udemy Courses: Many online platforms offer Kotlin courses.
+              </li>
+              <li>
+                Books:
+                <ul class="list-disc pl-6 space-y-1">
+                  <li>
+                    <a href="https://www.amazon.com/Kotlin-Action-Dmitry-Jemerov/dp/1617293296"
+                      class="text-blue-500 hover:underline" target="_blank">Kotlin in Action by Dmitry Jemerov and
+                      Svetlana Isakova</a>
+                  </li>
+                  <li>
+                    <a href="https://www.amazon.com/Kotlin-Programming-Big-Nerd-Ranch/dp/0135161630"
+                      class="text-blue-500 hover:underline" target="_blank">Kotlin Programming: The Big Nerd Ranch
+                      Guide by Josh Skeen and David Greenhalgh</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
 
         </div>
         <!-- end: Content -->
@@ -301,7 +533,7 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">

@@ -18,7 +18,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -158,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -177,26 +194,271 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>XML: Content over here!!</p>
-          
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the XML Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn XML from basics to advanced topics</p>
+
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">XML is a software- and hardware-independent tool for storing and transporting data.
+          </p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What is XML?</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>XML stands for eXtensible Markup Language</li>
+              <li>XML is a markup language much like HTML</li>
+              <li>XML was designed to store and transport data</li>
+              <li>XML was designed to be self-descriptive</li>
+              <li>XML is a W3C Recommendation</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML Does Not DO Anything</h2>
+          <p class="mb-3">Maybe it is a little hard to understand, but XML does not DO anything.</p>
+          <p class="mb-3">This note is a note to Tove from Jani, stored as XML:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;note&gt;
+  &lt;to&gt;Tove&lt;/to&gt;
+  &lt;from&gt;Reminder&lt;/from&gt;
+  &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+&lt;/note&gt;
+          </pre>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p class="mb-1">The XML above is quite self-descriptive:</p>
+            <ul class="list-disc list-inside mb-3 mx-5">
+              <li>It has sender information</li>
+              <li>It has receiver information</li>
+              <li>It has a heading</li>
+              <li>It has a message body</li>
+            </ul>
+          </div>
+          <p class="mb-3">But still, the XML above does not DO anything. XML is just information wrapped in tags.</p>
+          <p class="mb-3">Someone must write a piece of software to send, receive, store, or display it:</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The Difference Between XML and HTML</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p class="mb-1">XML and HTML were designed with different goals:</p>
+            <ul class="list-disc list-inside mb-3 mx-5">
+              <li>XML was designed to carry data - with focus on what data is</li>
+              <li>HTML was designed to display data - with focus on how data looks</li>
+              <li>XML tags are not predefined like HTML tags are</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML Does Not Use Predefined Tags</h2>
+          <p class="mb-3">The XML language has no predefined tags.</p>
+          <p class="mb-3">The tags in the example above (like &lt;to&gt; and &lt;from&gt;) are not defined in any XML standard. These tags are "invented" by the author of the XML document.</p>
+          <p class="mb-3">HTML works with predefined tags like &lt;p&gt;, &lt;h1&gt;, &lt;table&gt;, etc.</p>
+          <p class="mb-3">With XML, the author must define both the tags and the document structure.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML is Extensible</h2>
+          <p class="mb-3">Most XML applications will work as expected even if new data is added (or removed).</p>
+          <p class="mb-3">Imagine an application designed to display the original version of note.xml (&lt;to&gt; &lt;from&gt; &lt;heading&gt; &lt;body&gt;).</p>
+          <p class="mb-3">Then imagine a newer version of note.xml with added &lt;date&gt; and &lt;hour&gt; elements, and a removed &lt;heading&gt;.</p>
+          <p class="mb-3">The way XML is constructed, older version of the application can still work:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;note&gt;
+  &lt;date&gt;2015-09-01&lt;/date&gt;
+  &lt;hour&gt;08:30&lt;/hour&gt;
+  &lt;to&gt;Tove&lt;/to&gt;
+  &lt;from&gt;Jani&lt;/from&gt;
+  &lt;body&gt;Don't forget me this weekend!&lt;/body&gt;
+&lt;/note&gt;
+          </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML Simplifies Things</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <ul class="list-disc list-inside mb-3 mx-5">
+              <li>XML simplifies data sharing</li>
+              <li>XML simplifies data transport</li>
+              <li>XML simplifies platform changes</li>
+              <li>XML simplifies data availability</li>
+            </ul>
+          </div>
+          <p class="mb-3">Many computer systems contain data in incompatible formats. Exchanging data between incompatible systems (or upgraded systems) is a time-consuming task for web developers. Large amounts of data must be converted, and incompatible data is often lost.</p>
+          <p class="mb-3">XML stores data in plain text format. This provides a software- and hardware-independent way of storing, transporting, and sharing data.</p>
+          <p class="mb-3">XML also makes it easier to expand or upgrade to new operating systems, new applications, or new browsers, without losing data.</p>
+          <p class="mb-3">With XML, data can be available to all kinds of "reading machines" like people, computers, voice machines, news feeds, etc.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML is a W3C Recommendation</h2>
+          <p class="mb-3">XML became a W3C Recommendation as early as in February 1998.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">How Can XML be Used?</h2>
+          <p class="mb-3">XML is used in many aspects of web development.</p>
+          <p class="mb-3">XML is often used to separate data from presentation.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML Separates Data from Presentation</h2>
+          <p class="mb-3">XML does not carry any information about how to be displayed.</p>
+          <p class="mb-3">The same XML data can be used in many different presentation scenarios.</p>
+          <p class="mb-3">Because of this, with XML, there is a full separation between data and presentation.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML is Often a Complement to HTML</h2>
+          <p class="mb-3">In many HTML applications, XML is used to store or transport data, while HTML is used to format and display the same data.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">XML Separates Data from HTML</h2>
+          <p class="mb-3">When displaying data in HTML, you should not have to edit the HTML file when the data changes.</p>
+          <p class="mb-3">With XML, the data can be stored in separate XML files.</p>
+          <p class="mb-3">With a few lines of JavaScript code, you can read an XML file and update the data content of any HTML page.</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bookstore&gt;
+
+  &lt;book category="cooking"&gt;
+    &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+    &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;30.00&lt;/price&gt;
+  &lt;/book&gt;
+
+  &lt;book category="cooking"&gt;
+    &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+    &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;30.00&lt;/price&gt;
+  &lt;/book&gt;
+
+  &lt;book category="cooking"&gt;
+    &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+    &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;30.00&lt;/price&gt;
+  &lt;/book&gt;
+
+  &lt;book category="cooking"&gt;
+    &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+    &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;30.00&lt;/price&gt;
+  &lt;/book&gt;
+  
+&lt;/bookstore&gt;
+          </pre>
+          <p class="mb-3">You will learn a lot more about using XML and JavaScript in the DOM section of this tutorial.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Transaction Data</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p class="mb-1">Thousands of XML formats exist, in many different industries, to describe day-to-day data transactions:</p>
+            <ul class="list-disc list-inside mb-3 mx-5">
+              <li>Stocks and Shares</li>
+              <li>Financial transactions</li>
+              <li>Medical data</li>
+              <li>Mathematical data</li>
+              <li>Scientific measurements</li>
+              <li>News information</li>
+              <li>Weather services</li>
+            </ul>
+          </div>
+        </section>
+
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Example: XML News</h2>
+          <b class="mb-3">XMLNews is a specification for exchanging news and other information.</b>
+          <p class="mb-3">Using a standard makes it easier for both news producers and news consumers to produce, receive, and archive any kind of news information across different hardware, software, and programming languages.</p>
+          <p class="mb-3">An example XMLNews document:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;nitf&gt;
+  &lt;head&gt;
+    &lt;title&gt;Colombia Earthquake&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;headline&gt;
+      &lt;hl1&gt;143 Dead in Colombia Earthquake&lt;/hl1&gt;
+    &lt;/headline&gt;
+    &lt;byline&gt;
+      &lt;bytag&gt;By Jared Kotler, Associated Press Writer&lt;/bytag&gt;
+    &lt;/byline&gt;
+    &lt;dateline&gt;
+      &lt;location&gt;Bogota, Colombia&lt;/location&gt;
+      &lt;date&gt;Monday January 25 1999 7:28 ET&lt;/date&gt;
+    &lt;/dateline&gt;
+  &lt;/body&gt;
+&lt;/nitf&gt;
+          </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Example: XML Weather Service</h2>
+          <p class="mb-3">An XML national weather service from NOAA (National Oceanic and Atmospheric Administration):</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;current_observation&gt;
+&lt;credit&gt;NOAA's National Weather Service&lt;/credit&gt;
+&lt;credit_URL&gt;http://weather.gov/&lt;/credit_URL&gt;
+
+&lt;image&gt;
+  &lt;url&gt;http://weather.gov/images/xml_logo.gif&lt;/url&gt;
+  &lt;title&gt;NOAA's National Weather Service&lt;/title&gt;
+  &lt;link&gt;http://weather.gov&lt;/link&gt;
+&lt;/image&gt;
+
+&lt;location&gt;New York/John F. Kennedy Intl Airport, NY&lt;/location&gt;
+&lt;station_id&gt;KJFK&lt;/station_id&gt;
+&lt;latitude&gt;40.66&lt;/latitude&gt;
+&lt;longitude&gt;-73.78&lt;/longitude&gt;
+&lt;observation_time_rfc822&gt;Mon, 11 Feb 2008 06:51:00 -0500 EST&lt;/observation_time_rfc822&gt;
+
+
+&lt;weather&gt;A Few Clouds&lt;/weather&gt;
+&lt;temp_f&gt;11&lt;/temp_f&gt;
+&lt;temp_c&gt;12&lt;/temp_c&gt;
+&lt;relative_humidity&gt;36&lt;/relative_humidity&gt;
+&lt;wind_dir&gt;West&lt;/wind_dir&gt;
+&lt;wind_degrees&gt;280&lt;/wind_degrees&gt;
+&lt;wind_mph&gt;18.4&lt;/wind_mph&gt;
+&lt;wind_gust_mph&gt;29&lt;/wind_gust_mph&gt;
+&lt;pressure_mb&gt;1023.6&lt;/pressure_mb&gt;
+&lt;pressure_in&gt;30.23&lt;/pressure_in&gt;
+&lt;dewpoint_f&gt;-11&lt;/dewpoint_f&gt;
+&lt;dewpoint_c&gt;-24&lt;/dewpoint_c&gt;
+&lt;windchill_f&gt;-7&lt;/windchill_f&gt;
+&lt;windchill_c&gt;-22&lt;/windchill_c&gt;
+&lt;visibility_mi&gt;10.00&lt;/visibility_mi&gt;
+
+&lt;icon_url_base&gt;http://weather.gov/weather/images/fcicons/&lt;/icon_url_base&gt;
+&lt;icon_url_name&gt;nfew.jpg&lt;/icon_url_name&gt;
+&lt;disclaimer_url&gt;http://weather.gov/disclaimer.html&lt;/disclaimer_url&gt;
+&lt;copyright_url&gt;http://weather.gov/disclaimer.html&lt;/copyright_url&gt;
+
+&lt;/current_observation&gt;
+          </pre>
+        </section>
 
 
 
 
 
 
-
-
-
-
-
-
-        </div>
-        <!-- end: Content -->
       </div>
-      <!-- start: Footer -->
+      <!-- end: Content -->
+    </div>
+    <!-- start: Footer -->
     <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
       <div class="flex flex-row w-full justify-between items-center gap-4">
         <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
@@ -296,15 +558,15 @@
 
     </section>
     <!-- end: Footer -->
-    
-      <div id="scroll-to-top">
-        <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+
+    <div id="scroll-to-top">
+      <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
       </button>
-      </div>
+    </div>
 
-      <?!= include('Loading'); ?>
-      <?!= include('ImageProfile'); ?>
+    <?!= include('Loading'); ?>
+    <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
 

@@ -159,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -180,19 +196,243 @@
       <!-- start: Content -->
       <div>
         <div class="py-4 flex flex-column w-full">
-          <p>POSTGRESQL: Content over here!!</p>
+          <h1 class="text-center text-4xl font-bold mb-5">Welcome to the PostgreSQL Tutorial</h1>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold">What is PostgreSQL?</h2>
+            <ul class="list-disc mb-5">
+              <li>PostgreSQL is a robust, object-relational database system that supports advanced data types and
+                performance optimization features. It is known for its reliability, data integrity, and support for
+                complex queries.</li>
+            </ul>
 
+          </section>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-2">Getting Started with PostgreSQL</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <h2 class="text-xl font-semibold mb-2">On Windows:</h2>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Download the installer from the <a href="https://www.postgresql.org/download/windows/"
+                    class="text-blue-500 hover:underline" target="_blank">PostgreSQL official website</a>.</li>
+                <li>Run the installer and follow the setup wizard to install PostgreSQL.</li>
+              </ul>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <h2 class="text-xl font-semibold mb-2">On macOS:</h2>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>You can use Homebrew to install PostgreSQL:</li>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">brew install postgresql</code></pre>
+                <li>After installation, start the PostgreSQL service:</li>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">brew services start postgresql</code></pre>
+              </ul>
+            </div>
 
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold mb-2">On Linux:</h2>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Install PostgreSQL using the package manager for your distribution. For Debian-based systems:</li>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">sudo apt update
+sudo apt install postgresql postgresql-contrib</code></pre>
+                <li>Start the PostgreSQL service:</li>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">sudo service postgresql start</code></pre>
+              </ul>
+            </div>
+          </section>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Accessing PostgreSQL</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <h2 class="text-xl font-semibold mb-2">Command-Line Interface (CLI):</h2>
+              <p class="mb-2">Open a terminal and use <code class="bg-gray-200 p-1 rounded-md text-sm">psql</code> to
+                access the PostgreSQL prompt:</p>
+              <pre
+                class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">psql -U postgres</code></pre>
+              <p class="text-sm text-gray-600">- <code class="bg-gray-200 p-1 rounded-md text-sm">-U postgres</code>
+                specifies the username to connect as.</p>
+            </div>
 
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold mb-2">Graphical User Interface (GUI):</h2>
+              <p>Tools like <a href="https://www.pgadmin.org/" class="text-blue-500 hover:underline"
+                  target="_blank">pgAdmin</a> provide a graphical interface for managing PostgreSQL databases.</p>
+            </div>
+          </section>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">PostgreSQL Basic Commands and Learning Resources</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <h2 class="text-xl font-semibold mb-2">Basic Commands in PostgreSQL</h2>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-1">Connect to a Database:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">\c mydatabase</code></pre>
+              </div>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-1">List Databases:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">\l</code></pre>
+              </div>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-1">List Tables:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">\dt</code></pre>
+              </div>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-1">Describe Table Structure:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">\d tablename</code></pre>
+              </div>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-1">Exit psql:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">\q</code></pre>
+              </div>
+            </div>
+          </section>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Creating and Managing Databases</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Create a Database:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">CREATE DATABASE mydatabase;</code></pre>
+              </div>
 
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Drop a Database:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">DROP DATABASE mydatabase;</code></pre>
+              </div>
 
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Create a User:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">CREATE USER myuser WITH PASSWORD 'mypassword';</code></pre>
+              </div>
 
+              <div>
+                <h3 class="text-lg font-semibold mb-2">Grant Privileges:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;</code></pre>
+              </div>
+            </div>
+          </section>
 
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Creating Tables and Inserting Data</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Create a Table:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(50),
+    salary NUMERIC
+);</code></pre>
+              </div>
+
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Insert Data:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">INSERT INTO employees (name, position, salary) VALUES
+('John Doe', 'Developer', 60000),
+('Jane Smith', 'Manager', 80000);</code></pre>
+              </div>
+
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Select Data:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">SELECT * FROM employees;</code></pre>
+              </div>
+
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Update Data:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">UPDATE employees SET salary = 65000 WHERE name = 'John Doe';</code></pre>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold mb-2">Delete Data:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">DELETE FROM employees WHERE name = 'Jane Smith';</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Advanced Features</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Joins:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">SELECT employees.name, departments.department_name
+FROM employees
+JOIN departments ON employees.department_id = departments.id;</code></pre>
+              </div>
+
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Indexes:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">CREATE INDEX idx_employee_name ON employees(name);</code></pre>
+              </div>
+
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Transactions:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">BEGIN;
+
+INSERT INTO employees (name, position, salary) VALUES ('Alice Brown', 'Analyst', 55000);
+
+COMMIT;</code></pre>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold mb-2">Views:</h3>
+                <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">CREATE VIEW high_salary_employees AS
+SELECT name, salary FROM employees WHERE salary > 60000;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-2xl font-semibold mb-3">Backing Up and Restoring Databases</h2>
+            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Backup a Database:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">pg_dump mydatabase &gt; mydatabase_backup.sql</code></pre>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold mb-2">Restore a Database:</h3>
+                <pre
+                  class="bg-gray-200 p-4 rounded-md overflow-x-auto"><code class="text-sm">psql mydatabase &lt; mydatabase_backup.sql</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="my-10">
+            <h2 class="text-2xl font-semibold mb-3">Learning Resources</h2>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><a href="https://kotlinlang.org/" class="text-blue-500 hover:underline" target="_blank">Official
+                  Kotlin
+                  Website</a></li>
+              <li><a href="https://kotlinlang.org/docs/home.html" class="text-blue-500 hover:underline"
+                  target="_blank">Kotlin Documentation</a></li>
+              <li><a href="https://play.kotlinlang.org/koans/overview" class="text-blue-500 hover:underline"
+                  target="_blank">Kotlin Koans: Interactive exercises</a></li>
+              <li><a href="https://www.coursera.org/courses?query=kotlin" class="text-blue-500 hover:underline"
+                  target="_blank">Coursera Kotlin Courses</a></li>
+              <li><a href="https://www.udemy.com/topic/kotlin/" class="text-blue-500 hover:underline"
+                  target="_blank">Udemy Kotlin Courses</a></li>
+              <li>Books:
+                <ul class="list-disc pl-6 space-y-1 mt-2">
+                  <li><a href="https://www.manning.com/books/kotlin-in-action" class="text-blue-500 hover:underline"
+                      target="_blank">Kotlin in Action by Dmitry Jemerov and Svetlana Isakova</a></li>
+                  <li><a href="https://www.bignerdranch.com/books/kotlin-programming-the-big-nerd-ranch-guide/"
+                      class="text-blue-500 hover:underline" target="_blank">Kotlin Programming: The Big Nerd Ranch Guide
+                      by Josh Skeen and David Greenhalgh</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
 
         </div>
         <!-- end: Content -->
@@ -301,7 +541,7 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">

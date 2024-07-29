@@ -159,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -178,25 +194,189 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>REACT: Content over here!!</p>
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the React Tutorial</h1>
+        <p class="text-center text-lg mb-5">Learn React from basics to advanced topics</p>
+
+        <section id="introduction" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
+          <p class="text-base mb-5">React is a JavaScript library for building user interfaces. React is used to build
+            single-page applications. React allows us to create reusable UI components.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What is React?</h2>
+          <p class="mb-3">React, sometimes referred to as a frontend JavaScript framework, is a JavaScript library created by Facebook.</p>
+          <p class="mb-3">React is a tool for building UI components.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">How does React Work?</h2>
+          <p class="mb-3">React creates a VIRTUAL DOM in memory.</p>
+          <p class="mb-3">Instead of manipulating the browser's DOM directly, React creates a virtual DOM in memory, where it does all the necessary manipulating, before making the changes in the browser DOM.</p>
+          <p class="mb-3">React only changes what needs to be changed!</p>
+          <p class="mb-3">React finds out what changes have been made, and changes only what needs to be changed.</p>
+          <p class="mb-3">You will learn the various aspects of how React does this in the rest of this tutorial.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">React.JS History</h2>
+          <p class="mb-3">Current version of React.JS is V18.0.0 (April 2022).</p>
+          <p class="mb-3">Initial Release to the Public (V0.3.0) was in July 2013.</p>
+          <p class="mb-3">React.JS was first used in 2011 for Facebook's Newsfeed feature.</p>
+          <p class="mb-3">Facebook Software Engineer, Jordan Walke, created it.</p>
+          <p class="mb-3">Current version of <span class="text-red-600 bg-gray-200">create-react-app</span> is v5.0.1 (April 2022).</p>
+          <p class="mb-3"><span class="text-red-600 bg-gray-200">create-react-app</span> includes built tools such as webpack, Babel, and ESLint.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">React Getting Started</h2>
+          <p class="mb-3">To use React in production, you need npm which is included with <a href="https://nodejs.org/" target="_blank" class="underline">Node.js</a></p>
+          <p class="mb-3">To get an overview of what React is, you can write React code directly in HTML.</p>
+          <p class="mb-3">But in order to use React in production, you need npm and <a href="https://nodejs.org/" target="_blank" class="underline">Node.js</a> installed.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">React Directly in HTML</h2>
+          <p class="mb-3">The quickest way start learning React is to write React directly in your HTML files.</p>
+          <p class="mb-3">Start by including three scripts, the first two let us write React code in our JavaScripts, and the third, Babel, allows us to write JSX syntax and ES6 in older browsers.</p>
+          <p class="mb-3">You will learn more about JSX in the <a href="https://www.w3schools.com/react/react_jsx.asp" target="_blank" class="underline">React JSX</a> chapter.</p>
+          <p class="mb-3">Example</p>
+          <p class="mb-3">Include three CDN's in your HTML file:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div id="mydiv"&gt;&lt;/div&gt;
+
+    &lt;script type="text/babel"&gt;
+        function Hello() {
+          return &lt;h1&gt;Hello World!&lt;/h1&gt;;
+        }
+
+        const container = document.getElementById('mydiv');
+        const root = ReactDOM.createRoot(container);
+        root.render(&lt;Hello /&gt;)
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+          </pre>
+          <p class="mb-3">This way of using React can be OK for testing purposes, but for production you will need to set up a <b>React environment</b>.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Setting up a React Environment</h2>
+          <p class="mb-3">If you have npx and Node.js installed, you can create a React application by using <span class="text-red-600 bg-gray-200">create-react-app</span>.</p>
+          <p class="mb-3">If you've previously installed <span class="text-red-600 bg-gray-200">create-react-app</span> globally, it is recommended that you uninstall the package to ensure npx always uses the latest version of <span class="text-red-600 bg-gray-200">create-react-app</span>.</p>
+          <p class="mb-3">To uninstall, run this command: <span class="text-red-600 bg-gray-200">npm uninstall -g create-react-app</span>.</p>
+          <p class="mb-3">Run this command to create a React application named my-react-app:</p>
+          <pre class="bg-gray-900 p-4 mb-3 text-white rounded ">
+npx create-react-app my-react-app
+          </pre>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">create-react-app</span> will set up everything you need to run a React application.</p>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Run the React Application</h2>
+          <p class="mb-3">Now you are ready to run your first real React application!</p>
+          <p class="mb-3">Run this command to move to the <span class="text-red-600 bg-gray-200">my-react-app</span> directory:</p>
+          <pre class="bg-gray-900 p-4 mb-3 text-white rounded ">
+cd my-react-app
+          </pre>
+          <p class="mb-3">Run this command to run the React application <span class="text-red-600 bg-gray-200">my-react-app</span>:</p>
+          <pre class="bg-gray-900 p-4 mb-3 text-white rounded ">
+npm start
+          </pre>
+          <p class="mb-3">A new browser window will pop up with your newly created React App! If not, open your browser and type localhost:3000 in the address bar.</p>
+          <p class="mb-3">The result:</p>
+          <img class="mb-3" src="https://www.w3schools.com/react/screenshot_myfirstreact.png"/>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Modify the React Application</h2>
+          <p class="mb-3">So far so good, but how do I change the content?</p>
+          <p class="mb-3">Look in the <span class="text-red-600 bg-gray-200">my-react-app</span> directory, and you will find a <span class="text-red-600 bg-gray-200">src</span> folder. Inside the src folder there is a file called <span class="text-red-600 bg-gray-200">App.js</span>, open it and it will look like this:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;header className="App-header"&gt;
+        &lt;img src={logo} className="App-logo" alt="logo" /&gt;
+        &lt;p&gt;Edit &lt;code&gt; src/App.js&lt;/code&gt; and save to reload.&lt;/p&gt;
+        &lt;a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer" 
+        &gt;
+        Learn React
+        &lt;/a&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+          </pre>
+          <p class="mb-3">Try changing the HTML content and save the file.</p>
+          <p class="mb-3">Notice that the changes are visible immediately after you save the file, you do not have to reload the browser!</p>
+          <p class="mb-1">Example</p>
+          <p class="mb-3">Replace all the content inside the &lt;div className="App"&gt; with a &lt;h1&gt; element.</p>
+          <p class="mb-3">See the changes in the browser when you click Save.</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+          </pre>
+          <p class="mb-3">Notice that we have removed the imports we do not need (logo.svg and App.css).</p>
+          <p class="mb-1">The result:</p>
+          <img class="mb-3" src="https://www.w3schools.com/react/screenshot_helloworld.png"/>
+        </section>
+
+        <section id="structure" class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What's Next?</h2>
+          <p class="mb-3">Now you have a React Environment on your computer, and you are ready to learn more about React.</p>
+          <p class="mb-3">In the rest of this tutorial we will use our "Show React" tool to explain the various aspects of React, and how they are displayed in the browser.</p>
+          <p class="mb-3">If you want to follow the same steps on your computer, start by stripping down the src folder to only contain one file: index.js. You should also remove any unnecessary lines of code inside the index.js file to make them look like the example in the "Show React" tool below:</p>
+          <p class="mb-1">Example</p>
+          <p class="mb-3">Click the "Run Example" button to see the result.</p>
+          <p class="mb-3"><span class="text-red-600">index.js</span></p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+export default App;
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const myFirstElement = &lt;h1&gt;Hello React!&lt;/h1&gt;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(myFirstElement);
+          </pre>
+        </section>
 
 
 
 
 
-
-
-
-
-
-
-
-
-        </div>
-        <!-- end: Content -->
       </div>
+      <!-- end: Content -->
+
       <!-- start: Footer -->
       <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
         <div class="flex flex-row w-full justify-between items-center gap-4">
@@ -301,7 +481,7 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">

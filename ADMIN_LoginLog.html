@@ -4,12 +4,31 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base target="_top">
+  <?!= include ('css') ?>
+  <?!= include ('javascript') ?>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
 
-  <?!= include ('css') ?>
-  <?!= include ('javascript') ?>
+  <link
+    href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/r-3.0.2/sc-2.4.3/sb-1.7.1/sp-2.3.1/datatables.min.css"
+    rel="stylesheet">
+  <script
+    src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/r-3.0.2/sc-2.4.3/sb-1.7.1/sp-2.3.1/datatables.min.js">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/js/dataTables.js" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://ltschool.web.app/css/Bootstrapcolor.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 
 <body>
@@ -25,14 +44,14 @@
       </div>
       <ul class="sidebar-menu p-3 m-0 mb-0">
         <li class="sidebar-menu-item" id="active_dashboard">
-          <a href="<?= getUrl(); ?>">
+          <a href="<?= getUrl(); ?>" class="text-black hover:text-black">
             <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
             Dashboard
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
         <li class="sidebar-menu-item has-dropdown">
-          <a href="<?= getUrl(); ?>">
+          <a href="<?= getUrl(); ?>" class="text-black hover:text-black">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
             <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
@@ -122,19 +141,19 @@
           </ul>
         </li>
         <li class="sidebar-menu-item" id="Quiz_main">
-          <a href="<?= getUrl(); ?>?page=Quiz_main">
+          <a href="<?= getUrl(); ?>?page=Quiz_main" class="text-black hover:text-black">
             <i class="ri-bug-line sidebar-menu-item-icon"></i>
             Quiz
           </a>
         </li>
         <li class="sidebar-menu-item" id="Challences_main">
-          <a href="<?= getUrl(); ?>?page=Challences_main">
+          <a href="<?= getUrl(); ?>?page=Challences_main" class="text-black hover:text-black">
             <i class="ri-code-box-line sidebar-menu-item-icon"></i>
             Challenges
           </a>
         </li>
         <li class="sidebar-menu-item" id="SummaryScore_main">
-          <a href="<?= getUrl(); ?>?page=SummaryScore_main">
+          <a href="<?= getUrl(); ?>?page=SummaryScore_main" class="text-black hover:text-black">
             <i class="ri-bar-chart-box-line sidebar-menu-item-icon"></i>
             Summary Score
           </a>
@@ -142,19 +161,19 @@
 
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Apps</li>
         <li class="sidebar-menu-item">
-          <a href="https://www.aware.co.th/th/home-page" target="_blank">
+          <a href="https://www.aware.co.th/th/home-page" target="_blank" class="text-black hover:text-black">
             <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
             Aware Group
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="https://atsconnect.aware.co.th/en/sign-in" target="_blank">
+          <a href="https://atsconnect.aware.co.th/en/sign-in" target="_blank" class="text-black hover:text-black">
             <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
             ATS Connect
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="<?= getUrl(); ?>?page=ATSSupport_main">
+          <a href="<?= getUrl(); ?>?page=ATSSupport_main" class="text-black hover:text-black">
             <i class="ri-customer-service-2-line sidebar-menu-item-icon"></i>
             ATS Code Ranking Support
           </a>
@@ -163,13 +182,13 @@
         <div id="adminSystem">
           <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
           <li class="sidebar-menu-item" id="ADMIN_LoginLog">
-            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog" class=" hover:text-black">
               <i class="ri-server-line sidebar-menu-item-icon"></i>
               Log Login
             </a>
           </li>
           <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
-            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport" class=" hover:text-black" >
               <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
               Topics User Support
             </a>
@@ -189,171 +208,15 @@
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
-      <a href="<?= getUrl(); ?>?page=Learn_main" id="breadcrumb_sec2" name="breadcrumb_sec2" hidden></a>
+      <a href="<?= getUrl(); ?>" id="breadcrumb_sec2" name="breadcrumb_sec2" hidden></a>
       <a href="<?= getUrl(); ?>" id="breadcrumb_sec1" name="breadcrumb_sec1" hidden></a>
       <!-- end: Navbar -->
 
-      <!-- start: Content -->
-      <div class="container mx-auto mt-5">
-        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the SQL Tutorial</h1>
-        <p class="text-center text-lg mb-5">Learn SQL from basics to advanced topics</p>
-
-        <section id="introduction" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">Introduction</h2>
-          <p class="text-base mb-5">SQL (Structured Query Language) is a standard language for accessing and
-            manipulating
-            databases. It is widely used in database management systems to manage and retrieve data.</p>
-        </section>
-
-        <section id="basics" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">SQL Basics</h2>
-          <p class="text-base mb-5">In this section, we will cover the basic concepts and syntax of SQL.</p>
-          <ul class="list-disc list-inside mb-5">
-            <li><strong>SELECT:</strong> Retrieve data from a database.</li>
-            <li><strong>INSERT:</strong> Insert new data into a database.</li>
-            <li><strong>UPDATE:</strong> Update existing data within a database.</li>
-            <li><strong>DELETE:</strong> Delete data from a database.</li>
-            <li><strong>WHERE:</strong> Filter records based on specified conditions.</li>
-          </ul>
-          <pre class="bg-gray-100 p-4 rounded">
--- SELECT
-SELECT * FROM Employees;
-
--- INSERT
-INSERT INTO Employees (FirstName, LastName, Age)
-VALUES ('John', 'Doe', 30);
-
--- UPDATE
-UPDATE Employees
-SET Age = 31
-WHERE FirstName = 'John';
-
--- DELETE
-DELETE FROM Employees
-WHERE LastName = 'Doe';
-        </pre>
-        </section>
-
-        <section id="select" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">SELECT Statement</h2>
-          <p class="text-base mb-5">The SELECT statement is used to select data from a database. The data returned is
-            stored in a result table, sometimes called the result-set.</p>
-          <ul class="list-disc list-inside mb-5">
-            <li><strong>Basic SELECT:</strong> Retrieve all columns from a table.</li>
-            <li><strong>SELECT DISTINCT:</strong> Retrieve distinct (unique) values from a column.</li>
-            <li><strong>SELECT with WHERE:</strong> Retrieve specific records that meet certain conditions.</li>
-            <li><strong>SELECT with ORDER BY:</strong> Sort the result-set in ascending or descending order.</li>
-          </ul>
-          <pre class="bg-gray-100 p-4 rounded">
--- Basic SELECT
-SELECT * FROM Employees;
-
--- SELECT DISTINCT
-SELECT DISTINCT LastName FROM Employees;
-
--- SELECT with WHERE
-SELECT * FROM Employees
-WHERE Age > 25;
-
--- SELECT with ORDER BY
-SELECT * FROM Employees
-ORDER BY LastName ASC;
-        </pre>
-        </section>
-
-        <section id="joins" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">SQL Joins</h2>
-          <p class="text-base mb-5">SQL joins are used to combine rows from two or more tables, based on a related
-            column
-            between them.</p>
-          <ul class="list-disc list-inside mb-5">
-            <li><strong>INNER JOIN:</strong> Returns records that have matching values in both tables.</li>
-            <li><strong>LEFT JOIN:</strong> Returns all records from the left table, and the matched records from the
-              right table.</li>
-            <li><strong>RIGHT JOIN:</strong> Returns all records from the right table, and the matched records from the
-              left table.</li>
-            <li><strong>FULL JOIN:</strong> Returns all records when there is a match in either left or right table.
-            </li>
-          </ul>
-          <pre class="bg-gray-100 p-4 rounded">
--- INNER JOIN
-SELECT Employees.FirstName, Departments.DepartmentName
-FROM Employees
-INNER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
-
--- LEFT JOIN
-SELECT Employees.FirstName, Departments.DepartmentName
-FROM Employees
-LEFT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
-
--- RIGHT JOIN
-SELECT Employees.FirstName, Departments.DepartmentName
-FROM Employees
-RIGHT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
-
--- FULL JOIN
-SELECT Employees.FirstName, Departments.DepartmentName
-FROM Employees
-FULL JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
-        </pre>
-        </section>
-
-        <section id="functions" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">SQL Functions</h2>
-          <p class="text-base mb-5">SQL provides many built-in functions for performing calculations on data. These
-            functions can be used in the SELECT statement to perform calculations on the retrieved data.</p>
-          <ul class="list-disc list-inside mb-5">
-            <li><strong>Aggregate Functions:</strong> Perform a calculation on a set of values and return a single
-              value. Examples include <code>AVG</code>, <code>COUNT</code>, <code>MAX</code>, <code>MIN</code>, and
-              <code>SUM</code>.
-            </li>
-            <li><strong>Scalar Functions:</strong> Perform operations on individual values and return a single value.
-              Examples include <code>LEN</code>, <code>ROUND</code>, and <code>UCASE</code>.</li>
-          </ul>
-          <pre class="bg-gray-100 p-4 rounded">
--- Aggregate Functions
-SELECT AVG(Salary) FROM Employees;
-SELECT COUNT(EmployeeID) FROM Employees;
-SELECT MAX(Salary) FROM Employees;
-SELECT MIN(Salary) FROM Employees;
-SELECT SUM(Salary) FROM Employees;
-
--- Scalar Functions
-SELECT LEN(FirstName) FROM Employees;
-SELECT ROUND(Salary, 2) FROM Employees;
-SELECT UCASE(FirstName) FROM Employees;
-        </pre>
-        </section>
-
-        <section id="advanced" class="mt-10">
-          <h2 class="text-2xl font-semibold mb-3">Advanced SQL</h2>
-          <p class="text-base mb-5">In this section, we will cover more advanced topics in SQL, such as subqueries,
-            indexes, and transactions.</p>
-          <ul class="list-disc list-inside mb-5">
-            <li><strong>Subqueries:</strong> A query within another query. Subqueries can be used in SELECT, INSERT,
-              UPDATE, and DELETE statements.</li>
-            <li><strong>Indexes:</strong> Used to speed up the retrieval of data from a database table.</li>
-            <li><strong>Transactions:</strong> A sequence of operations performed as a single logical unit of work.</li>
-          </ul>
-          <pre class="bg-gray-100 p-4 rounded">
--- Subquery
-SELECT FirstName, Salary
-FROM Employees
-WHERE Salary > (SELECT AVG(Salary) FROM Employees);
-
--- Index
-CREATE INDEX idx_lastname ON Employees (LastName);
-
--- Transaction
-BEGIN;
-UPDATE Employees SET Salary = Salary * 1.10 WHERE DepartmentID = 1;
-INSERT INTO Audit (EmployeeID, Action, Date)
-VALUES (123, 'Salary Increase', NOW());
-COMMIT;
-        </pre>
-        </section>
+      <div class="my-5  mx-3">
+        <table id="dataTable" class="table table-hover display table-bordered pagination" style="width:100%">
+          <thead class="headers-table"></thead>
+        </table>
       </div>
-      <!-- end: Content -->
       <!-- start: Footer -->
       <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
         <div class="flex flex-row w-full justify-between items-center gap-4">
@@ -365,80 +228,94 @@ COMMIT;
           <div class="flex flex-col w-1/3">
             <label class="text-xl font-bold mb-3">Learning</label>
             <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
-              class=" font-light text-sm hover:underline">HTML</a>
-            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS"
+              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">CSS</a>
             <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
-              class=" font-light text-sm hover:underline">JavaScript</a>
-            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL"
+              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">SQL</a>
             <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
-              class=" font-light text-sm hover:underline">Python</a>
-            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Python</a>
+            <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP"
+              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">PHP</a>
             <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
-              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Bootstrap 5</a>
             <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
-              class=" font-light text-sm hover:underline">jQuery</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">jQuery</a>
             <a href="<?= getUrl(); ?>?page=Learn_React&name=Learn_React"
-              class=" font-light text-sm hover:underline">React</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">React</a>
             <a href="<?= getUrl(); ?>?page=Learn_JAVA&name=Learn_JAVA"
-              class=" font-light text-sm hover:underline">JAVA</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">JAVA</a>
             <a href="<?= getUrl(); ?>?page=Learn_CCPlus&name=Learn_CCPlus"
-              class=" font-light text-sm hover:underline">C,
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">C,
               C++</a>
             <a href="<?= getUrl(); ?>?page=Learn_dotNETC&name=Learn_dotNETC"
-              class=" font-light text-sm hover:underline">.NET C#</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">.NET C#</a>
             <a href="<?= getUrl(); ?>?page=Learn_Kotlin&name=Learn_Kotlin"
-              class=" font-light text-sm hover:underline">Kotlin</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Kotlin</a>
             <a href="<?= getUrl(); ?>?page=Learn_PostgreSQL&name=Learn_PostgreSQL"
-              class=" font-light text-sm hover:underline">PostgreSQL</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">PostgreSQL</a>
             <a href="<?= getUrl(); ?>?page=Learn_TypeScript&name=Learn_TypeScript"
-              class=" font-light text-sm hover:underline">TypeScript</a>
-            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Learn_XML&name=Learn_XML"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">XML</a>
           </div>
           <div class="flex flex-col w-1/3">
             <label class="text-xl font-bold mb-3">Quiz</label>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_HTML"
-              class=" font-light text-sm hover:underline">HTML</a>
-            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS" class=" font-light text-sm hover:underline">CSS</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">HTML</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CSS"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">CSS</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JavaScript"
-              class=" font-light text-sm hover:underline">JavaScript</a>
-            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL" class=" font-light text-sm hover:underline">SQL</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">JavaScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_SQL"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">SQL</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Python"
-              class=" font-light text-sm hover:underline">Python</a>
-            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP" class=" font-light text-sm hover:underline">PHP</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Python</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PHP"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">PHP</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Bootstrap5"
-              class=" font-light text-sm hover:underline">Bootstrap 5</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Bootstrap 5</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_jQuery"
-              class=" font-light text-sm hover:underline">jQuery</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">jQuery</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_React"
-              class=" font-light text-sm hover:underline">React</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">React</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_JAVA"
-              class=" font-light text-sm hover:underline">JAVA</a>
-            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus" class=" font-light text-sm hover:underline">C,
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">JAVA</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_CCPlus"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">C,
               C++</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_dotNETC"
-              class=" font-light text-sm hover:underline">.NET
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">.NET
               C#</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_Kotlin"
-              class=" font-light text-sm hover:underline">Kotlin</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Kotlin</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_PostgreSQL"
-              class=" font-light text-sm hover:underline">PostgreSQL</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">PostgreSQL</a>
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_TypeScript"
-              class=" font-light text-sm hover:underline">TypeScript</a>
-            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">TypeScript</a>
+            <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">XML</a>
           </div>
           <div class="flex flex-col w-1/3">
             <label class="text-xl font-bold mb-3">Challences</label>
-            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+            <a href="<?= getUrl(); ?>?page=Challences_main"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challences
               Summary</a>
             <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
-            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Quiz Summary
               Score</a>
-            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challences
               Summary Score</a>
             <label class="text-xl font-bold mb-3 mt-5">Website</label>
-            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
+            <a href="https://www.aware.co.th/th/home-page"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Aware Corporation
               Limited</a>
-            <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
+            <a href="https://atsconnect.aware.co.th/en/sign-in"
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">ATS
               Connect</a>
           </div>
         </div>
@@ -458,17 +335,61 @@ COMMIT;
 
       </section>
       <!-- end: Footer -->
-      
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
       </button>
       </div>
+    </div>
 
-      <?!= include('Loading'); ?>
-      <?!= include('ImageProfile'); ?>
+    <?!= include('Loading'); ?>
+    <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
+
+  <script>
+    window.addEventListener("load", functionInit, true); 
+
+    function functionInit() {
+      $('#spinnerModal').modal('show');
+      document.getElementById('dropdownImageProfile').style.display = 'none';
+
+      google.script.run.withSuccessHandler(showTable).getAdminLoginLoggerReportData();
+    }
+
+    function showTable(res){
+      const dataSet = res.data;
+      const headers = res.headers.map(items =>{
+        return {title:items};
+      });
+
+      $('#dataTable').DataTable({
+        data: dataSet,
+        columns: headers,
+        columns: [
+          { title: "Date Login" },
+          { title: "EmployeeID" }, 
+          { title: "Name" }, 
+          { title: "Email" },
+        ],
+        destroy:true, 
+        autoWidth: true,
+        pageLength: 10,
+        responsive:true,     
+        lengthMenu: [
+          [5, 10, 25, 50, 100, -1 ],
+          ['5', '10', '25', '50','100', 'All' ]
+        ],
+        columnDefs: [ 
+          { targets: [ 0,1,2,3 ], className: 'dt-body-left dt-head-center' },          
+        ],
+        order: [[0, "desc"] ],
+      });
+
+      $('#spinnerModal').modal('hide');
+    }
+
+  </script>
 
 </body>
 

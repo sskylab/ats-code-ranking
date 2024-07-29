@@ -44,6 +44,7 @@
   <script>
     // FormAddDateReportPage: onSubmit
     function handleFormSubmit(formObject) {
+      console.log("handleFormSubmit")
       $('#spinnerModal').modal('show');
       
       var email = formObject.login_email_input.value;
@@ -52,6 +53,7 @@
     }
 
     function outputLogin(res) {
+      console.log("outputLogin")
       if(res.success == true){
         localStorage.setItem('profileinfo', JSON.stringify(res.data[0]));
       }

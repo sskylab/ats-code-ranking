@@ -41,6 +41,14 @@
 
   function setDisplayData() {
     var name = getUserProfileInfo().userName.split(" ")
+    var permissionAllow = getUserProfileInfo().permissionAllow
+
+    if(permissionAllow) {
+      document.getElementById('adminSystem').style.display = 'block';
+    }
+    else {
+      document.getElementById('adminSystem').style.display = 'none';
+    }
      
     document.getElementById('email_display').textContent = getUserProfileInfo().userEmail;
     document.getElementById('name_display').textContent = name[0];
@@ -139,6 +147,10 @@
         return "Summary Score";
       case 'ATSSupport_main':
         return "ATS Code Ranking Support";
+      case 'ADMIN_LoginLog':
+        return "ADMIN: Login Log";
+      case 'ADMIN_TopicsUserSupport':
+        return "ADMIN: Topics User Support";
       default: return;      
     }
   }

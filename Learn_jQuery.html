@@ -159,6 +159,22 @@
             ATS Code Ranking Support
           </a>
         </li>
+
+        <div id="adminSystem">
+          <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Administrator</li>
+          <li class="sidebar-menu-item" id="ADMIN_LoginLog">
+            <a href="<?= getUrl(); ?>?page=ADMIN_LoginLog">
+              <i class="ri-server-line sidebar-menu-item-icon"></i>
+              Log Login
+            </a>
+          </li>
+          <li class="sidebar-menu-item" id="ADMIN_TopicsUserSupport">
+            <a href="<?= getUrl(); ?>?page=ADMIN_TopicsUserSupport">
+              <i class="ri-sim-card-2-line sidebar-menu-item-icon"></i>
+              Topics User Support
+            </a>
+          </li>
+        </div>
       </ul>
     </section>
     <div class="d-flex align-items-start px-3 pb-1">
@@ -178,24 +194,441 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <p>JQUERY: Content over here!!</p>
+      <div class="container mx-auto mt-5">
+        <h1 class="text-center text-4xl font-bold mb-5">Welcome to the jQuery Tutorial</h1>
+        <p class="text-center text-lg mb-3">Learn jQuery from basics to advanced topics</p>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What is jQuery?</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p>jQuery is a lightweight, "write less, do more", JavaScript library.</p>
+            <p>The purpose of jQuery is to make it much easier to use JavaScript on your website.</p>
+            <p>jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps
+              them into methods that you can call with a single line of code.</p>
+            <p>jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM
+              manipulation.</p>
+            <p>The jQuery library contains the following features:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>HTML/DOM manipulation</li>
+              <li>CSS manipulation</li>
+              <li>HTML event methods</li>
+              <li>Effects and animations</li>
+              <li>AJAX</li>
+              <li>Utilities</li>
+            </ul>
+          </div>
+          <p class=""><strong>Tip: </strong>In addition, jQuery has plugins for almost any task out there.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Why jQuery?</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p>There are lots of other JavaScript libraries out there, but jQuery is probably the most popular, and also
+              the most extendable.</p>
+            <p>Many of the biggest companies on the Web use jQuery, such as:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>Google</li>
+              <li>Microsoft</li>
+              <li>IBM</li>
+              <li>Netflix</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Adding jQuery to Your Web Pages</h2>
+          <div class="flex flex-col mb-1 gap-3 w-full">
+            <p>There are several ways to start using jQuery on your web site. You can:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>Download the jQuery library from jQuery.com</li>
+              <li>Include jQuery from a CDN, like Google</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Downloading jQuery</h2>
+          <div class="flex flex-col mb-3 gap-3 w-full">
+            <p>There are two versions of jQuery available for downloading:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>Production version - this is for your live website because it has been minified and compressed</li>
+              <li>Development version - this is for testing and development (uncompressed and readable code)</li>
+            </ul>
+          </div>
+          <p class="mb-3">Both versions can be downloaded from <a href="http://jquery.com/download/" target="_blank"
+              class="underline">jQuery.com</a></p>
+          <p class="mb-3">The jQuery library is a single JavaScript file, and you reference it with the HTML
+            <code>&lt;script&gt;</code> tag (notice that the <code>&lt;script&gt;</code> tag should be inside the
+            <code>&lt;head&gt;</code> section):</a>
+          </p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;head&gt;
+&lt;script src="jquery-3.7.1.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+            </pre>
+          <p class=""><strong>Tip: </strong>In addition, jQuery has plugins for almost any task out there.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">jQuery CDN</h2>
+          <p class="mb-3">If you don't want to download and host jQuery yourself, you can include it from a CDN (Content
+            Delivery Network).</p>
+          <p class="mb-4">Google is an example of someone who host jQuery:</p>
+          <p class="mb-1 text-xl">Google CDN:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;head&gt;
+&lt;head&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+            </pre>
+          <p class=""><strong>Tip: </strong>In addition, jQuery has plugins for almost any task out there.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">jQuery Syntax</h2>
+          <p class="mb-3">The jQuery syntax is tailor-made for <b>selecting</b> HTML elements and performing some
+            <b>action</b> on the element(s).
+          </p>
+          <p class="mb-4">Basic syntax is: <b>$(selector).action()</b></p>
+          <p class="mb-3">Examples:</p>
+          <p class="mb-2"><span class="text-red-600 bg-gray-200">$(this).hide()</span> - hides the current element.</p>
+          <p class="mb-2"><span class="text-red-600 bg-gray-200">$("p").hide()</span> - hides all
+          <p> elements.</p>
+          <p class="mb-2"><span class="text-red-600 bg-gray-200">$(".test").hide()</span> - hides all elements with
+            class="test".</p>
+          <p class="mb-2"><span class="text-red-600 bg-gray-200">$("#test").hide()</span> - hides the element with
+            id="test".</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The Document Ready Event</h2>
+          <p class="mb-3">You might have noticed that all jQuery methods in our examples, are inside a document ready
+            event:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(document).ready(function(){
+      <p class="text-green-600 ml-5">// jQuery methods go here...</p>
+});
+            </pre>
+          <p class="mb-3">This is to prevent any jQuery code from running before the document is finished loading (is
+            ready).</p>
+          <p class="mb-3">It is good practice to wait for the document to be fully loaded and ready before working with
+            it. This also allows you to have your JavaScript code before the body of your document, in the head section.
+          </p>
+          <div class="flex flex-col mb-3 gap-3 w-full">
+            <p>Here are some examples of actions that can fail if methods are run before the document is fully loaded:
+            </p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>Trying to hide an element that is not created yet</li>
+              <li>Trying to get the size of an image that is not loaded yet</li>
+            </ul>
+          </div>
+          <p><strong>Tip: </strong>The jQuery team has also created an even shorter method for the document ready event:
+          </p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(function(){
+      <p class="text-green-600 ml-5">// jQuery methods go here...</p>
+});
+            </pre>
+          <p>Use the syntax you prefer. We think that the document ready event is easier to understand when reading the
+            code.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">jQuery Selectors</h2>
+          <p class="mb-3">jQuery selectors allow you to select and manipulate HTML element(s).</p>
+          <p class="mb-3">jQuery selectors are used to "find" (or select) HTML elements based on their name, id,
+            classes, types, attributes, values of attributes and much more. It's based on the existing <a
+              href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank" class="underline">CSS
+              Selectors</a> and in addition, it has some own custom selectors.</p>
+          <p class="mb-3">All selectors in jQuery start with the dollar sign and parentheses: $().</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The element Selector</h2>
+          <p class="mb-3">The jQuery element selector selects elements based on the element name.</p>
+          <p class="mb-3">You can select all <span class="text-red-600 bg-gray-200">&lt;p&gt;</span> elements on a page
+            like this:</p>
+          <p class="mb-3">All selectors in jQuery start with the dollar sign and parentheses: $().</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$("p")
+            </pre>
+          <p class="mb-3 font-semibold ">Example</p>
+          <p class="mb-3">When a user clicks on a button, all <span class="text-red-600 bg-gray-200">&lt;p&gt;</span>
+            elements will be hidden:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(document).ready(<span class="text-sky-600">function</span>(){
+  $(<span class="text-red-600">"button"</span>).click(<span class="text-sky-600">function</span>(){
+    $(<span class="text-red-600">"p"</span>).hide();
+  });
+});
+            </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The #id Selector</h2>
+          <p class="mb-3">The jQuery <span class="text-red-600 bg-gray-200">#id</span> selector uses the id attribute of
+            an HTML tag to find the specific element.</p>
+          <p class="mb-3">An id should be unique within a page, so you should use the #id selector when you want to find
+            a single, unique element.</p>
+          <p class="mb-3">To find an element with a specific id, write a hash character, followed by the id of the HTML
+            element:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"#test"</span>)
+            </pre>
+          <p class="mb-3 font-semibold ">Example</p>
+          <p class="mb-3">When a user clicks on a button, the element with id="test" will be hidden:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(document).ready(<span class="text-sky-600">function</span>(){
+  $(<span class="text-red-600">"button"</span>).click(<span class="text-sky-600">function</span>(){
+    $(<span class="text-red-600">"#test"</span>).hide();
+  });
+});
+            </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The .class Selector</h2>
+          <p class="mb-3">The jQuery <span class="text-red-600 bg-gray-200">.class</span> selector finds elements with a
+            specific class.</p>
+          <p class="mb-3">To find elements with a specific class, write a period character, followed by the name of the
+            class:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">".test"</span>)
+            </pre>
+          <p class="mb-3 font-semibold ">Example</p>
+          <p class="mb-3">When a user clicks on a button, the elements with class="test" will be hidden:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(document).ready(<span class="text-sky-600">function</span>(){
+  $(<span class="text-red-600">"button"</span>).click(<span class="text-sky-600">function</span>(){
+    $(<span class="text-red-600">".test"</span>).hide();
+  });
+});
+          </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Functions In a Separate File</h2>
+          <p class="mb-3">If your website contains a lot of pages, and you want your jQuery functions to be easy to
+            maintain, you can put your jQuery functions in a separate .js file.</p>
+          <p class="mb-3">When we demonstrate jQuery in this tutorial, the functions are added directly into the
+            <span class="text-red-600 bg-gray-200">&lt;head&gt;</span> section. However, sometimes it is preferable to
+            place them in a separate file, like this (use the src attribute to refer to the .js file):
+          </p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+&lt;head&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="my_jquery_functions.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+            </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">What are Events?</h2>
+          <p class="mb-3">All the different visitors' actions that a web page can respond to are called events.</p>
+          <p class="mb-3">An event represents the precise moment when something happens.</p>
+          <div class="flex flex-col mb-3 gap-3 w-full">
+            <p>Examples:</p>
+            <ul class="list-disc list-inside mb-1 mx-5">
+              <li>moving a mouse over an element</li>
+              <li>selecting a radio button</li>
+              <li>clicking on an element</li>
+            </ul>
+          </div>
+          <p class="mb-3">The term <b>"fires/fired"</b> is often used with events. Example: "The keypress event is
+            fired, the moment you press a key".</p>
+          <p class="mb-3">Here are some common DOM events:</p>
+          <table class="w-full text-sm border-1 text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-900 uppercase dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">Mouse Events</th>
+                <th scope="col" class="px-6 py-3">Keyboard Events</th>
+                <th scope="col" class="px-6 py-3">Form Events</th>
+                <th scope="col" class="px-6 py-3">Document/Window Events</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white dark:bg-gray-800">
+                <td class="px-6 py-4">click</td>
+                <td class="px-6 py-4">keypress</td>
+                <td class="px-6 py-4">submit</td>
+                <td class="px-6 py-4">load</td>
+              </tr>
+              <tr class="bg-white dark:bg-gray-800">
+                <td class="px-6 py-4">dblclick</td>
+                <td class="px-6 py-4">keydown</td>
+                <td class="px-6 py-4">change</td>
+                <td class="px-6 py-4">resize</td>
+              </tr>
+              <tr class="bg-white dark:bg-gray-800">
+                <td class="px-6 py-4">mouseenter</td>
+                <td class="px-6 py-4">keyup</td>
+                <td class="px-6 py-4">focus</td>
+                <td class="px-6 py-4">scroll</td>
+              </tr>
+              <tr class="bg-white dark:bg-gray-800">
+                <td class="px-6 py-4">mouseleave</td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4">blur</td>
+                <td class="px-6 py-4">unload</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">jQuery Syntax For Event Methods</h2>
+          <p class="mb-3">In jQuery, most DOM events have an equivalent jQuery method.</p>
+          <p class="mb-3">To assign a click event to all paragraphs on a page, you can do this:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"#p"</span>).click();
+          </pre>
+          <p class="mb-3">The next step is to define what should happen when the event fires. You must pass a function
+            to the event:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"#p"</span>).click(<span class="text-sky-600">function</span>(){
+      <p class="text-green-600 ml-5">// action goes here!!</p>
+  });
+          </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">Commonly Used jQuery Event Methods</h2>
+          <b class="mb-3">$(document).ready()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">$(document).ready()</span> method allows us to
+            execute a function when the document is fully loaded. This event is already explained in the <a
+              href="https://www.w3schools.com/jquery/jquery_syntax.asp" target="_blank" class="underline">jQuery
+              Syntax</a> chapter.</p>
+          <b class="mb-3">click()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">click()</span> method attaches an event handler
+            function to an HTML element.</p>
+          <p class="mb-3">The function is executed when the user clicks on the HTML element.</p>
+          <p class="mb-3">The following example says: When a click event fires on a
+            <span class="text-red-600 bg-gray-200">&lt;p&gt;</span> element; hide the current
+            <span class="text-red-600 bg-gray-200">&lt;/p&gt;</span> element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p"</span>).click(<span class="text-sky-600">function</span>(){
+    $(<span class="text-sky-600">this</span>).hide();
+});
+          </pre>
+          <b class="mb-3">dblclick()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">dblclick()</span> method attaches an event handler
+            function to an HTML element.</p>
+          <p class="mb-3">The function is executed when the user double-clicks on the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p"</span>).dblclick(<span class="text-sky-600">function</span>(){
+    $(<span class="text-sky-600">this</span>).hide();
+});
+          </pre>
+          <b class="mb-3">mouseenter()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">mouseenter()</span> method attaches an event
+            handler function to an HTML element.</p>
+          <p class="mb-3">The function is executed when the mouse pointer enters the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p1"</span>).mouseenter(<span class="text-sky-600">function</span>(){
+    alert(<span class="text-red-600">"You entered p1!"</span>);
+});
+          </pre>
+          <b class="mb-3">mouseleave()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">mouseleave()</span> method attaches an event
+            handler function to an HTML element.</p>
+          <p class="mb-3">The function is executed when the mouse pointer leaves the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p1"</span>).mouseleave(<span class="text-sky-600">function</span>(){
+    alert(<span class="text-red-600">"Bye! You now leave p1!"</span>);
+});
+          </pre>
+          <b class="mb-3">mousedown()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">mousedown()</span> method attaches an event handler
+            function to an HTML element.</p>
+          <p class="mb-3">The function is executed, when the left, middle or right mouse button is pressed down, while
+            the mouse is over the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p1"</span>).mousedown(<span class="text-sky-600">function</span>(){
+    alert(<span class="text-red-600">"Mouse down over p1!"</span>);
+});
+          </pre>
+          <b class="mb-3">mouseup()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">mouseup()</span> method attaches an event handler
+            function to an HTML element.</p>
+          <p class="mb-3">The function is executed, when the left, middle or right mouse button is released, while the
+            mouse is over the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p1"</span>).mouseup(<span class="text-sky-600">function</span>(){
+    alert(<span class="text-red-600">"Mouse up over p1!"</span>);
+});
+          </pre>
+          <b class="mb-3">hover()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">hover()</span> method takes two functions and is a
+            combination of the <span class="text-red-600 bg-gray-200">mouseenter()</span> and
+            <span class="text-red-600 bg-gray-200">mouseleave()</span> methods.</p>
+          <p class="mb-3">The first function is executed when the mouse enters the HTML element, and the second function
+            is executed when the mouse leaves the HTML element:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"p1"</span>).hover(<span class="text-sky-600">function</span>(){
+    alert(<span class="text-red-600">"You entered p1!"</span>);
+}),
+<span class="text-sky-600">function</span>(){
+  alert(<span class="text-red-600">"Bye! You now leave p1!"</span>);
+};
+          </pre>
+          <b class="mb-3">focus()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">focus()</span> method attaches an event handler
+            function to an HTML form field.</p>
+          <p class="mb-3">The function is executed when the form field gets focus:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"input"</span>).focus(<span class="text-sky-600">function</span>(){
+  $(<span class="text-sky-600">this</span>).css(<span class="text-red-600">"background-color"</span>, <span class="text-red-600">"#cccccc"</span>);
+});
+          </pre>
+          <b class="mb-3">blur()</b>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">blur()</span> method attaches an event handler
+            function to an HTML form field.</p>
+          <p class="mb-3">The function is executed when the form field loses focus:</p>
+          <p class="mb-3">Example</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"input"</span>).blur(<span class="text-sky-600">function</span>(){
+  $(<span class="text-sky-600">this</span>).css(<span class="text-red-600">"background-color"</span>, <span class="text-red-600">"#cccccc"</span>);
+});
+          </pre>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold mb-3">The on() Method</h2>
+          <p class="mb-3">The <span class="text-red-600 bg-gray-200">on()</span> method attaches one or more event
+            handlers for the selected elements.</p>
+          <p class="mb-3">Attach a click event to a <span class="text-red-600 bg-gray-200">&lt;p&gt;</span> element:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"#p"</span>).on(<span class="text-red-600">"click"</span>, <span class="text-sky-600">function</span>(){
+  $(<span class="text-sky-600">this</span>).hide();
+});
+          </pre>
+          <p class="mb-3">Attach multiple event handlers to a <span class="text-red-600 bg-gray-200">&lt;p&gt;</span>
+            element:</p>
+          <pre class="bg-gray-100 p-4 mb-3 rounded ">
+$(<span class="text-red-600">"#p"</span>).on({
+  mouseenter: <span class="text-sky-600">function</span>(){
+    $(<span class="text-sky-600">this</span>).css(<span class="text-red-600">"background-color"</span>, <span class="text-red-600">"lightgray"</span>);
+  },
+  mouseleave: <span class="text-sky-600">function</span>(){
+    $(<span class="text-sky-600">this</span>).css(<span class="text-red-600">"background-color"</span>, <span class="text-red-600">"lightblue"</span>);
+  },
+  click: <span class="text-sky-600">function</span>(){
+    $(<span class="text-sky-600">this</span>).css(<span class="text-red-600">"background-color"</span>, <span class="text-red-600">"yellow"</span>);
+  }
+});
+          </pre>
+        </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
-        </div>
-        <!-- end: Content -->
       </div>
       <!-- start: Footer -->
       <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
@@ -301,7 +734,7 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">

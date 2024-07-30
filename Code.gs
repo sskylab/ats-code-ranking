@@ -35,7 +35,7 @@ function doGet(e) {
 
 // FIXED: SET/GET APPLICATION VERSION WHEN WE WILL DEPLOYMENT
 function getAppVersion() {
-  var appVersion = '1.2.5';
+  var appVersion = '1.2.6';
   return appVersion;
 }
 
@@ -52,7 +52,7 @@ function getCurrentPage(page) {
   var cache = CacheService.getUserCache();
   var sessionToken = cache.get('sessionToken');
 
-  if (sessionToken) {
+  if (sessionToken != null) {
     if (page == 'login') {
       return 'main';
     }

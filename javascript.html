@@ -26,9 +26,8 @@
     breadcrumbController();
     getVersion();
     preventFormSubmit();
-    setDisplayData()
+    setDisplayData();
 
-    // FIXED: DISABLE CHALLENCE BUTTON
     document.getElementById('Challences_main').classList.add('pointer-events-none');
     document.getElementById('scroll-to-top').style.display = 'none';
   };
@@ -41,15 +40,20 @@
 
   function setDisplayData() {
     var name = getUserProfileInfo().userName.split(" ")
-    var permissionAllow = getUserProfileInfo().permissionAllow
+    var permissionAllow = getUserProfileInfo().permissionAllow;
+    var userType = getUserProfileInfo().userType;
+
+    document.getElementById('Candidate_main').style.display = 'none';
+    document.getElementById('adminSystem').style.display = 'none';
 
     if(permissionAllow) {
       document.getElementById('adminSystem').style.display = 'block';
     }
-    else {
-      document.getElementById('adminSystem').style.display = 'none';
+
+    if(userType == 'CANDIDATE'){
+      document.getElementById('Candidate_main').style.display = 'block';
     }
-     
+    
     document.getElementById('email_display').textContent = getUserProfileInfo().userEmail;
     document.getElementById('name_display').textContent = name[0];
   }
@@ -85,14 +89,14 @@
       var page = location.parameter.page;
       var name = location.parameter.name;
 
-      if(page == "main" || page == undefined){
-        setBreadcrumbSectionI("main");
+      if(page == "main" || page == "mainCandidate" || page == undefined){
+        setBreadcrumbSectionI('main');
       }
       else if(!isNullOrUndefined(page) && isNullOrUndefined(name)) {
-        setBreadcrumbSectionII(page)
+        setBreadcrumbSectionII(page);
       }
       else if(!isNullOrUndefined(page) && !isNullOrUndefined(name)) {
-        setBreadcrumbSectionIII(page, name)
+        setBreadcrumbSectionIII(page, name);
       }
     });
   }
@@ -100,6 +104,8 @@
   function getPageName(pageName){
     switch(pageName){
       case 'main':
+        return "Dashboard";
+      case 'mainCandidate':
         return "Dashboard";
       case 'home':
         return "Home";
@@ -151,6 +157,14 @@
         return "ADMIN: Login Log";
       case 'ADMIN_TopicsUserSupport':
         return "ADMIN: Topics User Support";
+      case 'ADMIN_AwareUserManagement':
+        return "ADMIN: Aware User Management";
+      case 'ADMIN_CandidateUserManagement':
+        return "ADMIN: Candidate User Management";
+      case 'Candidate_main':
+        return "Testing";
+      case 'Survey_main':
+        return "Satisfaction Survey";
       default: return;      
     }
   }
@@ -241,11 +255,12 @@
 
     });
   }
-
   
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 100) {
       document.getElementById('scroll-to-top').style.display = 'block';
+      // document.getElementById("scroll-to-top").classList.remove('invisible');
+      // document.getElementById("scroll-to-top").classList.add('visible');
     } else {
       document.getElementById('scroll-to-top').style.display = 'none';
     }

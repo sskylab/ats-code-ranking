@@ -1,25 +1,32 @@
 <form id="formSupport" onsubmit="handleFormSupportSubmit(this)" class="p-6 flex flex-col justify-center">
   <div class="flex flex-col">
     <label for="name" class="hidden">Full Name</label>
-    <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+    <input type="name" name="name" id="name" placeholder="Full Name" required class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
   </div>
 
   <div class="flex flex-col mt-2">
     <label for="email" class="hidden">Email</label>
-    <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none">
+    <input type="email" name="email" id="email" placeholder="Email" required class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none">
   </div>
 
   <div class="flex flex-col mt-2">
-    <label for="telephone" class="hidden">Number</label>
-    <input type="telephone" name="telephone" id="telephone" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+    <label for="telephone" class="hidden">Telephone</label>
+    <input type="tel" name="telephone" id="telephone" placeholder="Telephone number ex. ###-###-####" autocomplete="tel" maxlength="14" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none"/>
+
   </div>
 
   <div class="flex flex-col mt-2">
-    <label for="textArea" class="hidden">Email</label>
-    <textarea id="textArea" name="textArea" rows="4" class="block w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" placeholder="Write your thoughts here..."></textarea>
-    
+    <label for="textArea" class="hidden">comment</label>
+    <textarea id="textArea" name="textArea" rows="4" required class="block w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" placeholder="Write your thoughts here..."></textarea>
+
   </div>
-  
+
   <button type="submit" class="md:w-32 bg-[#b42e34] dark:bg-gray-100 text-white dark:text-gray-800 font-bold py-3 px-6 rounded-lg mt-4 hover:bg-[#9E0A11] dark:hover:bg-gray-200 transition ease-in-out duration-300">Submit</button>
 
 </form>
+<script>
+  document.getElementById('telephone').addEventListener('input', function (e) {
+    var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+    e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+  });
+</script>

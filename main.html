@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
-        <li class="sidebar-menu-item has-dropdown">
+        <li class="sidebar-menu-item has-dropdown" id="learningSystem">
           <a href="<?= getUrl(); ?>">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
@@ -141,6 +141,18 @@
             Summary Score
           </a>
         </li>
+        <!-- <li class="sidebar-menu-item" id="SummaryScore_main">
+          <a href="<?= getUrl(); ?>?page=Survey_main">
+            <i class="ri-pie-chart-line sidebar-menu-item-icon"></i>
+            Satisfaction Survey
+          </a>
+        </li> -->
+        <li class="sidebar-menu-item" id="Candidate_main">
+          <a href="<?= getUrl(); ?>?page=Candidate_main">
+            <i class="ri-bar-chart-box-line sidebar-menu-item-icon"></i>
+            Candidate Testing
+          </a>
+        </li>
 
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Apps</li>
         <li class="sidebar-menu-item">
@@ -176,6 +188,26 @@
               Topics User Support
             </a>
           </li>
+          <li class="sidebar-menu-item has-dropdown">
+            <a href="<?= getUrl(); ?>" class="hover:text-black">
+              <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+              User management
+              <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_AwareUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_AwareUserManagement">
+                  Aware User
+                </a>
+              </li>
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_CandidateUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_CandidateUserManagement">
+                  Candidate User
+                </a>
+              </li>
+
+            </ul>
+          </li>
         </div>
       </ul>
     </section>
@@ -187,7 +219,7 @@
 
   <!-- start: Main -->
   <main class="bg-light">
-    <div class="p-2">
+    <div class="p-2" >
       <!-- start: Navbar -->
       <?!= include ('BreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
@@ -297,11 +329,6 @@
           <label class="text-base font-light text-black mt-2">use which I must say This website has helped me get to this point.</label>
         </div>
 
-        <!-- <iframe frameBorder="0" height="600px" width="100%"
-            src="https://onecompiler.com/embed/challenges/42kj92ndy/apiKey=odinschool&userApiToken=berxiw95cwm3rhpcgkuy6f7yf44744zqkbvrh8clv3d95q6snx9og9z7qxoag8mrh3pl93z0nsxmk2ffz3pkkgh9mluhl2ei"></iframe>
- -->
-
-
 
       </div>
     </div>
@@ -375,13 +402,13 @@
           <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
         </div>
         <div class="flex flex-col w-1/3">
-          <label class="text-xl font-bold mb-3">Challences</label>
-          <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+          <label class="text-xl font-bold mb-3">Challenges</label>
+          <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challenges
             Summary</a>
           <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
           <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
             Score</a>
-          <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+          <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challenges
             Summary Score</a>
           <label class="text-xl font-bold mb-3 mt-5">Website</label>
           <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
@@ -423,6 +450,7 @@
     <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
+
 
 </body>
 

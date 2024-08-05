@@ -1,0 +1,27 @@
+<header class="sticky top-0 card shadow-sm">
+  <nav class="px-3 py-2 bg-white rounded flex items-center justify-between">
+    <i class="ri-menu-line sidebar-toggle me-3 d-block d-md-none"></i>
+    <div class="flex flex-row gap-2 items-center">
+      <button onclick="handleHome();" type="button" class="fw-bold flex flex-row justify-center items-center gap-3 underline hover:decoration-[#b42e34] hover:text-[#b42e34]" id="breadcrumb_sec1_title">
+        Loading…
+      </button>
+      <i class="ri-arrow-right-s-line ri-1x font-medium" id="breadcrumb_sec1_arrow" hidden></i>
+      <button onclick="handleBreadcrumb();" type="button" class="fw-bold flex flex-row justify-center items-center gap-3 underline hover:decoration-[#b42e34] hover:text-[#b42e34]" id="breadcrumb_sec2_title" hidden>
+        Loading…
+      </button>
+      <i class="ri-arrow-right-s-line ri-1x font-medium" id="breadcrumb_sec2_arrow" hidden></i>
+      <button onclick="handleHome();" type="button" class="fw-bold flex flex-row justify-center items-center gap-3 underline hover:decoration-[#b42e34] hover:text-[#b42e34]" id="breadcrumb_sec3_title" hidden>
+        Loading…
+      </button>
+    </div>
+    <div class="dropdown">
+
+    </div>
+    <div class="dropdown">
+      <div class="flex justify-center items-center">
+        <button onclick="handleLogout();" id="btnLogout" type="button" class="text-white bg-[#b42e34] hover:bg-[#931113] focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-3 py-1 w-full text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex flex-row justify-center items-center gap-3">
+            <i class="ri-logout-box-r-line ri-2x"></i><label class="text-lg font-medium">Sign out</label>
+          </button>
+      </div>
+  </nav>
+</header>

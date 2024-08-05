@@ -32,7 +32,7 @@
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
-        <li class="sidebar-menu-item has-dropdown">
+        <li class="sidebar-menu-item has-dropdown" id="learningSystem">
           <a href="<?= getUrl(); ?>">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
@@ -175,6 +175,26 @@
               Topics User Support
             </a>
           </li>
+          <li class="sidebar-menu-item has-dropdown">
+            <a href="<?= getUrl(); ?>" class="hover:text-black">
+              <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+              User management
+              <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_AwareUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_AwareUserManagement">
+                  Aware User
+                </a>
+              </li>
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_CandidateUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_CandidateUserManagement">
+                  Candidate User
+                </a>
+              </li>
+
+            </ul>
+          </li>
         </div>
       </ul>
     </section>
@@ -207,13 +227,17 @@
                 <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">ATS Code
                   Ranking Support</p>
 
-                <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                <div class="flex flex-row items-start mt-4 text-gray-600 dark:text-gray-400">
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                     stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <div class="ml-4 text-md tracking-wide font-semibold w-40">info@aware.co.th</div>
+                  <div class="flex flex-col">
+                    <div class="ml-4 text-md tracking-wide font-semibold w-40">thanawat.n@aware.co.th</div>
+                    <div class="ml-4 text-md tracking-wide font-semibold w-40">aphinat.t@aware.co.th</div>
+                    <div class="ml-4 text-md tracking-wide font-semibold w-40">suleeporn.t@aware.co.th</div>
+                  </div>
                 </div>
 
                 <div class="flex items-start mt-4 text-gray-600 dark:text-gray-400">
@@ -223,12 +247,12 @@
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <div class="ml-4 text-md tracking-wide font-semibold w-40 flex flex-col w-full">
-                    <label>Bangkok</label>
-                    <label class="ml-3">+66 (0) 2619 0226</label>
-                    <label>Chiang Mai</label>
-                    <label class="ml-3">+66 (0) 5326 3350</label>
-                    <label>Chiang Rai</label>
-                    <label class="ml-3">+66 (0) 2619 0226</label>
+                    <label>Guy</label>
+                    <label class="ml-3">+66 (0) 98 808 8544</label>
+                    <label>Ton</label>
+                    <label class="ml-3">+66 (0) 95 954 4911</label>
+                    <label>Jeef</label>
+                    <label class="ml-3">+66 (0) 81 740 3763</label>
                   </div>
                 </div>
 
@@ -315,13 +339,13 @@
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
           </div>
           <div class="flex flex-col w-1/3">
-            <label class="text-xl font-bold mb-3">Challences</label>
-            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+            <label class="text-xl font-bold mb-3">Challenges</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challenges
               Summary</a>
             <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
             <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
               Score</a>
-            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challenges
               Summary Score</a>
             <label class="text-xl font-bold mb-3 mt-5">Website</label>
             <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
@@ -346,12 +370,58 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
       </button>
       </div>
+
+      <!-- start: Modal -->
+      <div class="modal fade" id="myModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="flex justify-end p-2">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body flex flex-col justify-center items-center">
+              <p>You link ATS Code Ranking?</p>
+              <div class="flex items-center my-3">
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+              </div>
+              <a href="<?= getUrl(); ?>?page=Survey_main" class="mt-3 text-[#b42e34] text-sm underline">
+                Join the voting and take the satisfaction survey</a>
+              <p> today!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end: Modal -->
 
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
@@ -359,6 +429,11 @@
   <!-- end: Main -->
 
   <script>
+    window.addEventListener("load", initialFn, true); 
+    function initialFn() {
+      $('#myModal').modal('show');
+    }
+    
     // formSupport: onSubmit
     function handleFormSupportSubmit(formObject) {
       $('#spinnerModal').modal('show');

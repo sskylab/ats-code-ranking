@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
   <link
     href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/r-3.0.2/sc-2.4.3/sb-1.7.1/sp-2.3.1/datatables.min.css"
@@ -27,8 +28,6 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="https://ltschool.web.app/css/Bootstrapcolor.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 </head>
 
 <body>
@@ -213,6 +212,7 @@
 
             </ul>
           </li>
+
         </div>
       </ul>
     </section>
@@ -232,17 +232,20 @@
       <a href="<?= getUrl(); ?>" id="breadcrumb_sec1" name="breadcrumb_sec1" hidden></a>
       <!-- end: Navbar -->
 
-      <div class="my-5 mx-3">
-        <!-- <section class="w-full flex flex-col p-3 border-1">
-          <div class="flex flex-row border-b-4 mb-2 border-gray-700">
-            <div class="w-1/2 font-semibold text-3xl">KEY METRICS</div>
-            <div class="w-1/2 font-semibold text-3xl">WEEK AT A GLANCE</div>
-          </div>
+      <div class="mb-5 mt-2 mx-3">
 
-        </section> -->
+        <div class="flex justify-end mb-3">
+          <button type="button" class="bg-[#b42e34] dark:bg-gray-100 text-white dark:text-gray-800 font-bold py-2 px-6 rounded-lg mt-4 hover:bg-[#9E0A11] dark:hover:bg-gray-200 transition ease-in-out duration-300 flex items-center gap-3" onclick="handleAddUser()">
+            <i class="ri-user-add-line"></i>
+            Add User
+          </button>
+        </div>
         <table id="dataTable" class="table table-hover display table-bordered pagination" style="width:100%">
           <thead class="headers-table"></thead>
         </table>
+
+
+
       </div>
       <!-- start: Footer -->
       <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
@@ -257,15 +260,15 @@
             <a href="<?= getUrl(); ?>?page=Learn_HTML&name=Learn_HTML"
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">HTML</a>
             <a href="<?= getUrl(); ?>?page=Learn_CSS&name=Learn_CSS"
-              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">CSS</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">CSS</a>
             <a href="<?= getUrl(); ?>?page=Learn_JavaScript&name=Learn_JavaScript"
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">JavaScript</a>
             <a href="<?= getUrl(); ?>?page=Learn_SQL&name=Learn_SQL"
-              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">SQL</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">SQL</a>
             <a href="<?= getUrl(); ?>?page=Learn_Python&name=Learn_Python"
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Python</a>
             <a href="<?= getUrl(); ?>?page=Learn_PHP&name=Learn_PHP"
-              class=" font-light text-sm hover:underlinehover:decoration-white hover:text-white">PHP</a>
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">PHP</a>
             <a href="<?= getUrl(); ?>?page=Learn_Bootstrap5&name=Learn_Bootstrap5"
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Bootstrap 5</a>
             <a href="<?= getUrl(); ?>?page=Learn_jQuery&name=Learn_jQuery"
@@ -369,21 +372,73 @@
       </div>
     </div>
 
+    <!-- start: Modal -->
+    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add User</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <?!= include('FormAddUser_admin'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end: Modal -->
+
     <?!= include('Loading'); ?>
     <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
 
   <script>
-    window.addEventListener("load", getAdminLoginLoggerReportData, true); 
+    window.addEventListener("load", getTableUsersDataList, true); 
 
-    function getAdminLoginLoggerReportData() {
+    function handleAddUser(){
+      $('#myModal').modal('show');
+      document.getElementById('staticBackdropLabel').innerHTML = "Add Aware User";
+      document.getElementById("adminFormAddUser").reset();
+      document.getElementById("btnReset").style.display = "inline-flex";  
+      document.getElementById("message").innerHTML = '';
+    }
+
+    function handleFormAwareAddUserSubmit(formObject){
+      $('#spinnerModal').modal('show');
+      $('#myModal').modal('hide');
+      var formObj = {
+        userID: formObject.userID.value,
+        userFLName: formObject.userFLName.value,
+        userEmail: formObject.userEmail.value,
+        userPosition: formObject.userPosition.value,
+        userStatus: formObject.userStatus.value,
+        userLevelCode: formObject.userlevelCode.value,
+        userPermissionAllow: formObject.userPermissionAllow.value,
+        recID: formObject.recId.value.toString(),
+        userType: 'AWARE',
+      }
+
+      google.script.run.withSuccessHandler(showTable).processDataForm(formObj);
+    }
+
+    function getTableUsersDataList() {
       $('#spinnerModal').modal('show');
 
-      google.script.run.withSuccessHandler(showTable).getAdminLoginLoggerReportData();
+      google.script.run.withSuccessHandler(showTable).getUsersDataList('AWARE');
     }
 
     function showTable(res){
+      if(!res.success){
+        Swal.fire({
+            title: "Duplicate!",
+            text: res.message,
+            icon: "warning"
+          });
+        $('#spinnerModal').modal('hide');
+      }
+
       const dataSet = res.data;
       const headers = res.headers.map(items =>{
         return {title:items};
@@ -393,10 +448,17 @@
         data: dataSet,
         columns: headers,
         columns: [
-          { title: "Date Login" },
-          { title: "EmployeeID" }, 
+          { title: "UserID" },
           { title: "Name" }, 
           { title: "Email" },
+          { title: "Position" },
+          { title: "LevelCode" },
+          { title: "Permission" },
+          { title: "Status" },
+          { title: "", "render": function (data,type){
+              return '<div class="flex flex-row justify-center items-center gap-3"><button type="button" class="px-1 py-2 flex items-center bg-[#b42e34] hover:bg-[#ff232d] border rounded-full" data-toggle="modal" data-target="#myModal" value="'+ data +'" onclick="editUserData(this);"><i class="ri-file-edit-line ri-xl" style="color: #ffffff;"></i></button><button type="button" class="px-1 py-2 flex items-center bg-[#b42e34] hover:bg-[#ff232d] border rounded-full" data-toggle="modal" data-target="#myModal" value="'+ data +'" onclick="deleteUserData(this);"><i class="ri-delete-bin-5-fill ri-xl" style="color: #ffffff;"></i></button></div>';
+            }
+          },
         ],
         destroy:true, 
         autoWidth: true,
@@ -407,12 +469,67 @@
           ['5', '10', '25', '50','100', 'All' ]
         ],
         columnDefs: [ 
-          { targets: [ 0,1,2,3 ], className: 'dt-body-left dt-head-center' },          
+          { targets: [ 0,1,2,3,4 ], className: 'dt-body-left dt-head-center' },          
         ],
-        order: [[0, "desc"] ],
+        order: [[0, "asc"] ],
       });
 
       $('#spinnerModal').modal('hide');
+    }
+
+    function editUserData(recId){
+      $('#spinnerModal').modal('show');
+      var values = {
+        recId: recId.value,
+        userType: 'AWARE'//AWARE,CANDIDATE
+      };
+
+      google.script.run.withSuccessHandler(populateForm).getRecordById(values);
+    }
+
+    function populateForm(res) {
+      $('#spinnerModal').modal('hide');
+      $('#myModal').modal('show');
+
+      document.getElementById("btnReset").style.display = "none";   
+      document.getElementById('recId').value = res.data[0].recID;
+      document.getElementById('userID').value = res.data[0].userID;
+      document.getElementById('userFLName').value = res.data[0].userFLName;
+      document.getElementById('userEmail').value = res.data[0].userEmail;
+      document.getElementById('userPosition').value = res.data[0].userPosition;
+      document.getElementById('userStatus').value = res.data[0].userStatus;
+      document.getElementById('userlevelCode').value = res.data[0].userLevelCode;
+      document.getElementById('userPermissionAllow').value = res.data[0].userPermissionAllow.toString().toUpperCase();
+      document.getElementById("message").innerHTML = "<div class='alert alert-warning' role='alert'>Update Record [ID: "+res.data[0].recID+"]</div>";
+    }
+
+    function deleteUserData(recId){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: "cancel",
+        cancelButtonColor: '#d33',
+        confirmButtonColor: '#00529b',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $('#spinnerModal').modal('show');
+          var values = {
+            recId: recId.value,
+            userType: 'AWARE'//AWARE,CANDIDATE
+          }
+
+          google.script.run.withSuccessHandler(showTable).deleteUserData(values);
+          
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your data has been deleted.",
+            icon: "success"
+          });
+        }
+      })
     }
 
   </script>

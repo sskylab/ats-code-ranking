@@ -32,7 +32,7 @@
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
-        <li class="sidebar-menu-item has-dropdown">
+        <li class="sidebar-menu-item has-dropdown" id="learningSystem">
           <a href="<?= getUrl(); ?>">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
@@ -175,6 +175,26 @@
               Topics User Support
             </a>
           </li>
+          <li class="sidebar-menu-item has-dropdown">
+            <a href="<?= getUrl(); ?>" class="hover:text-black">
+              <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+              User management
+              <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_AwareUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_AwareUserManagement">
+                  Aware User
+                </a>
+              </li>
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_CandidateUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_CandidateUserManagement">
+                  Candidate User
+                </a>
+              </li>
+
+            </ul>
+          </li>
         </div>
       </ul>
     </section>
@@ -197,7 +217,14 @@
       <div>
         
         <iframe frameBorder="0" height="600px" width="100%"
-            src="https://onecompiler.com/embed/challenges/42kj92ndy/apiKey=odinschool&userApiToken=berxiw95cwm3rhpcgkuy6f7yf44744zqkbvrh8clv3d95q6snx9og9z7qxoag8mrh3pl93z0nsxmk2ffz3pkkgh9mluhl2ei"></iframe>
+            src="https://onecompiler.com/embed/challenges/42mrzrkxu/apiKey=odinschool&userApiToken=berxiw95cwm3rhpcgkuy6f7yf44744zqkbvrh8clv3d95q6snx9og9z7qxoag8mrh3pl93z0nsxmk2ffz3pkkgh9mluhl2ei"></iframe>
+
+            <iframe
+ frameBorder="0"
+ height="450px"  
+ src="https://onecompiler.com/challenges/3xveaz8es" 
+ width="100%"
+ ></iframe>
 
 
 <?!= include ('chart') ?>

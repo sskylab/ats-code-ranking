@@ -2,6 +2,7 @@
 var folderID = "1-_cM-Dj0TMHQL2Rbnj491rA1p-og6e5y";
 var baseSheetId = SpreadsheetApp.openById('14K5I2fxSC_nPMvooJiXx7H0xE0OckqJnNuQ_N3_E2FA')
 var sheet_user_permission = baseSheetId.getSheetByName('user')
+var sheet_user_candidate = baseSheetId.getSheetByName('candidat_user')
 var sheet_login_logger = baseSheetId.getSheetByName('log_login')
 var sheet_quiz_dotNetCSharp = baseSheetId.getSheetByName('Quiz-C#')
 var sheet_quiz_XML = baseSheetId.getSheetByName('Quiz-XML')
@@ -35,7 +36,7 @@ function doGet(e) {
 
 // FIXED: SET/GET APPLICATION VERSION WHEN WE WILL DEPLOYMENT
 function getAppVersion() {
-  var appVersion = '1.2.6';
+  var appVersion = '1.2.7';
   return appVersion;
 }
 
@@ -61,42 +62,55 @@ function getCurrentPage(page) {
     }
   }
   else {
-    return "login";
+    if (page == 'LOGIN_Candidate') {
+      return page;
+    }
+    else {
+      return "login";
+    }
   }
 }
 
 function login(email) {
-  var columnRange = sheet_user_permission.getRange("C:C");
-  var idList = columnRange.getValues();
+  var idList = sheet_user_permission.getRange("C:C").getValues();
   var valuesArray = [];
 
   for (var i = 0; i < idList.length; i++) {
     if (email.toLowerCase() == idList[i][0].toLowerCase()) {
       var rowValues = sheet_user_permission.getRange(i + 1, 1, 1, sheet_user_permission.getLastColumn()).getValues()[0];
-      var valuesObj = {
-        userID: rowValues[0],
-        userName: rowValues[1],
-        userEmail: rowValues[2],
-        position: rowValues[3],
-        levelCode: rowValues[4],
-        permissionAllow: rowValues[5],
-        userImageProfile: getImageUrlByName(rowValues[0])
-      };
+      if (rowValues[6] == 'Active') {
+        var valuesObj = {
+          userID: rowValues[0],
+          userName: rowValues[1],
+          userEmail: rowValues[2],
+          position: rowValues[3],
+          levelCode: rowValues[4],
+          permissionAllow: rowValues[5],
+          status: rowValues[6],
+          recID: rowValues[7],
+          userType: 'AWARE',
+          userImageProfile: getImageUrlByName(rowValues[0])
+        };
 
-      valuesArray.push(valuesObj);
+        valuesArray.push(valuesObj);
+        loginLogger(valuesObj);
 
-      // Create a session token and store it in the user's cache
-      var sessionToken = Utilities.getUuid();
-      var cache = CacheService.getUserCache();
-      cache.put('sessionToken', sessionToken, 3600); // Session expires in 1 hour
+        // Create a session token and store it in the user's cache
+        var sessionToken = Utilities.getUuid();
+        var cache = CacheService.getUserCache();
+        cache.put('sessionToken', sessionToken, 10800); // Session expires in 3 hour; 1 hour=3600;
 
-      loginLogger(valuesObj);
+        return { success: true, message: 'credentials success', sessionToken: sessionToken, data: valuesArray };
+      }
+      else {
+        var status = 'Invalid credentials: User status is ' + rowValues[6] + ', Please check email or contact Ats Code Ranking support';
+        return { success: false, message: status };
+      }
 
-      return { success: true, message: 'credentials success', sessionToken: sessionToken, data: valuesArray };
     }
   }
-
-  return { success: false, message: 'Invalid credentials', data: null };
+  var status = 'Invalid credentials: Please check email or contact Ats Code Ranking support';
+  return { success: false, message: status, data: null };
 }
 
 function loginLogger(data) {
@@ -134,7 +148,7 @@ function getImageUrlByName(fileName) {
   var files = folder.getFilesByName(fileName);
 
   if (!files.hasNext()) {
-    return fileUrl = 'https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png';
+    return fileUrl = 'https://img5.pic.in.th/file/secure-sv1/0000b37ac1661662b41b.png';
   }
 
   var file = files.next();
@@ -1001,6 +1015,286 @@ function getAdminTopicsSupportReportData() {
     message: 'success'
   };
 }
+
+function processDataForm(values) {
+  if (values.recID != '') {
+    return updateUserData(values);
+  } else {
+    return addUserData(values);
+  }
+}
+
+function getUsersDataList(userType) {
+  if (userType == 'AWARE') {
+    var dataSet = sheet_user_permission.getDataRange().getDisplayValues();
+
+    return {
+      headers: dataSet[0],
+      data: dataSet.slice(1),
+      success: true,
+      message: 'success'
+    };
+  }
+  else {
+    var dataSet = sheet_user_candidate.getDataRange().getDisplayValues();
+
+    return {
+      headers: dataSet[0],
+      data: dataSet.slice(1),
+      success: true,
+      message: 'success'
+    };
+  }
+}
+
+function addUserData(data) {
+  if (data.userType == 'AWARE') {
+    var idList = sheet_user_permission.getRange("A:A").getValues();
+    var emailList = sheet_user_permission.getRange("C:C").getValues();
+    var valuesArray = [];
+
+    for (var i = 0; i < idList.length; i++) {
+      if (data.userID.toString() == idList[i][0].toString()) {
+        return { success: false, message: 'Your data has been userId is exits', data: valuesArray };
+      }
+      else if (idList[i][0].toString() == '') {
+        break;
+      }
+    }
+
+    for (var i = 0; i < emailList.length; i++) {
+      if (data.userEmail.toLowerCase() == emailList[i][0].toLowerCase()) {
+        return { success: false, message: 'Your data has been email is exits', data: valuesArray };
+      }
+      else if (emailList[i][0].toString() == '') {
+        break;
+      }
+    }
+
+    sheet_user_permission.appendRow(
+      [
+        data.userID,//user_id
+        data.userFLName,//user_name
+        data.userEmail,//user_email
+        data.userPosition,//user_position
+        data.userLevelCode.toString(),//user_LevelCode
+        data.userPermissionAllow.toString(),//user_PermissionAllow
+        data.userStatus.toString(),//user_status
+        new Date().getTime().toString() //recid
+      ]
+    );
+
+    var dataSet = sheet_user_permission.getDataRange().getDisplayValues();
+
+    return { success: true, message: 'Add user data success', headers: dataSet[0], data: dataSet.slice(1), };
+  }
+  else {
+    var columnRange = sheet_user_candidate.getRange("A:A");
+    var idList = columnRange.getValues();
+    var emailList = sheet_user_candidate.getRange("C:C").getValues();
+    var valuesArray = [];
+
+    for (var i = 0; i < idList.length; i++) {
+      if (data.userID.toString() == idList[i][0].toString()) {
+        return { success: false, message: 'Your data has been userId is exits', data: valuesArray };
+      }
+      else if (idList[i][0].toString() == '') {
+        break;
+      }
+    }
+
+    for (var i = 0; i < emailList.length; i++) {
+      if (data.userEmail.toLowerCase() == emailList[i][0].toLowerCase()) {
+        return { success: false, message: 'Your data has been email is exits', data: valuesArray };
+      }
+      else if (emailList[i][0].toString() == '') {
+        break;
+      }
+    }
+
+    sheet_user_candidate.appendRow(
+      [
+        data.userID,//user_id
+        data.userFLName,//user_name
+        data.userEmail,//user_email
+        data.userPosition,//user_position
+        data.userStatus.toString(),//user_status
+        new Date().getTime().toString() //recid
+      ]
+    );
+
+    var dataSet = sheet_user_candidate.getDataRange().getDisplayValues();
+
+    return { success: true, message: 'Add user data success', headers: dataSet[0], data: dataSet.slice(1), };
+  }
+}
+
+function updateUserData(data) {
+  if (data.userType == 'AWARE') {
+    var idList = sheet_user_permission.getRange("H:H").getValues();
+    var newData = [
+      data.userID,//user_id
+      data.userFLName,//user_name
+      data.userEmail,//user_email
+      data.userPosition,//user_position
+      data.userLevelCode.toString(),//user_LevelCode
+      data.userPermissionAllow.toString(),//user_PermissionAllow
+      data.userStatus.toString(),//user_status
+      data.recID,//recid
+    ];
+
+    for (var i = 0; i < idList.length; i++) {
+      if (data.recID == idList[i][0]) {
+        var row = i + 1;
+        var updateRange = sheet_user_permission.getRange(row, 1, 1, newData.length);
+        updateRange.setValues([newData]);
+
+        var dataSet = sheet_user_permission.getDataRange().getDisplayValues();
+
+        return { success: true, message: 'Update user data success', headers: dataSet[0], data: dataSet.slice(1), };
+      }
+    }
+  }
+  else {
+    var idList = sheet_user_candidate.getRange("F:F").getValues();
+    var newData = [
+      data.userID,//user_id
+      data.userFLName,//user_name
+      data.userEmail,//user_email
+      data.userPosition,//user_position
+      data.userStatus.toString(),//user_status
+      data.recID,//recid
+    ];
+
+    for (var i = 0; i < idList.length; i++) {
+      if (data.recID == idList[i][0]) {
+        var row = i + 1;
+        var updateRange = sheet_user_candidate.getRange(row, 1, 1, newData.length);
+        updateRange.setValues([newData]);
+
+        var dataSet = sheet_user_candidate.getDataRange().getDisplayValues();
+
+        return { success: true, message: 'Update user data success', headers: dataSet[0], data: dataSet.slice(1), };
+      }
+    }
+  }
+}
+
+function deleteUserData(data) {
+  var idAwareList = sheet_user_permission.getRange("H:H").getValues();
+  var idCandidateList = sheet_user_candidate.getRange("F:F").getValues();
+
+  if (data.userType == "AWARE") {
+    for (var i = 0; i < idAwareList.length; i++) {
+      if (data.recId == idAwareList[i][0]) {
+        sheet_user_permission.deleteRow(i + 1);
+        return getUsersDataList('AWARE');
+      }
+    }
+  }
+  else {
+    for (var i = 0; i < idCandidateList.length; i++) {
+      if (data.recId == idCandidateList[i][0]) {
+        sheet_user_candidate.deleteRow(i + 1);
+        return getUsersDataList('CANDIDATE');
+      }
+    }
+  }
+  return { success: false, message: 'Delete data failed' };
+}
+
+function getRecordById(data) {
+  var idAwareList = sheet_user_permission.getRange("H:H").getValues();
+  var idCandidateList = sheet_user_candidate.getRange("F:F").getValues();
+  var valuesArray = [];
+
+  if (data.userType == "AWARE") {
+    for (var i = 0; i < idAwareList.length; i++) {
+      if (data.recId == idAwareList[i][0]) {
+        var rowValues = sheet_user_permission.getRange(i + 1, 1, 1, sheet_user_permission.getLastColumn()).getValues()[0];
+        var valuesObj = {
+          userID: rowValues[0],//user_id
+          userFLName: rowValues[1],//user_name
+          userEmail: rowValues[2],//user_email
+          userPosition: rowValues[3],//user_position
+          userLevelCode: rowValues[4],//user_LevelCode
+          userPermissionAllow: rowValues[5],//user_PermissionAllow
+          userStatus: rowValues[6],//user_status
+          recID: rowValues[7] //recid
+        }
+
+        valuesArray.push(valuesObj);
+        return { success: true, message: 'Get user data success', data: valuesArray, };
+      }
+    }
+  }
+  else {
+    for (var i = 0; i < idCandidateList.length; i++) {
+      if (data.recId == idCandidateList[i][0]) {
+        var rowValues = sheet_user_candidate.getRange(i + 1, 1, 1, sheet_user_candidate.getLastColumn()).getValues()[0];
+        var valuesObj = {
+          userID: rowValues[0],//user_id
+          userFLName: rowValues[1],//user_name
+          userEmail: rowValues[2],//user_email
+          userPosition: rowValues[3],//user_position
+          userStatus: rowValues[4],//user_status
+          recID: rowValues[5] //recid
+        }
+
+        valuesArray.push(valuesObj);
+        return { success: true, message: 'Get user data success', data: valuesArray, };
+      }
+    }
+  }
+
+  return { success: false, message: 'Get user data failed' };
+}
+
+function loginCandidate(email) {
+  var idList = sheet_user_candidate.getRange("C:C").getValues();
+  var valuesArray = [];
+
+  for (var i = 0; i < idList.length; i++) {
+    if (email.toLowerCase() == idList[i][0].toLowerCase()) {
+      var rowValues = sheet_user_candidate.getRange(i + 1, 1, 1, sheet_user_candidate.getLastColumn()).getValues()[0];
+      if (rowValues[4] == 'Active') {
+        var valuesObj = {
+          userID: rowValues[0],
+          userName: rowValues[1],
+          userEmail: rowValues[2],
+          position: rowValues[3],
+          status: rowValues[4],
+          recID: rowValues[5],
+          userType: 'CANDIDATE',
+          userImageProfile: getImageUrlByName(rowValues[0])
+        };
+
+        valuesArray.push(valuesObj);
+
+        // Create a session token and store it in the user's cache
+        var sessionToken = Utilities.getUuid();
+        var cache = CacheService.getUserCache();
+        cache.put('sessionToken', sessionToken, 3600); // Session expires in 1 hour
+
+        return { success: true, message: 'credentials success', sessionToken: sessionToken, data: valuesArray };
+      }
+      else {
+        var status = 'Invalid credentials: User status is ' + rowValues[6] + ', Please check email or contact Ats Code Ranking support';
+        return { success: false, message: status };
+      }
+
+    }
+  }
+  var status = 'Invalid credentials: Please check email or contact Ats Code Ranking support';
+  return { success: false, message: status, data: null };
+}
+
+
+
+
+
+
+
 
 function getIndexPage() {
   return HtmlService.createHtmlOutputFromFile('index').getContent()

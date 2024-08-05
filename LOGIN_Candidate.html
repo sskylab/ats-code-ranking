@@ -16,9 +16,6 @@
 'https://www.aware.co.th/wp-content/uploads/2016/05/aware-homepage-header.jpg')  
              no-repeat center center fixed;  
              background-size: cover;">
-  <!-- <video autoplay="" muted="" loop="" playsinline="" class="auth-sidebar__globe">
-    <source src="https://hrcdn.net/fcore/assets/onboarding/globe-5fdfa9a0f4.mp4" type="video/mp4">
-  </video> -->
 
   <section class="container">
     <div class="row justify-content-center align-items-center vh-100">
@@ -26,12 +23,11 @@
         <div class="card shadow text-center d-flex flex-col">
           <div class=" p-5">
             <img class="img-fluid mx-auto d-block mb-3" src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="aware-logo" width="250" >
-            <div class="flex flex-col text-3xl font-semibold">Welcome To ATS Code Ranking</div>
-            <?!= include ('formLogin') ?>
-            <a href="<?= getUrl(); ?>?page=main" id="loginbtn" name="loginbtn" hidden></a>
+            <div class="flex flex-col text-3xl font-semibold">Welcome To ATS Code Testing</div>
+            <?!= include ('formLoginCandidate') ?>
+            <a href="<?= getUrl(); ?>?page=mainCandidate" id="loginbtn" name="loginbtn" hidden></a>
             <div class="flex flex-col text-base mt-5">
-              <a href="<?= getUrl(); ?>?page=LOGIN_Candidate" class="mt-2 text-[#b42e34] hover:underline">Candidate User
-                Test?</a>
+              <a href="<?= getUrl(); ?>" class="mt-2 text-[#b42e34] hover:underline">Aware User Employee?</a>
             </div>
             <div class="flex flex-col text-base mt-2">
               <label>Get help with you account</label>
@@ -50,19 +46,19 @@
 
   <script>
     // FormAddDateReportPage: onSubmit
-    function handleFormSubmit(formObject) {
+    function handleFormLoginCadidateSubmit(formObject) {
       $('#spinnerModal').modal('show');
       
-      var email = formObject.login_email_input.value;
+      var email = formObject.loginCandidate_email_input.value;
 
-      google.script.run.withSuccessHandler(outputLogin).login(email);
+      google.script.run.withSuccessHandler(outputLoginCandidate).loginCandidate(email);
     }
 
-    function outputLogin(res) {
+    function outputLoginCandidate(res) {
       if(res.success == true){
         localStorage.setItem('profileinfo', JSON.stringify(res.data[0]));
         document.getElementById("loginbtn").click();
-        document.getElementById("formLogin").reset();
+        document.getElementById("formLoginCandidate").reset();
       }
       else {
         Swal.fire({

@@ -7,9 +7,12 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
   <?!= include ('css') ?>
   <?!= include ('javascript') ?>
+
 </head>
 
 <body>
@@ -18,8 +21,7 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>"
-          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -214,334 +216,11 @@
       <!-- end: Navbar -->
 
       <!-- start: Content -->
-      <div>
-        <div class="py-4 flex flex-column w-full">
-          <h1 class="text-center text-4xl font-bold mb-5">Welcome .NET and C# Tutorial</h1>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold">Introduction to .NET and C#</h2>
-            <ul class="list-disc mb-5">
-              <li>
-                <p><strong>.NET Framework:</strong> A software development framework developed by Microsoft. It includes
-                  a large class library and provides support for various programming languages, including C#.</p>
-              </li>
-              <p><strong>.NET Core / .NET 5+:</strong> A cross-platform, open-source version of .NET. The .NET ecosystem
-                has unified into a single platform under .NET 5 and later versions (e.g., .NET 6, .NET 7, etc.).</p>
-              <li>
-                <p><strong>C#:</strong> A modern, object-oriented programming language developed by Microsoft. It is the
-                  primary language used with the .NET framework.</p>
-              </li>
-            </ul>
-
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-2">Basic Syntax and Concepts in C#</h2>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <h3 class="text-xl font-semibold mb-2">Getting Start with C#</h3>
-              <section class="mb-4">
-                <h2 class="text-l font-semibold mb-2">Hello World Program</h2>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-using System;
-
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Hello, World!");
-    }
-}
-</code>
-            </pre>
-              </section>
-
-              <section class="mt-10">
-                <h2 class="text-2xl font-semibold mb-3">Variables and Data Types</h2>
-                <p>C# supports a variety of data types. Here are some common ones:</p>
-                <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-                  <ul class="list-disc list-inside mb-4">
-                    <li><strong>int:</strong> Integer numbers</li>
-                    <li><strong>double:</strong> Floating-point numbers</li>
-                    <li><strong>char:</strong> Single characters</li>
-                    <li><strong>string:</strong> Textual data</li>
-                    <li><strong>bool:</strong> Boolean values (true or false)</li>
-                  </ul>
-                  <pre class="bg-gray-100 px-4 rounded">
-<code class="text-sm">
-int age = 25;
-double height = 5.9;
-char initial = 'A';
-string name = "John";
-bool isStudent = true;
-</code>
-            </pre>
-                </div>
-              </section>
-
-              <section class="mt-10">
-                <h2 class="text-2xl font-semibold mb-3">Control Flow</h2>
-                <p>Control flow statements allow you to execute different blocks of code based on conditions.</p>
-                <h3 class="text-xl font-semibold mb-2">If-Else Statement</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-int age = 20;
-
-if (age >= 18)
-{
-    Console.WriteLine("You are an adult.");
-}
-else
-{
-    Console.WriteLine("You are a minor.");
-}
-</code>
-            </pre>
-                <div class="mb-4">
-                  <h3 class="text-lg font-semibold mb-1">Switch Statement</h3>
-                  <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-int day = 3;
-
-switch (day)
-{
-    case 1:
-        Console.WriteLine("Monday");
-        break;
-    case 2:
-        Console.WriteLine("Tuesday");
-        break;
-    case 3:
-        Console.WriteLine("Wednesday");
-        break;
-    default:
-        Console.WriteLine("Weekend");
-        break;
-}
-</code>
-            </pre>
-                </div>
-                <div class="mb-4">
-                  <h3 class="text-xl font-semibold mb-2">Loops</h3>
-                  <h4 class="text-lg font-semibold mb-2">for Loop</h4>
-                  <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-for (int i = 0; i < 5; i++)
-{
-    Console.WriteLine(i);
-}
-</code>
-            </pre>
-                  <h4 class="text-lg font-semibold mb-2">while Loop</h4>
-                  <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-int i = 0;
-while (i < 5)
-{
-    Console.WriteLine(i);
-    i++;
-}
-</code>
-            </pre>
-                  <h4 class="text-lg font-semibold mb-2">foreach Loop</h4>
-                  <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-string[] names = { "Alice", "Bob", "Charlie" };
-foreach (string name in names)
-{
-    Console.WriteLine(name);
-}
-</code>
-            </pre>
-                </div>
-            </div>
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-3">Methods</h2>
-            <p>Methods are blocks of code that perform a specific task and can be called from other parts of the
-              program.</p>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-class Program
-{
-    static void Main()
-    {
-        int result = Add(5, 3);
-        Console.WriteLine(result);
-    }
-
-    static int Add(int a, int b)
-    {
-        return a + b;
-    }
-}
-</code>
-            </pre>
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-3">Classes and Objects</h2>
-            <p>C# is an object-oriented language, meaning it uses classes and objects to model real-world entities.</p>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Class Definition</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-
-    public void Greet()
-    {
-        Console.WriteLine($"Hello, my name is {Name} and I am {Age} years old.");
-    }
-}
-</code>
-            </pre>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Creating and Using an Object</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-class Program
-{
-    static void Main()
-    {
-        Person person = new Person
-        {
-            Name = "John",
-            Age = 30
-        };
-        person.Greet();
-    }
-}
-</code>
-            </pre>
-              </div>
-            </div>
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-3">Inheritance</h2>
-            <p>Inheritance allows one class to inherit properties and methods from another.</p>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Base Class</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-public class Animal
-{
-    public void Eat()
-    {
-        Console.WriteLine("Eating...");
-    }
-}
-</code>
-            </pre>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Derived Class</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-public class Dog : Animal
-{
-    public void Bark()
-    {
-        Console.WriteLine("Woof!");
-    }
-}
-</code>
-            </pre>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Using Inheritance</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-class Program
-{
-    static void Main()
-    {
-        Dog myDog = new Dog();
-        myDog.Eat(); // Inherited method
-        myDog.Bark(); // Derived method
-    }
-}
-</code>
-            </pre>
-              </div>
-            </div>
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-3">Interfaces</h2>
-            <p>Interfaces define a contract that classes can implement.</p>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Defining an Interface</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-public interface IAnimal
-{
-    void MakeSound();
-}
-</code>
-            </pre>
-              </div>
-
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Implementing an Interface</h3>
-                <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-public class Cat : IAnimal
-{
-    public void MakeSound()
-    {
-        Console.WriteLine("Meow!");
-    }
-}
-</code>
-            </pre>
-              </div>
-            </div>
-          </section>
-
-          <section class="mt-10">
-            <h2 class="text-2xl font-semibold mb-3">Exception Handling</h2>
-            <p>Exception handling allows you to manage errors and exceptions gracefully.</p>
-            <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-              <pre class="bg-gray-100 p-4 rounded">
-<code class="text-sm">
-try
-{
-    int result = 10 / 0;
-}
-catch (DivideByZeroException ex)
-{
-    Console.WriteLine("Cannot divide by zero.");
-}
-finally
-{
-    Console.WriteLine("This block executes regardless of whether an exception was thrown.");
-}
-</code>
-            </pre>
-            </div>
-          </section>
-
-          <section class="my-10">
-            <h2 class="text-2xl font-semibold mb-3">Learning Resources</h2>
-            <ul class="list-disc list-inside mb-4">
-                <li><strong>Official Documentation:</strong> <a href="https://docs.microsoft.com/en-us/dotnet/" class="text-blue-600 hover:underline">Microsoft Docs for .NET</a> and <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" class="text-blue-600 hover:underline">Microsoft Docs for C#</a></li>
-                <li><strong>Online Courses:</strong> Platforms like <a href="https://www.udemy.com/" class="text-blue-600 hover:underline">Udemy</a>, <a href="https://www.coursera.org/" class="text-blue-600 hover:underline">Coursera</a>, and <a href="https://www.pluralsight.com/" class="text-blue-600 hover:underline">Pluralsight</a> offer various courses on .NET and C#.</li>
-            </ul>
-          </section>
-
+      <div class="bg-light">
+        <div class="flex flex-column w-full border-1 border-slate-300 rounded shadow-sm mt-2 bg-light">
+          <iframe class="overflow-hidden h-screen" 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdcSXA8vzHWktf8umNx4QXq1BDbJ2vKkzPpu-oIz9OuzPupTA/viewform?embedded=true" 
+            frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
         <!-- end: Content -->
       </div>
@@ -627,8 +306,7 @@ finally
             <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challenges
               Summary Score</a>
             <label class="text-xl font-bold mb-3 mt-5">Website</label>
-            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware
-              Corporation
+            <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
               Limited</a>
             <a href="https://atsconnect.aware.co.th/en/sign-in" class=" font-light text-sm hover:underline">ATS
               Connect</a>
@@ -650,7 +328,7 @@ finally
 
       </section>
       <!-- end: Footer -->
-
+      
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">

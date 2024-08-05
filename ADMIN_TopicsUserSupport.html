@@ -48,7 +48,7 @@
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
-        <li class="sidebar-menu-item has-dropdown">
+        <li class="sidebar-menu-item has-dropdown" id="learningSystem">
           <a href="<?= getUrl(); ?>" class="text-black hover:text-black">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
@@ -191,6 +191,26 @@
               Topics User Support
             </a>
           </li>
+          <li class="sidebar-menu-item has-dropdown">
+            <a href="<?= getUrl(); ?>" class="hover:text-black">
+              <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+              User management
+              <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_AwareUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_AwareUserManagement">
+                  Aware User
+                </a>
+              </li>
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_CandidateUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_CandidateUserManagement">
+                  Candidate User
+                </a>
+              </li>
+
+            </ul>
+          </li>
         </div>
       </ul>
     </section>
@@ -204,7 +224,7 @@
   <main class="bg-light">
     <div class="px-2 pt-2">
       <!-- start: Navbar -->
-      <?!= include ('BreadcrumbController') ?>
+      <?!= include ('CandidateBreadcrumbController') ?>
       <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
       <a href="<?= getUrl(); ?>" id="breadcrumb_sec2" name="breadcrumb_sec2" hidden></a>
       <a href="<?= getUrl(); ?>" id="breadcrumb_sec1" name="breadcrumb_sec1" hidden></a>
@@ -297,16 +317,16 @@
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">XML</a>
           </div>
           <div class="flex flex-col w-1/3">
-            <label class="text-xl font-bold mb-3">Challences</label>
+            <label class="text-xl font-bold mb-3">Challenges</label>
             <a href="<?= getUrl(); ?>?page=Challences_main"
-              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challences
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challenges
               Summary</a>
             <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
             <a href="<?= getUrl(); ?>?page=SummaryScore_main"
               class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Quiz Summary
               Score</a>
             <a href="<?= getUrl(); ?>?page=SummaryScore_main"
-              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challences
+              class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Challenges
               Summary Score</a>
             <label class="text-xl font-bold mb-3 mt-5">Website</label>
             <a href="https://www.aware.co.th/th/home-page"
@@ -346,11 +366,10 @@
   <!-- end: Main -->
 
   <script>
-    window.addEventListener("load", functionInit, true); 
+    window.addEventListener("load", getAdminTopicsSupportReportData, true); 
 
-    function functionInit() {
+    function getAdminTopicsSupportReportData() {
       $('#spinnerModal').modal('show');
-      document.getElementById('dropdownImageProfile').style.display = 'none';
 
       google.script.run.withSuccessHandler(showTable).getAdminTopicsSupportReportData();
     }

@@ -14,23 +14,23 @@
         Loading…
       </button>
     </div>
-    <div class="dropdown" id="dropdownImageProfile">
+    <div class="dropdown">
       <div class="d-flex align-items-center cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
         aria-expanded="false">
         <span class="me-2 d-none d-sm-block"><label id="username" name="username"></label></span>
-        <img class="navbar-profile-image" id="imageProfile" src="https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png" alt="Image">
+        <img class="navbar-profile-image border border-gray-400" id="imageProfile" src="https://img5.pic.in.th/file/secure-sv1/0000b37ac1661662b41b.png" alt="Image">
       </div>
 
       <ul class="dropdown-menu w-[400px] border-2 rounded-lg shadow-xl p-3">
         <div class="flex flex-col w-full justify-center">
           <div class="flex flex-row justify-between mb-3 items-center">
             <div></div>
-            <label id="email_display" class="text-base font-semibold">Email display</label>
+            <label id="email_display" class="text-base font-semibold">loading</label>
             <button><i class="ri-close-fill"></i></button>
           </div>
           <div class="flex justify-center items-center">
             <div class="relative h-[150px] w-[150px]">
-              <img class="navbar-profile-image h-[150px] w-[150px] rounded-full border-[3px]" id="imageProfileChange" src="https://conndv.aware.co.th:8080/ats-happy/v1/download/file?path=/files/ats-share/ATS_AVATAR/&file=avatar_default.png" alt="Image">
+              <img class="navbar-profile-image h-[150px] w-[150px] rounded-full border-[3px]" id="imageProfileChange" src="https://img5.pic.in.th/file/secure-sv1/0000b37ac1661662b41b.png" alt="Image">
               <button data-bs-toggle="modal" data-bs-target="#imageProfileModal" class="absolute bottom-5 left-[115px] right-0 py-0 px-1.5 w-fit rounded-full border border-[#b42e34] bg-[#b42e34]" onclick="openUploadImage();">
                 <i class="ri-camera-line text-white"></i>
               </button>
@@ -38,7 +38,7 @@
           </div>
           <div class="flex justify-center items-center my-3">
             <label class="text-2xl font-semibold">Hi!, </label>
-            <label id="name_display" class="text-2xl font-semibold ml-1">Name display</label><span class="text-2xl font-semibold">!</span>
+            <label id="name_display" class="text-2xl font-semibold ml-1">loading</label><span class="text-2xl font-semibold">!</span>
           </div>
           <div class="flex justify-center items-center mb-4">
             <button disabled type="button" class="text-[#b42e34] border-2 border-[#b42e34] bg-white hover:bg-primary font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Manage your Account</button>
@@ -71,8 +71,7 @@
   }
 
   function getProfileImage() {
-    const userProfileInfo = JSON.parse(localStorage.getItem('profileinfo'))
-    document.getElementById('imageProfile').src = userProfileInfo.userImageProfile;
-    document.getElementById('imageProfileChange').src = userProfileInfo.userImageProfile;
+    document.getElementById('imageProfile').src = getUserProfileInfo().userImageProfile;
+    document.getElementById('imageProfileChange').src = getUserProfileInfo().userImageProfile;
   }
 </script>

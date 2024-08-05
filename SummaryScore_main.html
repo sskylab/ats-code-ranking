@@ -19,7 +19,8 @@
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
     <section class="justify-content-start mb-auto">
       <div class="d-flex align-items-center">
-        <a href="<?= getUrl(); ?>" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
+        <a href="<?= getUrl(); ?>"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4">
           <img src="https://img2.pic.in.th/pic/logo14b4f0364bc5e1b9.png" alt="ats-code-ranking-logo" >
         </a>
       </div>
@@ -31,7 +32,7 @@
           </a>
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
-        <li class="sidebar-menu-item has-dropdown">
+        <li class="sidebar-menu-item has-dropdown" id="learningSystem">
           <a href="<?= getUrl(); ?>">
             <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
             Learning
@@ -174,6 +175,26 @@
               Topics User Support
             </a>
           </li>
+          <li class="sidebar-menu-item has-dropdown">
+            <a href="<?= getUrl(); ?>" class="hover:text-black">
+              <i class="ri-git-repository-line sidebar-menu-item-icon"></i>
+              User management
+              <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" style="list-style-type: none;">
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_AwareUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_AwareUserManagement">
+                  Aware User
+                </a>
+              </li>
+              <li class="sidebar-dropdown-menu-item" id="ADMIN_CandidateUserManagement">
+                <a href="<?= getUrl(); ?>?page=ADMIN_CandidateUserManagement">
+                  Candidate User
+                </a>
+              </li>
+
+            </ul>
+          </li>
         </div>
       </ul>
     </section>
@@ -201,7 +222,7 @@
             <div x-data="{ openTab: 1 }" class="w-full">
               <div class=" w-full">
                 <!-- sticky top-14 -->
-                <div class=" mb-4 flex space-x-4 p-2 bg-white rounded-lg shadow-md border"> 
+                <div class=" mb-4 flex space-x-4 p-2 bg-white rounded-lg shadow-md border">
                   <button x-on:click="openTab = 1" :class="{ 'bg-[#b42e34] text-white': openTab === 1 }" class="flex-1 py-3 font-semibold text-1xl px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Your Score</button>
                   <button x-on:click="openTab = 2" :class="{ 'bg-[#b42e34] text-white': openTab === 2 }" class="flex-1 py-3 font-semibold text-1xl px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Global Top Rank</button>
                 </div>
@@ -294,13 +315,13 @@
             <a href="<?= getUrl(); ?>?page=Quiz_test&name=Learn_XML" class=" font-light text-sm hover:underline">XML</a>
           </div>
           <div class="flex flex-col w-1/3">
-            <label class="text-xl font-bold mb-3">Challences</label>
-            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challences
+            <label class="text-xl font-bold mb-3">Challenges</label>
+            <a href="<?= getUrl(); ?>?page=Challences_main" class=" font-light text-sm hover:underline">Challenges
               Summary</a>
             <label class="text-xl font-bold mb-3 mt-5">Summary Score</label>
             <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Quiz Summary
               Score</a>
-            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challences
+            <a href="<?= getUrl(); ?>?page=SummaryScore_main" class=" font-light text-sm hover:underline">Challenges
               Summary Score</a>
             <label class="text-xl font-bold mb-3 mt-5">Website</label>
             <a href="https://www.aware.co.th/th/home-page" class=" font-light text-sm hover:underline">Aware Corporation
@@ -325,17 +346,70 @@
 
       </section>
       <!-- end: Footer -->
-      
+
       <div id="scroll-to-top">
         <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
       </button>
       </div>
 
+      <!-- start: Modal -->
+      <div class="modal fade" id="myModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="flex justify-end p-2">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body flex flex-col justify-center items-center">
+              <p>You link ATS Code Ranking?</p>
+              <div class="flex items-center my-3">
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path
+                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+              </div>
+              <a href="<?= getUrl(); ?>?page=Survey_main" class="mt-3 text-[#b42e34] text-sm underline">
+                Join the voting and take the satisfaction survey</a>
+              <p> today!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end: Modal -->
+
       <?!= include('Loading'); ?>
       <?!= include('ImageProfile'); ?>
   </main>
   <!-- end: Main -->
+  <script>
+    window.addEventListener("load", initialFn, true); 
+    function initialFn() {
+      $('#myModal').modal('show');
+    }
+    
+  </script>
 
 </body>
 

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_top">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+  <?!= include ('css') ?>
+  <?!= include ('javascript') ?>
+</head>
+
+<body>
+
+  <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end d-inline-flex flex-column">
+    <section class="justify-content-start mb-auto">
+      <div class="d-flex align-items-center">
+        <a href="<?= getUrl(); ?>?page=mainCandidate"
+          class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4 mt-3 mx-4 p-2">
+          <img src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="ats-code-ranking-logo" >
+        </a>
+      </div>
+      <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item" id="active_dashboard">
+          <a href="<?= getUrl(); ?>?page=mainCandidate">
+            <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+            Dashboard
+          </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item" id="Candidate_main">
+          <a href="<?= getUrl(); ?>?page=Candidate_main">
+            <i class="ri-bar-chart-box-line sidebar-menu-item-icon"></i>
+            Candidate Testing
+          </a>
+        </li>
+
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Apps</li>
+        <li class="sidebar-menu-item">
+          <a href="https://www.aware.co.th/th/home-page" target="_blank">
+            <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
+            Aware Group
+          </a>
+        </li>
+        <li class="sidebar-menu-item" id="menuATSConnect">
+          <a href="https://atsconnect.aware.co.th/en/sign-in" target="_blank">
+            <i class="ri-road-map-fill sidebar-menu-item-icon"></i>
+            ATS Connect
+          </a>
+        </li>
+      </ul>
+    </section>
+    <div class="d-flex align-items-start px-3 pb-1">
+      <?!= include ('version-info') ?>
+    </div>
+  </div>
+  <!-- end: Sidebar -->
+
+  <!-- start: Main -->
+  <main class="bg-light">
+    <div class="p-2">
+      <!-- start: Navbar -->
+      <?!= include ('CandidateBreadcrumbController') ?>
+      <a href="<?= getUrl(); ?>" id="logoutbtn" name="logoutbtn" hidden></a>
+      <a href="<?= getUrl(); ?>" id="breadcrumb_sec2" name="breadcrumb_sec2" hidden></a>
+      <a href="<?= getUrl(); ?>?page=mainCandidate" id="breadcrumb_sec1" name="breadcrumb_sec1" hidden></a>
+      <!-- end: Navbar -->
+
+      <div>
+        <div class="container col-xxl-8 mt-3">
+          <h1 class="text-center text-4xl font-bold mb-5">Welcome to the weekly ATS Code Tesing test</h1>
+          <p class="text-center text-lg mb-5">This ATS Code Tesing competition is sponsored by Aware Technology
+            Solutions for Bussiness.
+            Register for the pre-test and complete the survey to be selected for an interview with Aware Technology
+            Solutions for Bussiness. You may fill in your contact information during the registration process. Aware
+            Technology Solutions for Bussiness may contact eligible test winners for an interview with Aware Technology
+            Solutions for Bussiness.</p>
+
+          <div class="py-5 flex flex-col justify-content items-center text-center">
+            <label class="text-7xl font-bold text-[#b42e34] mb-3">Are you ready!!</label>
+            <label class="text-3xl font-bold text-black">Have you done the test yet?</label>
+            <div class="py-5">
+              <a href="<?= getUrl(); ?>?page=Candidate_main"
+                class="btn bg-[#b42e34] hover:bg-[#9E0A11] text-white btn-lg px-4 me-md-2">Start Now</a>
+            </div>
+            <label class="text-base font-light text-black">No matter what level you are at, the ATS Code Tesing </label>
+          </div>
+
+          <section id="introduction" class="mt-10 bg-white shadow-md rounded-lg">
+            <h2 class="text-2xl font-semibold mb-3 p-3">Important Notes</h2>
+            <div class="px-6 mb-4 pb-3">
+              <ul class="list-disc list-inside mb-4">
+                <li>To make testing more efficient and fair, we've listened to feedback from Infra and taken a lot of
+                  that feedback into consideration behind the updated competition rules. Please see our new competition
+                  rules, which cover more scenarios with detailed explanations.</li>
+                <li>There will be a 5-minute penalty time for each wrong submission.</li>
+                <li>To ensure the fairness of the competition, Aware Technology
+                  Solutions for Bussiness hides some test cases during the competition. When users submit invalid
+                  documents, Aware Technology
+                  Solutions for Bussiness will not show the hidden test cases to users.</li>
+                <li>The final score of this competition will be updated within 5 business days after the competition.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="introduction" class="mt-10 bg-white shadow-md rounded-lg">
+            <h2 class="text-2xl font-semibold mb-3 p-3">The following actions are considered competition violations:
+            </h2>
+            <div class="px-6 mb-4 pb-3">
+              <ul class="list-disc list-inside mb-4">
+                <li>A user may submit an entry using multiple accounts during the contest. An LCUS account and an LCCN
+                  account are considered separate accounts, even if they belong to the same user.</li>
+                <li>Multiple accounts submit similar codes for the same issue.</li>
+                <li>Creating unwanted distractions that interfere with other users' participation in the competition.
+                </li>
+                <li>Disclosing the contest method in a public discussion thread before the end of the contest.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="introduction" class="mt-10 mb-5">
+            <!-- <h2 class="text-2xl font-semibold mb-3 p-3">The following actions are considered competition violations:</h2> -->
+            <p class="mb-2">ATS Code Testing takes the fairness and justice of our contests very seriously. We
+              absolutely do not tolerate any behavior that violates the rules (e.g. plagiarism, cheating, etc.). When a
+              user is found to be violating the contest rules, we will apply the following penalties to this user:</p>
+            <div class="px-6 mb-4 pb-3">
+              <ul class="list-disc list-inside mb-4">
+                <li><strong>First violation: </strong>Match score resets to zero, LeetCoin amount resets to zero, and
+                  match and chat are banned for 1 month.</li>
+                <li><strong>Second violation: </strong>Match points will be reset to zero and account will be
+                  permanently suspended without appeal.</li>
+              </ul>
+            </div>
+            <p class="my-2">We also encourage all participants to support our efforts in maintaining the fairness and
+              justice of our competitions. Users who submit valid abuse reports will receive additional point:</p>
+            <div class="px-6 mb-4 pb-3">
+              <ul class="list-disc list-inside mb-4">
+                <li>For each violating participant, the first 10 users to report the violation to that participant will
+                  receive 20 point each.</li>
+                <li>Each user can earn up to 100 point for reporting in-match abuse.</li>
+                <li>Users will not receive point rewards for reporting on LCCN users.</li>
+              </ul>
+            </div>
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- start: Footer -->
+    <section class="bg-[#1b1b1b] px-10 xl:px-[100px] pt-5 flex flex-col w-full">
+      <div class="flex flex-row w-full justify-between items-center gap-4">
+        <a href="<?= getUrl(); ?>?page=mainCandidate" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">
+          <img src="https://awareth.aware-cdn.net/wp-content/uploads/2015/12/aware_logotagline_rgb.png" alt="aeroflot-logo" class="h-20 fill-white">
+        </a>
+      </div>
+      <div class="flex flex-row items-start gap-4 text-white mt-5 ">
+        <div class="flex flex-col w-1/3">
+          <label class="text-xl font-bold mb-3">Tesing</label>
+          <a href="<?= getUrl(); ?>?page=Candidate_main"
+            class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Candidate Testing</a>
+        </div>
+        <div class="flex flex-col w-1/3">
+          <label class="text-xl font-bold mb-3">Website</label>
+          <a href="https://www.aware.co.th/th/home-page"
+            class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">Aware Corporation
+            Limited</a>
+          <a href="https://atsconnect.aware.co.th/en/sign-in"
+            class=" font-light text-sm hover:underline hover:decoration-white hover:text-white">ATS
+            Connect</a>
+        </div>
+      </div>
+      <div class="text-center text-sm font-light text-white flex flex-row justify-center items-center my-5 gap-2">
+        <a
+          href="https://www.facebook.com/AwareCorporation?fref=ts"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Facebook.png"></a>
+        <a
+          href="https://twitter.com/awarecorp"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Twitter.png"></a>
+        <a
+          href="https://www.linkedin.com/company/awaregroup/"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/LinkedIn.png"></a>
+        <a
+          href="https://www.youtube.com/channel/UCBnQIppFj5Mime0jiDGczTg"><img src="https://www.aware.co.th/wp-content/uploads/2015/12/Youtube.png"></a>
+      </div>
+      <div class="text-center text-sm font-light text-white mb-3">
+        <label>Copyright © 2024 Aware Corporation Limited. All Rights Reserved.</label>
+      </div>
+
+    </section>
+    <!-- end: Footer -->
+
+    <div id="scroll-to-top">
+      <button onclick="scrollToTop()" class="scroll-to-top fixed bottom-4 right-4 bg-gray-800 text-white rounded-full transition duration-300 hover:bg-gray-700 hover:text-gray-200">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227155250/up.png" class="w-10 h-10 rounded-full bg-white" alt="">
+      </button>
+    </div>
+
+
+
+
+
+
+
+
+    <?!= include('Loading'); ?>
+    <?!= include('ImageProfile'); ?>
+  </main>
+  <!-- end: Main -->
+
+
+</body>
+
+</html>
